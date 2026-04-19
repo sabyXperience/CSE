@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' fonts.googleapis.com fonts.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self';">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<title>CSE Boulanger Compiègne — Espace Collaborateurs</title>
+<meta name="description" content="Accès réservé — collaborateurs Boulanger Compiègne uniquement.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #F04E00;
+  --orange2: #D44300;
+  --orange3: #FF6B20;
+  --bg: #FAFAF9;
+  --bg2: #F5F0EB;
+  --noir: #1C1009;
+  --text-main: #1C1009;
+  --text-soft: rgba(28,16,9,0.58);
+  --text-faint: rgba(28,16,9,0.36);
+  --card-border: rgba(28,16,9,0.08);
+  --vert: #0A8A4A;
+  --gold: #C97D0A;
+  --rose: #D4145A;
+  --bleu: #0069A8;
+  --homme-color: #1A6FC4;
+  --femme-color: #D4145A;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: rgba(240,78,0,0.25); border-radius: 3px; }
+
+/* HEADER */
+header {
+  position: sticky; top: 0; z-index: 200; height: 92px;
+  background: linear-gradient(90deg, #003F88 0%, #0055B3 28%, #FF5500 65%, #FF7A20 100%);
+  border-bottom: 2px solid rgba(0,0,0,0.18);
+  box-shadow: 0 3px 24px rgba(0,60,140,0.4), 0 1px 0 rgba(255,120,0,0.3);
+}
+.hdr { max-width: 1340px; margin: 0 auto; padding: 0 32px; height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-cse-label strong { font-weight: 700; font-size: 1.76rem; color: #fff; letter-spacing: -0.2px; display: block; }
+.logo-cse-label small { font-size: 1.16rem; color: rgba(255,255,255,0.72); text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; }
+.badge-live { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 0.65rem; font-weight: 600; padding: 5px 13px; border-radius: 100px; backdrop-filter: blur(4px); }
+.dot-pulse { width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.6)} }
+
+/* HAMBURGER NAV */
+.hdr-nav { display: flex; align-items: center; gap: 8px; }
+.hdr-nav a { color: rgba(255,255,255,0.88); font-size: .78rem; font-weight: 600; text-decoration: none; padding: 6px 13px; border-radius: 20px; transition: background .18s; white-space: nowrap; }
+.hdr-nav a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.hdr-right { display: flex; align-items: center; gap: 14px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border: none; background: rgba(255,255,255,0.15); border-radius: 10px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .3s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 92px; left: 0; right: 0; z-index: 199;
+  background: linear-gradient(160deg, #003F88 0%, #0055B3 50%, #C84400 100%);
+  padding: 16px 20px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.mobile-menu.open { display: block; }
+.mobile-menu a { display: block; color: rgba(255,255,255,0.9); font-size: .92rem; font-weight: 600;
+  padding: 13px 16px; border-radius: 12px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+@media (max-width: 768px) {
+  .hdr-nav { display: none; }
+  .badge-live { display: none; }
+  .hamburger { display: flex; }
+  header { height: 68px; }
+  .mobile-menu { top: 68px; }
+  .hdr { padding: 0 18px; }
+}
+
+/* STORE PHOTO BANNER */
+.store-photo-banner {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4BB8D4 0%, #3AA8C8 20%, #2D96B8 40%, #1E7A9C 60%, #F04E00 85%, #FF6B20 100%);
+}
+.store-photo-banner img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+  display: block;
+}
+.store-photo-banner::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.0) 40%, rgba(28,16,9,0.55) 100%);
+  pointer-events: none;
+}
+.store-photo-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 40px;
+  z-index: 2;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.store-photo-caption-left { display: flex; flex-direction: column; gap: 4px; }
+.store-photo-caption h2 { font-weight: 800; font-size: 1.5rem; color: #fff; letter-spacing: -0.5px; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.store-photo-caption p { font-size: .78rem; color: rgba(255,255,255,0.75); font-weight: 500; }
+.store-photo-badge { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(8px); border-radius: 12px; padding: 8px 18px; text-align: center; }
+.store-photo-badge .sn { font-weight: 800; font-size: 1.4rem; color: #fff; display: block; line-height: 1; }
+.store-photo-badge .sl { font-size: .6rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-top: 2px; display: block; }
+@media (max-width: 600px) { .store-photo-banner { height: 200px; } .store-photo-caption { padding: 14px 20px; } }
+.store-photo-banner.no-img { background: linear-gradient(160deg, #4BB8D4 0%, #2D8FAA 40%, #1a5f7a 70%, #c8440a 100%); }
+.store-photo-banner.no-img::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 320'%3E%3Crect width='800' height='320' fill='%234BB8D4'/%3E%3Crect x='0' y='0' width='800' height='320' fill='url(%23bg)'/%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%234BB8D4'/%3E%3Cstop offset='0.6' stop-color='%232D8FAA'/%3E%3Cstop offset='1' stop-color='%23F04E00'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E") center/cover; }
+/* HERO */
+.hero { padding: 72px 32px 52px; max-width: 1340px; margin: 0 auto; position: relative; overflow: hidden; } { position: absolute; top: -20px; left: -10px; font-weight: 800; font-size: clamp(100px,17vw,220px); color: rgba(240,78,0,0.05); white-space: nowrap; pointer-events: none; letter-spacing: -10px; line-height: 1; user-select: none; }
+.hero-content { position: relative; z-index: 1; }
+.hero-tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(240,78,0,0.08); border: 1px solid rgba(240,78,0,0.18); color: var(--orange); font-size: 0.64rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 5px 15px; border-radius: 100px; margin-bottom: 24px; animation: fadeUp .5s ease both; }
+.hero h1 { font-weight: 800; font-size: clamp(2.6rem,7vw,6rem); line-height: .95; letter-spacing: -2.5px; margin-bottom: 20px; animation: fadeUp .5s .07s ease both; color: var(--noir); }
+.hero h1 .lo { color: rgba(28,16,9,0.22); }
+.hero-sub { max-width: 480px; color: var(--text-soft); font-size: 1rem; line-height: 1.7; animation: fadeUp .5s .14s ease both; font-weight: 400; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* SOLIDARITÉ */
+.solidarite-banner { max-width: 1340px; margin: 0 auto; padding: 0 32px 40px; }
+.solidarite-card {
+  background: linear-gradient(135deg, #FF6010 0%, #E84400 35%, #003F88 80%, #0052AA 100%);
+  border-radius: 22px; padding: 30px 38px; display: flex; align-items: center; gap: 28px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 10px 50px rgba(240,78,0,0.3), 0 4px 20px rgba(0,60,140,0.2);
+}
+.solidarite-card::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 85% 40%, rgba(255,255,255,0.14) 0%, transparent 55%); pointer-events:none; }
+.solidarite-icon { width:68px; height:68px; background:rgba(255,255,255,0.22); border-radius:18px; display:flex; align-items:center; justify-content:center; font-size:2.2rem; flex-shrink:0; border:1px solid rgba(255,255,255,0.35); box-shadow:0 4px 14px rgba(0,0,0,0.15); }
+.solidarite-content { flex:1; position:relative; z-index:1; }
+.solidarite-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.38); color:#fff; font-size:.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:100px; margin-bottom:10px; }
+.solidarite-content h3 { font-weight:800; font-size:1.45rem; color:#fff; letter-spacing:-0.5px; margin-bottom:7px; }
+.solidarite-content p { color:rgba(255,255,255,0.85); font-size:.88rem; line-height:1.65; max-width:520px; }
+.solidarite-date-pill { background:rgba(255,255,255,0.97); border-radius:18px; padding:20px 30px; text-align:center; flex-shrink:0; box-shadow:0 6px 24px rgba(0,0,0,0.18); min-width:130px; }
+.solidarite-date-pill .dow { font-size:.68rem; font-weight:800; text-transform:uppercase; letter-spacing:2px; color:var(--orange); display:block; margin-bottom:2px; }
+.solidarite-date-pill .day { font-weight:800; font-size:3rem; color:var(--orange); line-height:1; display:block; }
+.solidarite-date-pill .month { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#003F88; margin-top:3px; display:block; }
+.solidarite-date-pill .label { font-size:.54rem; color:rgba(28,16,9,0.4); margin-top:7px; text-transform:uppercase; letter-spacing:1.2px; font-weight:600; display:block; }
+
+/* SECTIONS */
+.section { max-width: 1340px; margin: 0 auto; padding: 0 32px 80px; }
+.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+.sec-num { font-size: 0.6rem; color: var(--orange); letter-spacing: 3px; text-transform: uppercase; font-weight: 700; flex-shrink: 0; }
+.sec-title { font-weight: 800; font-size: clamp(1.35rem,2.5vw,1.75rem); letter-spacing: -0.8px; color: var(--noir); }
+.sec-line { height: 1px; flex: 1; background: linear-gradient(to right, rgba(240,78,0,.18), transparent); }
+
+/* MAGASIN */
+.store-card { background: #fff; border: 1px solid var(--card-border); border-radius: 22px; overflow: hidden; box-shadow: 0 2px 18px rgba(28,16,9,0.07); }
+.store-header { background: linear-gradient(120deg, #003F88, #0069A8, var(--orange)); padding: 26px 30px; display: flex; align-items: center; gap: 14px; }
+.store-icon { width:48px; height:48px; background:rgba(255,255,255,0.18); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0; }
+.store-header h3 { font-weight: 800; font-size: 1.2rem; color: #fff; }
+.store-header p { font-size: .8rem; color: rgba(255,255,255,0.72); margin-top: 2px; }
+.store-body { padding: 26px 30px; }
+.store-infos { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 18px; }
+.si { background: var(--bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px; text-align: center; }
+.si-icon { font-size: 1.3rem; margin-bottom: 5px; display: block; }
+.si-val { font-weight: 700; font-size: .84rem; color: var(--noir); }
+.si-lbl { font-size: .6rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.store-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--orange); color: #fff; font-weight: 700; font-size: .84rem; padding: 11px 20px; border-radius: 10px; border: none; transition: all .2s; cursor: pointer; text-decoration: none; }
+.store-btn:hover { background: var(--orange2); transform: translateY(-2px); }
+
+/* AVANTAGES */
+.av-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.av-card { background: #fff; border: 1px solid var(--card-border); border-radius: 18px; padding: 26px; transition: all .25s; box-shadow: 0 1px 8px rgba(28,16,9,0.05); }
+.av-card:hover { transform: translateY(-4px); border-color: rgba(240,78,0,0.2); box-shadow: 0 6px 22px rgba(240,78,0,0.1); }
+.av-ico { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+.av-card h3 { font-weight: 700; font-size: .95rem; margin-bottom: 7px; color: var(--noir); }
+.av-card p { color: var(--text-soft); font-size: .8rem; line-height: 1.6; }
+.av-pill { display: inline-block; margin-top: 12px; background: rgba(240,78,0,0.07); color: var(--orange); border: 1px solid rgba(240,78,0,0.14); font-size: .62rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: .6px; text-transform: uppercase; }
+
+/* CINÉMA */
+.cinema-hero { background: linear-gradient(135deg, #1a0a00 0%, #2d1200 40%, #1C1009 100%); border-radius: 24px; overflow: hidden; position: relative; margin-bottom: 20px; box-shadow: 0 8px 40px rgba(240,78,0,0.18); }
+.cinema-hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 70% 50%, rgba(240,78,0,0.25) 0%, transparent 65%); pointer-events:none; }
+.cinema-hero-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 24px; padding: 36px 40px; position: relative; z-index: 1; }
+.cinema-hero-left h3 { font-weight: 800; font-size: 1.6rem; letter-spacing: -1px; color: #fff; line-height: 1.15; margin-bottom: 10px; }
+.cinema-hero-left h3 span { color: var(--orange3); }
+.cinema-hero-left p { color: rgba(255,255,255,0.6); font-size: .85rem; line-height: 1.6; max-width: 380px; margin-bottom: 20px; }
+.cinema-pay-chips { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 20px; }
+.pay-chip { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.75); font-size: .7rem; font-weight: 600; padding: 5px 12px; border-radius: 100px; }
+.cinema-cta-row { display: flex; gap: 9px; flex-wrap: wrap; }
+.btn-main { display: inline-flex; align-items: center; gap: 7px; background: var(--orange); color: #fff; font-weight: 700; font-size: .84rem; padding: 11px 20px; border-radius: 10px; border: none; transition: all .2s; cursor: pointer; }
+.btn-main:hover { background: var(--orange3); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(240,78,0,0.35); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8); font-weight: 600; font-size: .84rem; padding: 10px 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14); transition: all .18s; cursor: pointer; text-decoration: none; }
+.btn-ghost:hover { background: rgba(255,255,255,0.14); color: #fff; }
+.btn-out { display: inline-flex; align-items: center; gap: 7px; background: var(--bg); color: var(--text-soft); font-weight: 600; font-size: .84rem; padding: 10px 18px; border-radius: 10px; border: 1px solid var(--card-border); transition: all .18s; cursor: pointer; }
+.btn-out:hover { background: var(--bg2); color: var(--orange); }
+.cinema-prix-bloc { display: flex; flex-direction: column; gap: 10px; min-width: 160px; }
+.prix-pill { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 16px 20px; text-align: center; }
+.prix-pill.feature { background: rgba(240,78,0,0.18); border-color: rgba(240,78,0,0.35); }
+.prix-big { font-weight: 800; font-size: 2.2rem; line-height: 1; display: block; color: #fff; }
+.prix-pill.feature .prix-big { color: var(--orange3); }
+.prix-big.barred { font-size: 1.5rem; color: rgba(255,255,255,0.3); }
+.prix-lbl { font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; display: block; font-weight: 600; }
+.prix-eco-badge { background: rgba(10,138,74,0.2); border: 1px solid rgba(10,138,74,0.35); border-radius: 16px; padding: 12px 20px; text-align: center; }
+.prix-eco-num { font-weight: 800; font-size: 1.6rem; color: #4ADE80; display: block; line-height: 1; }
+.prix-eco-lbl { font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; display: block; font-weight: 600; }
+
+/* Table */
+.tbl-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--card-border); }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; }
+th { background: var(--bg); border-bottom: 1px solid var(--card-border); font-weight: 700; font-size: .64rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--orange); padding: 11px 14px; text-align: left; }
+td { padding: 11px 14px; font-size: .8rem; color: var(--text-soft); border-bottom: 1px solid rgba(28,16,9,0.05); }
+tr:last-child td { border-bottom: none; }
+.chip { display: inline-flex; align-items: center; gap: 3px; font-size: .63rem; font-weight: 700; padding: 3px 9px; border-radius: 100px; }
+.chip.wait { background: rgba(201,125,10,0.09); color: var(--gold); border: 1px solid rgba(201,125,10,0.18); }
+.chip.ok { background: rgba(10,138,74,0.08); color: var(--vert); border: 1px solid rgba(10,138,74,0.16); }
+
+/* Boîte à idées */
+.idee-box { background: #fff; border: 1px solid var(--card-border); border-radius: 22px; padding: 32px 36px; box-shadow: 0 2px 18px rgba(28,16,9,0.07); }
+.idee-box h3 { font-weight: 800; font-size: 1.3rem; margin-bottom: 6px; color: var(--noir); }
+.idee-box > p { color: var(--text-soft); font-size: .86rem; margin-bottom: 24px; line-height: 1.65; }
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.f-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+.f-group label { font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.3px; color: var(--text-faint); }
+.f-group input,.f-group select,.f-group textarea { background: var(--bg); border: 1px solid rgba(28,16,9,0.12); border-radius: 9px; color: var(--noir); font-family: 'Plus Jakarta Sans', sans-serif; font-size: .85rem; padding: 10px 13px; outline: none; transition: border-color .18s; width: 100%; }
+.f-group input::placeholder,.f-group textarea::placeholder { color: var(--text-faint); }
+.f-group select option { background: #fff; color: var(--noir); }
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus { border-color: var(--orange); background: #fff; }
+.f-group textarea { min-height: 85px; resize: vertical; }
+.submit-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--orange); color: #fff; font-weight: 700; font-size: .86rem; padding: 11px 22px; border-radius: 10px; border: none; transition: all .2s; cursor: pointer; }
+.submit-btn:hover { background: var(--orange2); transform: translateY(-2px); }
+
+/* Équipe */
+.genre-bar-wrap { margin-bottom: 22px; background: #fff; border: 1px solid var(--card-border); border-radius: 16px; padding: 18px 22px; display: flex; align-items: center; gap: 18px; box-shadow: 0 1px 8px rgba(28,16,9,0.05); }
+.genre-count { display: flex; flex-direction: column; align-items: center; min-width: 70px; }
+.genre-count .n { font-weight: 800; font-size: 1.6rem; line-height: 1; }
+.genre-count .n.h { color: var(--homme-color); }
+.genre-count .n.f { color: var(--femme-color); }
+.genre-count .lbl { font-size: .65rem; color: var(--text-faint); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-top: 2px; }
+.genre-count .pct { font-size: .72rem; font-weight: 700; margin-top: 1px; }
+.genre-count .pct.h { color: var(--homme-color); }
+.genre-count .pct.f { color: var(--femme-color); }
+.genre-bar-inner { flex: 1; }
+.genre-bar-labels { display: flex; justify-content: space-between; font-size: .65rem; font-weight: 700; margin-bottom: 5px; }
+.genre-bar-track { height: 9px; background: rgba(212,20,90,0.12); border-radius: 100px; overflow: hidden; }
+.genre-bar-fill { height: 100%; background: linear-gradient(90deg, var(--homme-color), #3B9EE8); border-radius: 100px; transition: width .8s cubic-bezier(.2,1,.4,1); }
+.equipe-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(120px,1fr)); gap: 14px; }
+.emp { background: #fff; border: 1px solid var(--card-border); border-radius: 14px; padding: 14px 10px 12px; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all .18s; cursor: pointer; text-align: center; }
+.emp:hover { background: var(--bg); border-color: rgba(240,78,0,0.18); transform: translateY(-2px); box-shadow: 0 3px 14px rgba(240,78,0,0.09); }
+.emp-av { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; color: #fff; flex-shrink: 0; }
+.emp-av.homme { background: linear-gradient(135deg, var(--homme-color), #3B9EE8); }
+.emp-av.femme { background: linear-gradient(135deg, var(--femme-color), #F5467E); }
+.emp-av-photo { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex-shrink: 0; }
+
+
+/* Membres CSE */
+.cse-prenoms { display: flex; gap: 10px; flex-wrap: wrap; }
+.cse-pill { background: #fff; border: 1px solid var(--card-border); border-radius: 100px; padding: 9px 22px; font-weight: 700; font-size: .9rem; color: var(--orange); box-shadow: 0 1px 8px rgba(28,16,9,0.05); }
+
+/* Social */
+.social-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-card { background: #fff; border: 1px solid var(--card-border); border-radius: 18px; padding: 22px 26px; display: flex; align-items: center; gap: 16px; transition: all .22s; text-decoration: none; flex: 1; min-width: 210px; max-width: 330px; box-shadow: 0 1px 8px rgba(28,16,9,0.05); }
+.social-card:hover { background: var(--bg); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(28,16,9,0.09); }
+.social-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+.social-info h4 { font-weight: 700; font-size: .95rem; color: var(--noir); margin-bottom: 3px; }
+.social-info p { font-size: .74rem; color: var(--text-soft); }
+.social-arrow { color: var(--text-faint); font-size: 1rem; margin-left: auto; }
+
+/* Footer */
+footer { text-align: center; padding: 40px 32px; border-top: 1px solid var(--card-border); color: var(--text-faint); font-size: .75rem; margin-top: 16px; }
+footer p { margin-bottom: 5px; }
+footer span { color: var(--orange); font-weight: 700; }
+
+/* BANNIÈRE ACCÈS RÉSERVÉ */
+.access-banner {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.access-banner-card {
+  background: linear-gradient(145deg, #003F88 0%, #0055B3 50%, #1a4fa0 100%);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 24px;
+  padding: 40px 44px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06) inset;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.access-banner-card::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,100,0,0.25) 0%, transparent 65%);
+  pointer-events: none;
+}
+.access-banner-card::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.access-banner-icon {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+.access-banner-title {
+  font-weight: 800;
+  font-size: 1.55rem;
+  color: #fff;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.access-banner-text {
+  color: rgba(255,255,255,0.78);
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.access-banner-text strong { color: #fff; font-weight: 700; }
+.access-banner-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(135deg, #FF5500, #FF7A20);
+  border: none; border-radius: 14px;
+  color: #fff; font-weight: 800; font-size: 1rem;
+  padding: 14px 36px;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(240,78,0,0.4);
+  transition: all .2s;
+  letter-spacing: 0.2px;
+  width: 100%;
+}
+.access-banner-btn:hover {
+  background: linear-gradient(135deg, #e04800, #FF6B20);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(240,78,0,0.5);
+}
+.access-banner.hidden { display: none; }
+@media (max-width: 480px) {
+  .access-banner-card { padding: 28px 22px; }
+  .access-banner-title { font-size: 1.25rem; }
+}
+
+/* Toast */
+.toast { position: fixed; bottom: 24px; right: 24px; background: #fff; color: var(--noir); border: 1px solid var(--card-border); border-radius: 12px; padding: 12px 20px; font-size: .84rem; font-weight: 600; box-shadow: 0 6px 28px rgba(28,16,9,0.12); transform: translateY(70px); opacity: 0; transition: all .3s cubic-bezier(.2,.8,.2,1); z-index: 999; display: flex; align-items: center; gap: 9px; }
+.toast.show { transform: translateY(0); opacity: 1; }
+
+/* Modal */
+.modal-bg { position: fixed; inset: 0; background: rgba(28,16,9,0.28); backdrop-filter: blur(8px); z-index: 500; display: none; align-items: center; justify-content: center; padding: 20px; }
+.modal-bg.open { display: flex; }
+.modal { background: #fff; border: 1px solid var(--card-border); border-radius: 22px; padding: 36px; width: 100%; max-width: 460px; position: relative; box-shadow: 0 20px 50px rgba(28,16,9,0.14); }
+.modal h3 { font-weight: 800; font-size: 1.3rem; color: var(--noir); margin-bottom: 5px; }
+.modal > p { color: var(--text-soft); font-size: .82rem; margin-bottom: 22px; line-height: 1.6; }
+.modal-x { position: absolute; top: 16px; right: 16px; background: var(--bg); border: 1px solid var(--card-border); border-radius: 8px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: .8rem; cursor: pointer; color: var(--text-faint); }
+.modal-x:hover { color: var(--noir); }
+.total-row { display: flex; align-items: center; justify-content: space-between; background: rgba(240,78,0,0.05); border: 1px solid rgba(240,78,0,0.12); border-radius: 10px; padding: 12px 16px; margin: 10px 0; font-size: .84rem; font-weight: 600; color: var(--text-soft); }
+.total-num { font-size: 1.4rem; font-weight: 800; color: var(--orange); }
+.pay-info-box { background: var(--bg); border: 1px solid var(--card-border); border-radius: 9px; padding: 10px 14px; font-size: .78rem; color: var(--text-soft); margin-bottom: 16px; }
+.modal-foot { display: flex; gap: 9px; justify-content: flex-end; margin-top: 20px; }
+.btn-cancel { background: var(--bg); color: var(--text-soft); border: 1px solid var(--card-border); font-weight: 600; font-size: .84rem; padding: 10px 18px; border-radius: 10px; cursor: pointer; }
+.btn-confirm { background: var(--orange); color: #fff; border: none; font-weight: 700; font-size: .84rem; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
+.btn-confirm:hover { background: var(--orange2); }
+
+/* Anniversaires */
+.birthday-tabs { display: flex; gap: 7px; margin-bottom: 18px; flex-wrap: wrap; }
+.btab { background: var(--bg); border: 1px solid var(--card-border); color: var(--text-soft); font-weight: 600; font-size: .72rem; padding: 7px 16px; border-radius: 100px; cursor: pointer; transition: all .15s; }
+.btab:hover, .btab.on { background: var(--orange); color: #fff; border-color: var(--orange); }
+.birthday-list-inner { display: flex; flex-direction: column; gap: 7px; }
+.birthday-item { background: #fff; border: 1px solid var(--card-border); border-radius: 13px; padding: 13px 16px; display: flex; align-items: center; gap: 12px; transition: all .18s; }
+.birthday-item.is-today { border-color: rgba(240,78,0,0.25); background: rgba(240,78,0,0.02); }
+.birthday-av { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: .78rem; color: #fff; flex-shrink: 0; }
+.birthday-av.homme { background: linear-gradient(135deg, var(--homme-color), #3B9EE8); }
+.birthday-av.femme { background: linear-gradient(135deg, var(--femme-color), #F5467E); }
+.birthday-name { font-weight: 700; font-size: .85rem; color: var(--noir); }
+.birthday-date-text { font-size: .68rem; color: var(--text-faint); margin-top: 2px; }
+.birthday-badge { margin-left: auto; font-size: .62rem; font-weight: 700; padding: 4px 10px; border-radius: 100px; flex-shrink: 0; }
+.birthday-badge.today { background: rgba(240,78,0,0.1); color: var(--orange); border: 1px solid rgba(240,78,0,0.2); }
+.birthday-badge.soon { background: rgba(201,125,10,0.09); color: var(--gold); border: 1px solid rgba(201,125,10,0.18); }
+.birthday-badge.upcoming { background: rgba(10,138,74,0.08); color: var(--vert); border: 1px solid rgba(10,138,74,0.16); }
+.birthday-badge.future { background: var(--bg2); color: var(--text-faint); border: 1px solid var(--card-border); }
+.birthday-empty { text-align: center; padding: 28px; color: var(--text-faint); font-size: .84rem; }
+.birthday-cake-anim { font-size: 1.4rem; display: flex; flex-direction: column; align-items: center; line-height: 1; flex-shrink: 0; animation: cakeBounce 1s ease infinite; margin-right: 4px; }
+.birthday-stars { font-size: .55rem; letter-spacing: 1px; animation: starSpin 2s linear infinite; display: block; }
+@keyframes cakeBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+@keyframes starSpin { 0%{opacity:1} 50%{opacity:.3} 100%{opacity:1} }
+
+/* ROUE CRANTÉE */
+.gear-wrapper { background: #fff; border: 1px solid var(--card-border); border-radius: 24px; padding: 36px 40px; box-shadow: 0 2px 18px rgba(28,16,9,0.07); display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; position: relative; overflow: hidden; }
+.gear-wrapper::after { content:''; position:absolute; top:-80px; right:-80px; width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(240,78,0,0.04) 0%, transparent 70%); pointer-events:none; }
+.gear-svg-wrap { display:flex; align-items:center; justify-content:center; }
+.gear-svg { width:280px; height:280px; cursor:default; }
+.contacts-right { display:flex; flex-direction:column; gap:0; }
+.contacts-right-title { font-weight:800; font-size:1.15rem; color:var(--noir); margin-bottom:3px; letter-spacing:-0.3px; }
+.contacts-right-sub { font-size:.75rem; color:var(--text-faint); margin-bottom:16px; }
+.cat-pills { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+.cat-pill { background:var(--bg); border:1px solid var(--card-border); color:var(--text-soft); font-size:.66rem; font-weight:700; padding:5px 13px; border-radius:100px; cursor:pointer; transition:all .15s; white-space:nowrap; }
+.cat-pill:hover, .cat-pill.on { background:var(--orange); color:#fff; border-color:var(--orange); }
+.contacts-items { display:flex; flex-direction:column; gap:7px; max-height:400px; overflow-y:auto; padding-right:4px; }
+.contacts-items::-webkit-scrollbar { width:3px; }
+.contacts-items::-webkit-scrollbar-thumb { background:rgba(240,78,0,0.2); border-radius:2px; }
+.c-item { background:var(--bg); border:1px solid var(--card-border); border-radius:13px; padding:13px 16px; display:flex; align-items:center; gap:13px; transition:all .18s; }
+.c-item:hover { background:#fff; border-color:rgba(240,78,0,0.18); box-shadow:0 2px 12px rgba(240,78,0,0.07); transform:translateX(3px); }
+.c-item.urg { border-color:rgba(240,78,0,0.22); background:rgba(240,78,0,0.015); }
+.c-ico { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.c-info { flex:1; min-width:0; }
+.c-name { font-weight:700; font-size:.82rem; color:var(--noir); margin-bottom:2px; }
+.c-desc { font-size:.68rem; color:var(--text-faint); line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.c-right { display:flex; flex-direction:column; align-items:flex-end; gap:3px; flex-shrink:0; }
+.c-num { font-weight:800; font-size:.8rem; color:var(--orange); white-space:nowrap; }
+.c-link { font-size:.62rem; color:var(--bleu); font-weight:600; text-decoration:none; }
+.c-link:hover { text-decoration:underline; }
+.c-badge { font-size:.56rem; font-weight:700; padding:2px 7px; border-radius:100px; }
+.c-badge.g { background:rgba(10,138,74,0.08); color:var(--vert); border:1px solid rgba(10,138,74,0.16); }
+.c-badge.u { background:rgba(240,78,0,0.09); color:var(--orange); border:1px solid rgba(240,78,0,0.18); }
+
+@media (max-width: 1024px) {
+  .av-grid { grid-template-columns: repeat(2,1fr); }
+  .hdr-nav a { font-size: .72rem; padding: 5px 10px; }
+}
+@media (max-width: 900px) {
+  .gear-wrapper { grid-template-columns: 1fr; }
+  .gear-svg-wrap { justify-content: center; }
+  /* Contacts items full height on mobile */
+  .contacts-items { max-height: none; }
+}
+@media (max-width: 768px) {
+  .cinema-hero-inner { grid-template-columns: 1fr; }
+  .cinema-prix-bloc { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .av-grid { grid-template-columns: 1fr; }
+  .store-infos { grid-template-columns: 1fr 1fr; }
+  .f-row { grid-template-columns: 1fr; }
+  .genre-bar-wrap { flex-wrap: wrap; gap: 12px; }
+  .solidarite-card { flex-direction: column; text-align: center; }
+  .solidarite-date-pill { align-self: center; }
+  /* Section padding réduit */
+  .section { padding: 0 18px 52px; }
+  .solidarite-banner { padding: 0 18px 32px; }
+  /* Numéro B card */
+  #section-contacts > div[style*="linear-gradient(135deg,#3a6b35"] {
+    flex-direction: column; text-align: center; padding: 20px 18px; gap: 16px;
+  }
+  #section-contacts > div[style*="linear-gradient(135deg,#3a6b35"] > div:last-of-type {
+    width: 100%;
+  }
+  #section-contacts > div[style*="linear-gradient(135deg,#3a6b35"] a[href^="tel"] {
+    width: 100%; justify-content: center;
+  }
+  /* Referents harcelement card → colonne */
+  #section-contacts > div[style*="linear-gradient(135deg,#1a0012"] {
+    flex-direction: column; padding: 20px 18px; gap: 16px;
+  }
+  #section-contacts > div[style*="linear-gradient(135deg,#1a0012"] div[style*="gap:10px"],
+  #section-contacts > div[style*="linear-gradient(135deg,#1a0012"] div[style*="gap:28px"] {
+    flex-wrap: wrap !important;
+  }
+  /* Recovery Mass bandeau → colonne */
+  #section-recovery > div[style*="linear-gradient(135deg,#0A3D1F"] {
+    flex-direction: column; padding: 22px 18px; gap: 18px;
+  }
+  #section-recovery > div[style*="minmax(280px"] {
+    grid-template-columns: 1fr !important;
+  }
+  #section-recovery > div[style*="flex-wrap:wrap;gap:28px"] {
+    flex-direction: column; gap: 16px;
+  }
+  /* Idee box */
+  .idee-box { padding: 22px 18px; }
+  /* Store card */
+  .store-body { padding: 18px; }
+  .store-header { padding: 18px; }
+  /* Cinema prix bloc */
+  .cinema-hero-inner { padding: 24px 22px; }
+  /* Modal */
+  .modal { padding: 24px 18px; }
+  /* Birthday item wrap on small screens */
+  .birthday-item { flex-wrap: wrap; gap: 8px; }
+  /* Equipe grid */
+  .equipe-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+  /* Social grid */
+  .social-grid { flex-direction: column; }
+  .social-card { max-width: 100%; }
+  /* Hero */
+  .hero { padding: 40px 18px 32px; }
+  /* Pâques/Solidarité inner cards */
+  #agenda-paques { flex-direction: column !important; gap: 14px !important; padding: 20px 18px !important; }
+}
+@media (max-width: 480px) {
+  .store-infos { grid-template-columns: 1fr; }
+  .logo-cse-label strong { font-size: 1.35rem; }
+  .logo-cse-label small { font-size: .9rem; letter-spacing: 1.5px; }
+  /* Birthday */
+  .birthday-badge { font-size: .55rem; padding: 3px 7px; }
+  .birthday-name { font-size: .8rem; }
+  .birthday-date-text { font-size: .62rem; }
+  /* CSE pills */
+  .cse-prenoms { gap: 7px; }
+  .cse-pill { padding: 7px 15px; font-size: .82rem; }
+  /* Gear wrapper */
+  .gear-wrapper { padding: 22px 18px; gap: 24px; }
+  /* Hero */
+  .hero { padding: 32px 18px 28px; }
+  /* Store photo caption */
+  .store-photo-caption { flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px 16px; }
+  /* Contact desc wraps */
+  .c-desc { white-space: normal; }
+  /* Submit button full width */
+  .submit-btn { width: 100%; justify-content: center; }
+  /* Modal */
+  .modal { border-radius: 16px; }
+  /* Sec title smaller */
+  .sec-title { font-size: 1.2rem; }
+  /* Cinema prix responsive */
+  .cinema-prix-bloc { width: 100%; }
+  .prix-pill, .prix-eco-badge { flex: 1; min-width: 130px; }
+  /* Birthday tabs wrap */
+  .birthday-tabs { gap: 5px; }
+  .btab { font-size: .68rem; padding: 6px 12px; }
+  /* C-item responsive */
+  .c-item { flex-wrap: wrap; }
+  .c-right { flex-direction: row; align-items: center; gap: 6px; }
+}
+@media (max-width: 360px) {
+  .logo img { height: 52px !important; }
+  .logo-cse-label strong { font-size: 1.1rem; }
+  .logo-cse-label small { display: none; }
+  .section { padding: 0 12px 40px; }
+  .solidarite-banner { padding: 0 12px 24px; }
+  .gear-wrapper { padding: 16px 12px; }
+  .equipe-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+  #section-agenda > div[style*="grid"] { grid-template-columns: 1fr !important; }
+  .hero h1 { font-size: 2.2rem; letter-spacing: -1.5px; }
+  .av-card { padding: 18px; }
+}
+
+/* ── ACCESSIBILITÉ CLAVIER (focus-visible) ── */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2.5px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── IMPRESSION ── */
+@media print {
+  .access-banner, header, .mobile-menu, .hamburger, .badge-live,
+  .store-photo-banner, .hero, .solidarite-banner, footer { display: none !important; }
+  .section { padding: 12px 0; }
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+<div class="access-banner" id="access-banner">
+  <div class="access-banner-card">
+    <span class="access-banner-icon">🔒</span>
+    <div class="access-banner-title">Accès réservé</div>
+    <div class="access-banner-text">
+      Ce site est exclusivement destiné aux <strong>collaborateurs du magasin Boulanger Compiègne</strong>.<br>
+      Toute diffusion en dehors du magasin est strictement interdite.
+    </div>
+    <button class="access-banner-btn" onclick="document.getElementById('access-banner').classList.add('hidden');sessionStorage.setItem('banner_ok','1')">
+      ✓ J'ai compris, accéder au site
+    </button>
+  </div>
+</div>
+
+<header>
+  <div class="hdr">
+    <div class="logo">
+      <img src="images/img_01.png" alt="Boulanger Plaisir Partagé" style="height:76px;width:auto;object-fit:contain;border-radius:6px;">
+      <div class="logo-cse-label" style="border-left:1.5px solid rgba(255,255,255,0.32);padding-left:12px;margin-left:2px;">
+        <strong>CSE</strong>
+        <small>Compiègne</small>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <nav class="hdr-nav">
+        <a href="#section-avantages">🎁 Avantages</a>
+        <a href="#section-agenda">📅 Agenda</a>
+        <a href="#section-cinema">🎬 Cinéma</a>
+        <a href="#section-idees">💡 Idées</a>
+        <a href="#section-contacts">📞 Contacts</a>
+        <a href="#section-equipe">👥 Équipe</a>
+      </nav>
+      <div class="badge-live"><div class="dot-pulse"></div> Espace Collaborateurs</div>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#section-avantages" onclick="closeMenu()">🎁 Avantages</a>
+  <a href="#section-agenda" onclick="closeMenu()">📅 Agenda CSE</a>
+  <a href="#section-cinema" onclick="closeMenu()">🎬 Cinéma</a>
+  <a href="#section-idees" onclick="closeMenu()">💡 Boîte à idées</a>
+  <a href="#section-contacts" onclick="closeMenu()">📞 Contacts & Ressources</a>
+  <a href="#section-equipe" onclick="closeMenu()">👥 Notre équipe</a>
+  <a href="#section-anniversaires" onclick="closeMenu()">🎂 Anniversaires</a>
+</nav>
+
+<!-- BANDEAU PHOTO MAGASIN -->
+<div class="store-photo-banner">
+  <img src="images/img_02.jpg" alt="Boulanger Compiègne — CC de Venette"
+       onerror="this.style.display='none';this.parentElement.classList.add('no-img')">
+  <div class="store-photo-caption">
+    <div class="store-photo-caption-left">
+      <h2>Boulanger Compiègne</h2>
+      <p>📍 63 rue des Métiers, CC de Venette — 60880 Jaux</p>
+    </div>
+    <div class="store-photo-badge">
+      <span class="sn">28</span>
+      <span class="sl">Collaborateurs</span>
+    </div>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-bg-text">CSE</div>
+  <div class="hero-content">
+    <div class="hero-tag">Comité Social &amp; Économique · Boulanger Compiègne</div>
+    <h1>Vos avantages,<br><span class="lo">votre CSE.</span></h1>
+    <p class="hero-sub">Cinéma à 5€, chèques cadeaux, événements, boîte à idées… Tout ce que le CSE fait pour vous, réuni ici.</p>
+  </div>
+</div>
+
+<!-- JOURNÉE DE SOLIDARITÉ — Date corrigée : Jeudi 14 mai 2026 -->
+<div class="solidarite-banner" id="solidarite-banner">
+  <div class="solidarite-card">
+    <div class="solidarite-icon">🤝</div>
+    <div class="solidarite-content">
+      <div class="solidarite-badge">📅 Décision du CSE · 2026</div>
+      <h3>Journée de Solidarité — Personnes Âgées</h3>
+      <p>Le CSE a choisi le <strong>jeudi 14 mai 2026</strong> comme journée de solidarité pour les personnes âgées et en situation de handicap. Cette journée de travail non rémunérée, prévue par la loi, finance l'autonomie des seniors et des personnes dépendantes.</p>
+    </div>
+    <div class="solidarite-date-pill">
+      <span class="dow">Jeudi</span>
+      <span class="day">14</span>
+      <span class="month">Mai 2026</span>
+      <span class="label">Solidarité Seniors</span>
+    </div>
+  </div>
+</div>
+<script>
+// Auto-masquer journée solidarité dans l'agenda après le 14 mai 2026
+(function(){
+  var d = new Date(); d.setHours(0,0,0,0);
+  var deadline = new Date(2026, 4, 15);
+  if(d >= deadline) {
+    var b = document.getElementById('solidarite-banner'); if(b) b.style.display='none';
+    var a = document.getElementById('agenda-solidarite'); if(a) a.style.display='none';
+  }
+  // Auto-masquer réunion de valeurs après le 2 avril 2026
+  var deadlineValeurs = new Date(2026, 3, 3);
+  if(d >= deadlineValeurs) {
+    var v = document.getElementById('agenda-valeurs'); if(v) v.style.display='none';
+  }
+  // Auto-masquer Pâques après le 6 avril 2026
+  var deadlinePaques = new Date(2026, 3, 7);
+  if(d >= deadlinePaques) {
+    var p = document.getElementById('agenda-paques'); if(p) p.style.display='none';
+  }
+})();
+</script>
+
+<!-- 🐣 PÂQUES — Lundi 6 avril 2026 -->
+<div class="solidarite-banner" id="paques-banner">
+  <div id="agenda-paques" style="background:linear-gradient(135deg,#78350f 0%,#92400e 30%,#b45309 60%,#d97706 100%);border:2px solid #FCD34D;border-radius:22px;padding:28px 38px;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(217,119,6,0.38);display:flex;align-items:center;gap:28px;">
+    <!-- Confettis déco -->
+    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+      <span style="position:absolute;top:8px;left:6%;font-size:1.4rem;animation:floatEgg 3s ease-in-out infinite;">🥚</span>
+      <span style="position:absolute;top:12px;left:18%;font-size:1.1rem;animation:floatEgg 3.5s ease-in-out infinite .4s;">🌸</span>
+      <span style="position:absolute;top:6px;right:18%;font-size:1.3rem;animation:floatEgg 2.8s ease-in-out infinite .8s;">🐣</span>
+      <span style="position:absolute;top:10px;right:6%;font-size:1.1rem;animation:floatEgg 3.2s ease-in-out infinite .2s;">🌷</span>
+      <span style="position:absolute;bottom:8px;left:10%;font-size:1rem;animation:floatEgg 3.8s ease-in-out infinite .6s;">✨</span>
+      <span style="position:absolute;bottom:6px;right:12%;font-size:1rem;animation:floatEgg 3s ease-in-out infinite 1s;">🌼</span>
+    </div>
+    <style>
+      @keyframes floatEgg { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-6px) rotate(5deg)} }
+    </style>
+    <!-- Icône principale -->
+    <div style="width:68px;height:68px;background:rgba(255,255,255,0.2);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;flex-shrink:0;border:1px solid rgba(252,211,77,0.5);box-shadow:0 4px 14px rgba(0,0,0,0.18);position:relative;z-index:1;">🐰</div>
+    <!-- Contenu -->
+    <div style="flex:1;position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(252,211,77,0.25);border:1px solid rgba(252,211,77,0.5);color:#FCD34D;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">🐰 Surprise CSE · Pâques 2026</div>
+      <h3 style="font-weight:800;font-size:1.45rem;color:#FEF3C7;letter-spacing:-0.5px;margin-bottom:7px;">Surprise Pâques du CSE 🍫</h3>
+      <p style="color:rgba(254,243,199,0.88);font-size:.88rem;line-height:1.65;max-width:520px;">Le CSE offre des <strong style="color:#FEF3C7;">chocolats pour toute l'équipe</strong> ! 🍫 Et ce n'est pas tout… <strong style="color:#FCD34D;">4 tickets d'or</strong> sont cachés, un par service — celui qui le trouve remporte une récompense pour toute son équipe, <em>plus</em> un lapin en chocolat rien que pour lui ! 🐇</p>
+    </div>
+    <!-- Date pill -->
+    <div style="background:rgba(255,255,255,0.97);border-radius:18px;padding:20px 30px;text-align:center;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,0.18);min-width:130px;position:relative;z-index:1;">
+      <span style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#d97706;display:block;margin-bottom:2px;">Lundi</span>
+      <span style="font-weight:800;font-size:3rem;color:#d97706;line-height:1;display:block;">6</span>
+      <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#78350f;margin-top:3px;display:block;">Avril 2026</span>
+      <span style="font-size:.54rem;color:rgba(28,16,9,0.4);margin-top:7px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;display:block;">Lundi de Pâques</span>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Notre Magasin</h2><div class="sec-line"></div></div>
+  <div class="store-card">
+    <div class="store-header">
+      <div class="store-icon">🏪</div>
+      <div><h3>Boulanger Compiègne</h3><p>63 rue des Métiers — CC de Venette, 60880 Jaux</p></div>
+    </div>
+    <div class="store-body">
+      <div class="store-infos">
+        <div class="si"><span class="si-icon">👥</span><div class="si-val">28 collaborateurs</div><div class="si-lbl">Notre équipe</div></div>
+        <div class="si"><span class="si-icon">📍</span><div class="si-val">63 rue des Métiers</div><div class="si-lbl">CC de Venette, 60880 Jaux</div></div>
+        <div class="si"><span class="si-icon">🕐</span><div class="si-val">09h30 – 19h30</div><div class="si-lbl">Lun – Sam · Fermé dim.</div></div>
+      </div>
+      <a href="https://www.boulanger.com/magasins/hauts-de-france/oise/jaux/63-rue-des-metiers" target="_blank" rel="noopener noreferrer" class="store-btn">🏪 Voir la page magasin ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- AVANTAGES -->
+<div class="section" id="section-avantages">
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Avantages CSE</h2><div class="sec-line"></div></div>
+  <div class="av-grid">
+    <div class="av-card"><span class="av-ico">🎬</span><h3>Cinéma à 5€</h3><p>Places au Majestic Compiègne à tarif CSE — économisez plus de 55% par rapport au plein tarif.</p><span class="av-pill">−55%</span></div>
+    <div class="av-card"><span class="av-ico">🎁</span><h3>Chèques cadeaux</h3><p>Cadeaux de fin d'année, naissance, mariage… Le CSE vous accompagne aux moments importants.</p><span class="av-pill">Événements</span></div>
+    <div class="av-card"><span class="av-ico">🏖️</span><h3>Chèques vacances</h3><p>Aide au financement de vos congés avec les chèques vacances ANCV à tarif préférentiel.</p><span class="av-pill">ANCV</span></div>
+    <div class="av-card"><span class="av-ico">💆</span><h3>Massage Recovery Mass</h3><p>Massage sportif & récupération musculaire à tarif CSE — dès 15€ les 30 min, valable pour vous, conjoint(e) et enfants.</p><span class="av-pill">Nouveau ✨</span></div>
+    <div class="av-card"><span class="av-ico">🎉</span><h3>Événements équipe</h3><p>Repas de fin d'année, journées teambuilding, afterworks… Le CSE organise pour vous.</p><span class="av-pill">Toute l'année</span></div>
+    <div class="av-card"><span class="av-ico">💡</span><h3>Boîte à idées</h3><p>Vous avez des suggestions pour améliorer vos avantages ? Proposez-les directement au CSE.</p><span class="av-pill">Participatif</span></div>
+  </div>
+</div>
+
+<!-- RECOVERY MASS -->
+<div class="section" id="section-recovery" style="padding-top:0;">
+  <div class="sec-head"><span class="sec-num" style="background:linear-gradient(135deg,#0A8A4A,#16A34A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">02b</span><h2 class="sec-title">💆 Recovery Mass — Partenariat Bien-être</h2><div class="sec-line"></div></div>
+
+  <!-- Bandeau intro -->
+  <div style="background:linear-gradient(135deg,#0A3D1F 0%,#0F5C2E 45%,#1A3A0A 100%);border-radius:22px;padding:28px 36px;margin-bottom:22px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(10,138,74,0.25);">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 40%,rgba(22,163,74,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+    <div style="width:72px;height:72px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;flex-shrink:0;">💆</div>
+    <div style="flex:1;min-width:220px;position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#86EFAC;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">✨ Nouveau Partenariat 2026</div>
+      <h3 style="font-weight:800;font-size:1.4rem;color:#fff;letter-spacing:-0.4px;margin-bottom:8px;">Recovery Mass × Boulanger Compiègne</h3>
+      <p style="color:rgba(255,255,255,0.78);font-size:.87rem;line-height:1.65;max-width:580px;">Spécialiste du massage sportif, de la récupération musculaire et de la prévention des troubles musculo-squelettiques (TMS). Le CSE a négocié des <strong style="color:#86EFAC;">tarifs préférentiels jusqu'à −50%</strong>, valables pour vous, votre conjoint(e) et vos enfants.</p>
+      <div style="margin-top:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);border-radius:12px;padding:11px 16px;display:flex;align-items:center;gap:10px;">
+        <span style="font-size:1.2rem;flex-shrink:0;">💬</span>
+        <span style="color:#fff;font-size:.82rem;font-weight:600;">Pour bénéficier de la remise, <strong style="color:#86EFAC;">indiquez que vous venez de la part de Boulanger</strong> lors de votre prise de rendez-vous.</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;z-index:1;">
+      <a href="https://www.planity.com/recovery-mass-60410-verberie" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#16A34A;color:#fff;font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);">📅 Prendre rendez-vous</a>
+      <a href="tel:0652935204" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#fff;font-weight:600;font-size:.82rem;padding:10px 20px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,0.18);">📞 06 52 93 52 04</a>
+    </div>
+  </div>
+
+  <!-- Grille tarifs -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:22px;">
+
+    <!-- 30 min -->
+    <div style="background:#fff;border:1px solid var(--card-border);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:rgba(10,138,74,0.05);border-radius:0 18px 0 80px;"></div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">⏱️</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Massage 30 minutes</div>
+      <div style="font-size:.78rem;color:var(--text-faint);margin-bottom:12px;">À l'unité</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+        <span style="font-weight:800;font-size:1.9rem;color:#0A8A4A;">15€</span>
+        <span style="font-size:.82rem;color:var(--text-faint);text-decoration:line-through;">30€</span>
+        <span style="background:rgba(10,138,74,0.1);color:#0A8A4A;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;">−50%</span>
+      </div>
+    </div>
+
+    <!-- 60 min -->
+    <div style="background:#fff;border:1px solid var(--card-border);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:rgba(10,138,74,0.05);border-radius:0 18px 0 80px;"></div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">⏱️</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Massage 60 minutes</div>
+      <div style="font-size:.78rem;color:var(--text-faint);margin-bottom:12px;">À l'unité</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+        <span style="font-weight:800;font-size:1.9rem;color:#0A8A4A;">30€</span>
+        <span style="font-size:.82rem;color:var(--text-faint);text-decoration:line-through;">60€</span>
+        <span style="background:rgba(10,138,74,0.1);color:#0A8A4A;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;">−50%</span>
+      </div>
+    </div>
+
+    <!-- Forfait 5 x 60 min -->
+    <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:14px;background:#16A34A;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">POPULAIRE</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">🎯</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Forfait 5 × 60 min</div>
+      <div style="font-size:.78rem;color:var(--text-faint);margin-bottom:12px;">Valable 1 an · soit <strong style="color:#0A8A4A;">25€/massage</strong> au lieu de 50€</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+        <span style="font-weight:800;font-size:1.9rem;color:#0A8A4A;">125€</span>
+        <span style="font-size:.82rem;color:var(--text-faint);text-decoration:line-through;">250€</span>
+        <span style="background:#16A34A;color:#fff;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;">−50%</span>
+      </div>
+    </div>
+
+    <!-- Forfait 10 x 60 min -->
+    <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:14px;background:#0A8A4A;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">MEILLEUR TARIF</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">💪</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Forfait 10 × 60 min</div>
+      <div style="font-size:.78rem;color:var(--text-faint);margin-bottom:12px;">Valable 1 an · soit <strong style="color:#0A8A4A;">20€/massage</strong> au lieu de 40€</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+        <span style="font-weight:800;font-size:1.9rem;color:#0A8A4A;">200€</span>
+        <span style="font-size:.82rem;color:var(--text-faint);text-decoration:line-through;">400€</span>
+        <span style="background:#0A8A4A;color:#fff;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;">−50%</span>
+      </div>
+    </div>
+
+    <!-- Cure minceur -->
+    <div style="background:#fff;border:1px solid var(--card-border);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:80px;height:80px;background:rgba(10,138,74,0.05);border-radius:0 18px 0 80px;"></div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">🌿</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Cure Minceur</div>
+      <div style="font-size:.78rem;color:var(--text-faint);margin-bottom:12px;">10 × 30 min · Valable 1 an · soit <strong style="color:#0A8A4A;">20€/séance</strong> au lieu de 40€</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+        <span style="font-weight:800;font-size:1.9rem;color:#0A8A4A;">200€</span>
+        <span style="font-size:.82rem;color:var(--text-faint);text-decoration:line-through;">400€</span>
+        <span style="background:rgba(10,138,74,0.1);color:#0A8A4A;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;">−50%</span>
+      </div>
+    </div>
+
+    <!-- Mensuel 2026 -->
+    <div style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:14px;background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">2026</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">📆</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">1 massage / mois — Année 2026</div>
+      <div style="font-size:.78rem;color:var(--text-faint);margin-bottom:12px;">12 × 60 min · soit <strong style="color:var(--orange);">17€/massage</strong> au lieu de 34€</div>
+      <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+        <span style="font-weight:800;font-size:1.9rem;color:var(--orange);">204€</span>
+        <span style="font-size:.82rem;color:var(--text-faint);text-decoration:line-through;">408€</span>
+        <span style="background:rgba(240,78,0,0.1);color:var(--orange);font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:100px;">−50%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Infos pratiques -->
+  <div style="background:#fff;border:1px solid var(--card-border);border-radius:18px;padding:24px 28px;display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;">
+    <div style="flex:1;min-width:200px;">
+      <div style="font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-faint);margin-bottom:10px;">🕐 Horaires</div>
+      <div style="font-size:.85rem;color:var(--noir);line-height:1.8;">
+        <div>Lundi → Vendredi : <strong>9h – 22h</strong></div>
+        <div>Samedi : <strong>9h – 22h</strong></div>
+      </div>
+    </div>
+    <div style="flex:1;min-width:200px;">
+      <div style="font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-faint);margin-bottom:10px;">📍 Adresse</div>
+      <div style="font-size:.85rem;color:var(--noir);line-height:1.8;">
+        Cabinet médical<br>
+        <strong>5 rue Notre Dame de Bon Secours</strong><br>
+        60200 Compiègne
+      </div>
+    </div>
+    <div style="flex:1;min-width:200px;">
+      <div style="font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-faint);margin-bottom:10px;">📞 Contact</div>
+      <div style="font-size:.85rem;color:var(--noir);line-height:1.8;">
+        <a href="tel:0652935204" style="color:var(--orange);font-weight:700;text-decoration:none;">06 52 93 52 04</a><br>
+        <a href="/cdn-cgi/l/email-protection#d6a5b7a5f8a4b3b5b9a0b3a4afbbb7a5a596b1bbb7bfbaf8b5b9bb" style="color:var(--orange);font-size:.8rem;text-decoration:none;"><span class="__cf_email__" data-cfemail="fa899b89d4889f99958c9f8883979b8989ba9d979b9396d4999597">[email&#160;protected]</span></a>
+      </div>
+    </div>
+    <div style="flex:1;min-width:200px;">
+      <div style="font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-faint);margin-bottom:10px;">👨‍👩‍👧 Bénéficiaires</div>
+      <div style="font-size:.85rem;color:var(--noir);line-height:1.8;">
+        ✅ Salarié(e)<br>
+        ✅ Conjoint(e)<br>
+        ✅ Enfants
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ENFANT MALADE -->
+<div class="section" style="padding-bottom:32px;">
+  <div class="sec-head">
+    <span class="sec-num" style="color:#0A8A4A;">02c</span>
+    <h2 class="sec-title">🧒 Enfant Malade — Absences autorisées</h2>
+    <div class="sec-line" style="background:linear-gradient(to right, rgba(10,138,74,.22), transparent);"></div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--card-border);border-radius:22px;overflow:hidden;box-shadow:0 2px 18px rgba(28,16,9,0.06);">
+    <!-- Header -->
+    <div style="background:linear-gradient(120deg,#064e2b,#0A8A4A,#12b05e);padding:24px 32px;display:flex;align-items:center;gap:16px;">
+      <div style="width:52px;height:52px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;flex-shrink:0;">🧒</div>
+      <div>
+        <h3 style="font-weight:800;font-size:1.15rem;color:#fff;letter-spacing:-0.3px;">Enfant malade ou accidenté de moins de 16 ans</h3>
+        <p style="font-size:.78rem;color:rgba(255,255,255,0.7);margin-top:3px;">Dont vous assumez la charge · Accord d'entreprise Boulanger</p>
+      </div>
+    </div>
+    <!-- Cards comparatif -->
+    <div style="padding:28px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
+
+      <!-- ≥ 1 an ancienneté -->
+      <div style="background:rgba(10,138,74,0.05);border:1.5px solid rgba(10,138,74,0.2);border-radius:16px;padding:22px 24px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-18px;right:-18px;width:80px;height:80px;border-radius:50%;background:rgba(10,138,74,0.07);pointer-events:none;"></div>
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(10,138,74,0.12);border:1px solid rgba(10,138,74,0.25);color:#0A8A4A;font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-bottom:14px;">✓ 1 an d'ancienneté ou +</div>
+        <div style="font-size:2.6rem;font-weight:800;color:#0A8A4A;line-height:1;margin-bottom:4px;">6</div>
+        <div style="font-weight:700;font-size:.95rem;color:var(--noir);margin-bottom:8px;">demi-journées <span style="color:#0A8A4A;">rémunérées</span> / an</div>
+        <div style="font-size:.78rem;color:var(--text-soft);line-height:1.65;background:rgba(10,138,74,0.05);border-radius:9px;padding:10px 13px;">
+          Quel que soit le nombre d'enfants à charge.<br>
+          <strong style="color:var(--noir);">Maintien du salaire</strong> garanti.
+        </div>
+        <div style="margin-top:12px;display:flex;align-items:center;gap:7px;font-size:.72rem;color:#0A8A4A;font-weight:700;">
+          <span>💶</span> Absence payée · Justificatif médical requis
+        </div>
+      </div>
+
+      <!-- < 1 an ancienneté -->
+      <div style="background:rgba(201,125,10,0.05);border:1.5px solid rgba(201,125,10,0.18);border-radius:16px;padding:22px 24px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-18px;right:-18px;width:80px;height:80px;border-radius:50%;background:rgba(201,125,10,0.06);pointer-events:none;"></div>
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(201,125,10,0.1);border:1px solid rgba(201,125,10,0.22);color:var(--gold);font-size:.6rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-bottom:14px;">⏳ Moins d'1 an d'ancienneté</div>
+        <div style="font-size:2.6rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:4px;">3</div>
+        <div style="font-weight:700;font-size:.95rem;color:var(--noir);margin-bottom:8px;">jours d'absence <span style="color:var(--gold);">non rémunérés</span> / an</div>
+        <div style="font-size:.78rem;color:var(--text-soft);line-height:1.65;background:rgba(201,125,10,0.04);border-radius:9px;padding:10px 13px;">
+          Autorisation d'absence accordée.<br>
+          <strong style="color:var(--noir);">Absence non payée</strong> — sans impact disciplinaire.
+        </div>
+
+        <!-- Cas spécial -->
+        <div style="margin-top:12px;background:rgba(240,78,0,0.06);border:1px solid rgba(240,78,0,0.16);border-radius:10px;padding:11px 13px;display:flex;align-items:flex-start;gap:9px;">
+          <span style="font-size:1.1rem;flex-shrink:0;margin-top:-1px;">⬆️</span>
+          <div>
+            <div style="font-weight:800;font-size:.8rem;color:var(--orange);margin-bottom:3px;">Porté à 5 jours si :</div>
+            <div style="font-size:.73rem;color:var(--text-soft);line-height:1.6;">
+              • L'enfant est <strong style="color:var(--noir);">âgé de moins d'1 an</strong><br>
+              • Ou vous assumez la charge d'<strong style="color:var(--noir);">au moins 3 enfants</strong> de moins de 16 ans
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Note bas de page -->
+    <div style="padding:0 32px 24px;">
+      <div style="background:var(--bg);border:1px dashed var(--card-border);border-radius:11px;padding:12px 18px;font-size:.75rem;color:var(--text-faint);line-height:1.65;display:flex;align-items:flex-start;gap:9px;">
+        <span>📋</span>
+        <span>Ces droits s'appliquent pour tout enfant malade ou accidenté de <strong style="color:var(--noir);">moins de 16 ans</strong> dont vous assumez la charge. Un <strong style="color:var(--noir);">certificat médical</strong> sera demandé. Pour toute question, rapprochez-vous de votre manager ou d'un membre du CSE.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- AGENDA CSE -->
+<div class="section" id="section-agenda">
+  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">📅 Agenda CSE</h2><div class="sec-line"></div></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;">
+
+    <!-- Prochaine réunion CSE -->
+    <div style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:14px;background:#2563EB;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">RÉUNION</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">🏢</div>
+      <div style="font-weight:800;font-size:1rem;color:#1E3A5F;margin-bottom:4px;">Prochaine réunion CSE</div>
+      <div style="font-size:.82rem;color:#3B82F6;font-weight:700;margin-bottom:6px;">Lundi 13 avril 2026 à 14h00</div>
+      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Réunion mensuelle des membres du CSE. Ordre du jour communiqué sous 3 jours.</div>
+    </div>
+
+    <!-- Prochaine réunion équipe / magasin -->
+    <div style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:10px;right:14px;background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">MAGASIN</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">👥</div>
+      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Prochaine réunion équipe</div>
+      <div style="font-size:.82rem;color:var(--orange);font-weight:700;margin-bottom:6px;">À définir</div>
+      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Réunion d'information collective du magasin. Présence de la direction et du CSE.</div>
+    </div>
+
+    <!-- Journée de solidarité -->
+    <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;" id="agenda-solidarite">
+      <div style="position:absolute;top:10px;right:14px;background:#16A34A;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">OBLIGATOIRE</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">🤝</div>
+      <div style="font-weight:800;font-size:1rem;color:#14532D;margin-bottom:4px;">Journée de Solidarité</div>
+      <div style="font-size:.82rem;color:#16A34A;font-weight:700;margin-bottom:6px;">Jeudi 14 mai 2026</div>
+      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Journée de travail non rémunérée au profit de l'autonomie des personnes âgées et handicapées.</div>
+    </div>
+
+    <!-- Réunion de valeurs HTM -->
+    <div style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF);border:1.5px solid #D8B4FE;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;" id="agenda-valeurs">
+      <div style="position:absolute;top:10px;right:14px;background:#7C3AED;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">HTM</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;">💎</div>
+      <div style="font-weight:800;font-size:1rem;color:#4C1D95;margin-bottom:4px;">Réunion de Valeurs</div>
+      <div style="font-size:.82rem;color:#7C3AED;font-weight:700;margin-bottom:6px;">Jeudi 2 avril 2026 à 19h45</div>
+      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Réunion de valeurs HTM — présence de toute l'équipe souhaitée.</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CINEMA -->
+<div class="section" id="section-cinema">
+  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Cinéma Majestic</h2><div class="sec-line"></div></div>
+
+  <!-- Hero photo Majestic -->
+  <div style="position:relative;border-radius:22px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,0.3);">
+    <img src="images/img_majestic_bg.jpg" alt="Soirée Ciné Privée — Le Majestic Compiègne" style="width:100%;height:auto;display:block;max-height:520px;object-fit:cover;object-position:center top;">
+    <!-- Overlay dégradé bas -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(13,0,0,0.82) 100%);pointer-events:none;"></div>
+    <!-- Infos prix + bouton en bas -->
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:28px 36px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:8px;">
+          <span style="font-weight:900;font-size:3rem;color:#fff;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,0.5);">5€</span>
+          <span style="font-size:1rem;color:rgba(255,255,255,0.6);text-decoration:line-through;">11€</span>
+          <span style="background:#B8001E;color:#fff;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:100px;">−55%</span>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:100px;backdrop-filter:blur(6px);">💵 Espèces</span>
+          <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:100px;backdrop-filter:blur(6px);">📄 Chèque</span>
+          <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:100px;backdrop-filter:blur(6px);">📱 SumUp</span>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn-main" onclick="openModal()" style="backdrop-filter:blur(6px);">🎬 Demander des places</button>
+        <a href="https://www.majestic-compiegne.fr" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="backdrop-filter:blur(6px);color:#fff;border-color:rgba(255,255,255,0.35);text-decoration:none;display:inline-flex;align-items:center;gap:6px;">🎥 Voir les séances ↗</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOÎTE À IDÉES -->
+<div class="section" id="section-idees">
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
+  <div class="idee-box">
+    <h3>📬 Votre avis compte !</h3>
+    <p>Une idée pour améliorer la vie au boulot ? Un avantage que vous aimeriez voir arriver ? Dites-le-nous — anonymement ou non, on lit tout !</p>
+    <div class="f-row">
+      <div class="f-group"><label>Prénom (optionnel)</label><input type="text" id="idea-name" placeholder="ex: Sophie…"></div>
+      <div class="f-group">
+        <label>Catégorie</label>
+        <select id="idea-cat">
+          <option value="">Choisir…</option>
+          <option>🎬 Loisirs &amp; Sorties</option><option>🏥 Bien-être &amp; Santé</option>
+          <option>🍽️ Repas &amp; Restauration</option><option>⚽ Sport &amp; Activités</option>
+          <option>🎁 Avantages &amp; Réductions</option><option>🌱 Environnement &amp; RSE</option>
+          <option>💼 Conditions de Travail</option><option>🎉 Événements d'équipe</option><option>💬 Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-group"><label>Votre idée</label><textarea id="idea-text" placeholder="Décrivez votre suggestion… On est tout ouïe ! 👂"></textarea></div>
+    <button class="submit-btn" onclick="submitIdea()">📨 Envoyer mon idée par mail</button>
+  </div>
+</div>
+
+<!-- CONTACTS & RESSOURCES UTILES — ROUE CRANTÉE -->
+<div class="section" id="section-contacts">
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">⚙️ Contacts &amp; Ressources Utiles</h2><div class="sec-line"></div></div>
+
+  <!-- Référents harcèlement — card dédiée -->
+  <div style="background:linear-gradient(135deg,#1a0012 0%,#2d0020 50%,#1a0012 100%);border-radius:20px;padding:24px 32px;margin-bottom:20px;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden;box-shadow:0 6px 32px rgba(190,24,93,0.22);">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(190,24,93,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+    <div style="width:60px;height:60px;background:rgba(190,24,93,0.25);border:1px solid rgba(190,24,93,0.45);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;position:relative;z-index:1;">🛡️</div>
+    <div style="flex:1;position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(190,24,93,0.28);border:1px solid rgba(190,24,93,0.45);color:#F9A8D4;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">🛡️ Dispositif Confidentiel</div>
+      <h3 style="font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-0.4px;margin-bottom:6px;">Référents Harcèlement &amp; Agissements Sexistes</h3>
+      <p style="color:rgba(255,255,255,0.7);font-size:.83rem;line-height:1.6;max-width:560px;">Vous êtes témoin ou victime ? Nos référents sont là pour vous écouter en toute confidentialité. Toute situation signalée est prise au sérieux.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 18px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#D4145A,#F5467E);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.72rem;color:#fff;">CC</div>
+          <div><div style="font-weight:700;font-size:.82rem;color:#fff;">Claire Chapin</div><div style="font-size:.65rem;color:rgba(255,255,255,0.45);">Référente harcèlement</div></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 18px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#1A6FC4,#3B9EE8);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.72rem;color:#fff;">GM</div>
+          <div><div style="font-weight:700;font-size:.82rem;color:#fff;">Guillaume Mancebo</div><div style="font-size:.65rem;color:rgba(255,255,255,0.45);">Référent harcèlement</div></div>
+        </div>
+        <div style="background:rgba(190,24,93,0.2);border:1px solid rgba(190,24,93,0.38);border-radius:12px;padding:10px 18px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.1rem;">📞</span>
+          <div><div style="font-weight:800;font-size:.95rem;color:#F9A8D4;letter-spacing:0.5px;">3919</div><div style="font-size:.62rem;color:rgba(255,255,255,0.4);margin-top:1px;">Violences & Harcèlement · Gratuit · 7j/7</div></div>
+        </div>
+        <div style="background:rgba(190,24,93,0.2);border:1px solid rgba(190,24,93,0.38);border-radius:12px;padding:10px 18px;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.1rem;">🤝</span>
+          <div><div style="font-weight:800;font-size:.95rem;color:#F9A8D4;letter-spacing:0.5px;">116 006</div><div style="font-size:.62rem;color:rgba(255,255,255,0.4);margin-top:1px;">Aide aux victimes · France Victimes · Gratuit</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NUMÉRO B — Écoute & Soutien Boulanger -->
+  <div style="background:linear-gradient(135deg,#3a6b35 0%,#4e8a47 45%,#3a6b35 100%);border-radius:20px;padding:24px 32px;margin-bottom:20px;display:flex;align-items:center;gap:28px;position:relative;overflow:hidden;box-shadow:0 6px 32px rgba(74,138,68,0.28);">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,255,255,0.08) 0%,transparent 60%);pointer-events:none;"></div>
+    <!-- Logo Numéro B -->
+    <div style="flex-shrink:0;position:relative;z-index:1;">
+      <img src="images/img_numero_b.png" alt="Numéro B — Accepte qu'on te tende la main" style="height:80px;width:auto;border-radius:14px;display:block;box-shadow:0 4px 18px rgba(0,0,0,0.22);" onerror="this.style.display='none'">
+    </div>
+    <div style="flex:1;position:relative;z-index:1;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.28);color:#d4f5cf;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">💚 Dispositif Boulanger</div>
+      <h3 style="font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-0.4px;margin-bottom:6px;">Numéro B — Écoute &amp; Soutien</h3>
+      <p style="color:rgba(255,255,255,0.78);font-size:.84rem;line-height:1.65;max-width:520px;">Une ligne d'écoute confidentielle pour tous les collaborateurs Boulanger. Que ce soit pour une difficulté personnelle, professionnelle ou simplement pour parler — <strong style="color:#d4f5cf;">quelqu'un est là pour tendre la main.</strong></p>
+    </div>
+    <div style="flex-shrink:0;position:relative;z-index:1;text-align:center;">
+      <a href="tel:0969396903" style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);border-radius:16px;padding:16px 26px;text-decoration:none;transition:background .2s;">
+        <span style="font-size:1.4rem;">📞</span>
+        <span style="font-weight:900;font-size:1.5rem;color:#fff;letter-spacing:0.5px;line-height:1;">09 69 39 69 03</span>
+        <span style="font-size:.6rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-top:2px;">Gratuit · Confidentiel</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="gear-wrapper">
+    <div class="gear-svg-wrap">
+      <svg class="gear-svg" viewBox="0 0 280 280" id="gsvg">
+        <g id="gteeth"></g>
+        <g id="gsegs"></g>
+        <circle cx="140" cy="140" r="44" fill="#F04E00"/>
+        <circle cx="140" cy="140" r="36" fill="#fff"/>
+        <text x="140" y="135" font-family="Plus Jakarta Sans,sans-serif" font-weight="800" font-size="18" fill="#F04E00" text-anchor="middle" dominant-baseline="middle">⚙️</text>
+        <text x="140" y="153" font-family="Plus Jakarta Sans,sans-serif" font-weight="700" font-size="8.5" fill="#F04E00" text-anchor="middle" letter-spacing="1">CONTACTS</text>
+      </svg>
+    </div>
+    <div class="contacts-right">
+      <div class="contacts-right-title">Ressources &amp; contacts clés</div>
+      <div class="contacts-right-sub">Cliquez sur un segment ou filtrez ci-dessous</div>
+      <div class="cat-pills" id="cat-pills"></div>
+      <div class="contacts-items" id="contacts-items"></div>
+    </div>
+  </div>
+</div>
+
+<!-- NOS 30 COLLÈGUES -->
+<div class="section" id="section-equipe">
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Nos 28 Collègues</h2><div class="sec-line"></div></div>
+  <div class="genre-bar-wrap" id="genre-stats"></div>
+  <div class="equipe-grid" id="equipe-grid"></div>
+</div>
+
+<!-- ANNIVERSAIRES -->
+<div class="section" id="section-anniversaires">
+  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">🎂 Anniversaires</h2><div class="sec-line"></div></div>
+  <div class="birthday-tabs">
+    <button class="btab on" onclick="filterBirthdays('all',this)">Tous</button>
+    <button class="btab" onclick="filterBirthdays('month',this)">Ce mois-ci</button>
+    <button class="btab" onclick="filterBirthdays('next30',this)">30 prochains jours</button>
+  </div>
+  <div id="birthday-list"></div>
+</div>
+
+<!-- MEMBRES DU CSE — Virginie ajoutée -->
+<div class="section">
+  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">Membres du CSE</h2><div class="sec-line"></div></div>
+  <div class="cse-prenoms" id="cse-prenoms"></div>
+</div>
+
+<!-- SUIVRE BOULANGER -->
+<div class="section">
+  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">Suivre Boulanger</h2><div class="sec-line"></div></div>
+  <div class="social-grid">
+    <a href="https://www.instagram.com/boulanger/" target="_blank" rel="noopener noreferrer" class="social-card">
+      <div class="social-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+      </div>
+      <div class="social-info"><h4>@boulanger</h4><p>Instagram officiel Boulanger France</p></div>
+      <span class="social-arrow">↗</span>
+    </a>
+    <a href="https://www.facebook.com/Boulanger.Electromenager.Multimedia/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="social-card">
+      <div class="social-icon" style="background:linear-gradient(135deg,#1877F2,#0d5fc9);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </div>
+      <div class="social-info"><h4>Boulanger</h4><p>Page Facebook officielle Boulanger France</p></div>
+      <span class="social-arrow">↗</span>
+    </a>
+    <a href="https://x.com/boulanger" target="_blank" rel="noopener noreferrer" class="social-card">
+      <div class="social-icon" style="background:#000;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </div>
+      <div class="social-info"><h4>@boulanger</h4><p>Compte X officiel Boulanger France</p></div>
+      <span class="social-arrow">↗</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>CSE <span>Boulanger Compiègne</span> — Tous les collaborateurs méritent le meilleur ❤️</p>
+  <p>Site réservé aux collaborateurs du magasin Boulanger de Compiègne (60880 Jaux)</p>
+  <details style="margin-top:18px;text-align:left;max-width:700px;margin-left:auto;margin-right:auto;">
+    <summary style="cursor:pointer;font-weight:700;color:var(--orange);font-size:.78rem;letter-spacing:.5px;text-transform:uppercase;">Mentions légales &amp; Politique de confidentialité</summary>
+    <div style="margin-top:14px;line-height:1.8;font-size:.75rem;color:var(--text-soft);">
+
+      <p><strong>Éditeur du site</strong><br>
+      Comité Social et Économique (CSE) du magasin Boulanger Compiègne<br>
+      63 rue des Métiers, CC de Venette — 60880 Jaux<br>
+      Contact : <a href="#" data-mail="c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ==" style="color:var(--orange);">[chargement…]</a><br>
+      <strong>Responsable de traitement :</strong> CSE Boulanger Compiègne</p>
+
+      <p style="margin-top:10px;"><strong>Hébergement</strong><br>
+      L'hébergeur de ce site sera communiqué sur demande auprès du CSE à l'adresse ci-dessus.</p>
+
+      <p style="margin-top:10px;"><strong>Données personnelles &amp; base légale</strong><br>
+      Ce site affiche les prénoms, noms, photos, dates d'anniversaire et années de naissance des collaborateurs du magasin.<br>
+      <strong>Base légale :</strong> consentement explicite de chaque personne concernée (art. 6.1.a du Règlement UE 2016/679 — RGPD).<br>
+      Le consentement peut être retiré à tout moment en contactant le CSE ; le retrait n'affecte pas la licéité des traitements effectués avant celui-ci.<br>
+      <strong>Durée de conservation :</strong> les données sont conservées pendant la durée du contrat de travail. En cas de départ, elles sont supprimées dans un délai de 30 jours sur simple demande auprès du CSE.<br>
+      Conformément au RGPD et à la loi Informatique et Libertés, chaque collaborateur dispose d'un droit d'accès, de rectification, d'opposition et de suppression de ses données. Pour exercer ces droits, contactez le CSE à l'adresse ci-dessus.<br>
+      Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style="color:var(--orange);">CNIL (www.cnil.fr)</a>.</p>
+
+      <p style="margin-top:10px;"><strong>Cookies &amp; Traçage</strong><br>
+      Ce site n'utilise aucun cookie de traçage, aucun outil d'analyse d'audience et n'enregistre aucune donnée de navigation.<br>
+      <em>Note technique :</em> les polices de caractères sont chargées via Google Fonts (fonts.googleapis.com), ce qui implique une transmission de l'adresse IP du visiteur aux serveurs Google lors du premier chargement. Aucune autre donnée n'est transmise à des tiers.</p>
+
+      <p style="margin-top:10px;"><strong>Formulaires</strong><br>
+      Les formulaires (cinéma, boîte à idées) fonctionnent via votre client de messagerie local (protocole mailto). Aucune donnée n'est enregistrée sur un serveur tiers ; les données transitent uniquement par votre messagerie professionnelle.</p>
+
+      <p style="margin-top:10px;"><strong>Accès</strong><br>
+      Ce site est destiné exclusivement aux salariés du magasin Boulanger Compiègne. Toute diffusion à des tiers est interdite.</p>
+
+      <p style="margin-top:14px;color:var(--text-faint);font-size:.7rem;border-top:1px solid var(--card-border);padding-top:10px;">
+        Dernière mise à jour : <strong>avril 2026</strong> · Responsable de traitement : CSE Boulanger Compiègne
+      </p>
+    </div>
+  </details>
+</footer>
+
+<div class="toast" id="toast">✅ <span id="toast-msg"></span></div>
+
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <h3>🎬 Demande de places</h3>
+    <p>Remplissez le formulaire, le CSE vous recontactera pour confirmer. Paiement sur place.</p>
+    <div class="f-group"><label>Prénom &amp; Nom</label><input type="text" id="m-name" placeholder="ex: Jean Dupont"></div>
+    <div class="f-group"><label>Nombre de places <span style="color:var(--orange);font-weight:800">× 5€</span></label><input type="number" id="m-places" min="1" max="20" value="2" oninput="updateTotal()"></div>
+    <div class="total-row"><span>Total à régler au CSE</span><span class="total-num" id="total-display">10€</span></div>
+    <div class="pay-info-box">📄 <strong>Paiement accepté :</strong> Espèces · Chèque · SumUp</div>
+    <div class="f-group"><label>Film souhaité</label><input type="text" id="m-film" placeholder="ex: Nom du film…" list="films-dl"></div>
+    <datalist id="films-dl"></datalist>
+    <div class="f-group"><label>Date ou période</label><input type="text" id="m-date" placeholder="ex: Ce weekend, semaine prochaine…"></div>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmDemande()">🎟️ Confirmer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── DONNÉES ── */
+const salariesData = [
+  ['BRIERE Isabelle','F','09-24',1974],['MENINGAND Laury','H','04-12',1986],['GUILBERT Jonathan','H','02-22',1983],
+  ['MERMILLOD Michael','H','05-12',1991],['GARCIA Arnaud','H','10-16',1982],['GRARE Isabelle','F','07-16',1983],
+  ['GIBOYAU Cedric','H','11-28',1979],['MANCEBO Guillaume','H','07-03',1991],['GRASON Sabrina','F','03-08',1984],
+  ['COQUEREL Manon','F','06-29',1998],['VASSAUX Vanessa','F','01-01',1980],['POLLEUR Alexandra','F','12-10',1990],
+  ['TEIXEIRA Virginie','F','05-14',1981],['PECKEU Stephanie','F','12-25',1977],['RAMUS Quentin','H','10-26',2000],
+  ['DURANT Gregoire','H','10-21',1989],['THEVENIN Davy','H','08-28',1988],['MAILLOT Julien','H','03-09',1995],
+  ['SELLIER Pierrick','H','10-05',1982],['CAILLEUX Mickael','H','04-21',1972],['BARBOSA Antoine','H','05-24',null],
+  ['DERAMOND Quentin','H','07-06',2001],['VLIEGHE Mallory','F','11-10',1997],['CHAPIN Claire','F','11-03',1981],
+  ['MEREAUX Gaelle','F','10-23',2006],['STIMOLO Yvan','H','12-18',2007],['RABASTE Chloe','F','05-26',2004],
+  ['MALARD Clement','H','01-18',1988],
+];
+
+const employeePhotos = {
+  "POLLEUR": "images/img_05.webp",
+  "BARBOSA": "images/img_06.webp",
+  "GARCIA": "images/img_07.webp",
+  "GIBOYAU": "images/img_09.webp",
+  "RABASTE": "images/img_10.webp",
+  "CHAPIN": "images/img_11.webp",
+  "THEVENIN": "images/img_13.webp",
+  "MEREAUX": "images/img_14.webp",
+  "DURANT": "images/img_15.webp",
+  "MANCEBO": "images/img_16.webp",
+  "BRIERE": "images/img_17.webp",
+  "GUILBERT": "images/img_18.webp",
+  "MAILLOT": "images/img_19.webp",
+  "MENINGAND": "images/img_20.webp",
+  "RAMUS": "images/img_21.webp",
+  "GRASON": "images/img_22.webp",
+  "PECKEU": "images/img_23.webp",
+  "VASSAUX": "images/img_24.webp",
+  "TEIXEIRA": "images/img_25.webp",
+  "STIMOLO": "images/img_26.webp",
+  "VLIEGHE": "images/img_27.webp",
+  "COQUEREL": "images/img_28.webp",
+  "CAILLEUX": "images/img_29.webp",
+  "MERMILLOD": "images/img_30.webp",
+  "SELLIER": "images/img_31.webp",
+  "DERAMOND": "images/img_32.webp"
+};
+
+function ini(s){const p=s.trim().split(' ');return p.length>=2?p[1][0]+p[0][0]:s.substring(0,2).toUpperCase();}
+function fmt(s){const p=s.trim().split(' ');if(p.length>=2)return p[1].charAt(0).toUpperCase()+p[1].slice(1).toLowerCase()+' '+p[0];return s;}
+
+/* Équipe stats */
+const nbH=salariesData.filter(s=>s[1]==='H').length,nbF=salariesData.filter(s=>s[1]==='F').length,total=salariesData.length,pctH=Math.round(nbH/total*100),pctF=100-pctH;
+document.getElementById('genre-stats').innerHTML=`<div class="genre-count"><div class="n h">♂ ${nbH}</div><div class="lbl">Hommes</div><div class="pct h">${pctH}%</div></div><div class="genre-bar-inner"><div class="genre-bar-labels"><span style="color:var(--homme-color);font-size:.65rem;font-weight:700;">♂ Hommes ${pctH}%</span><span style="color:var(--femme-color);font-size:.65rem;font-weight:700;">♀ Femmes ${pctF}%</span></div><div class="genre-bar-track"><div class="genre-bar-fill" style="width:${pctH}%"></div></div><div style="font-size:.62rem;color:var(--text-faint);margin-top:5px;text-align:center;">${total} collaborateurs</div></div><div class="genre-count"><div class="n f">♀ ${nbF}</div><div class="lbl">Femmes</div><div class="pct f">${pctF}%</div></div>`;
+document.getElementById('equipe-grid').innerHTML=salariesData.map(s=>{const g=s[1]==='H'?'homme':'femme';const lastName=s[0].trim().split(' ')[0];const photo=employeePhotos[lastName];const av=photo?`<img src="${photo}" class="emp-av-photo" alt="${fmt(s[0])}">`:`<div class="emp-av ${g}">${ini(s[0])}</div>`;return`<div class="emp">${av}<div><div class="emp-name" style="font-size:.72rem;line-height:1.2;color:${s[1]==='H'?'var(--homme-color)':'var(--femme-color)'}">${fmt(s[0])}</div></div></div>`;}).join('');
+
+/* Membres CSE — Virginie ajoutée */
+document.getElementById('cse-prenoms').innerHTML=['Sabrina','Claire','Stéphanie','Quentin','Clément','Virginie'].map(p=>`<div class="cse-pill">${p}</div>`).join('');
+
+/* ── ANNIVERSAIRES ── */
+const MFR=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+let curBdF='all';
+function daysUntil(mmdd){const today=new Date();today.setHours(0,0,0,0);const[mm,dd]=mmdd.split('-').map(Number);let n=new Date(today.getFullYear(),mm-1,dd);if(n<today)n=new Date(today.getFullYear()+1,mm-1,dd);return Math.round((n-today)/86400000);}
+function fmtBD(mmdd){const[mm,dd]=mmdd.split('-').map(Number);return`${dd} ${MFR[mm-1]}`;}
+function filterBirthdays(mode,btn){curBdF=mode;document.querySelectorAll('.btab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderBirthdays();}
+function calcAge(mmdd,birthYear){if(!birthYear)return null;const today=new Date();const[mm,dd]=mmdd.split('-').map(Number);let age=today.getFullYear()-birthYear;if(today.getMonth()+1<mm||(today.getMonth()+1===mm&&today.getDate()<dd))age--;return age;}
+function renderBirthdays(){
+  const today=new Date();today.setHours(0,0,0,0);const cm=today.getMonth()+1;
+  let list=salariesData.map(s=>({name:fmt(s[0]),genre:s[1]==='H'?'homme':'femme',initials:ini(s[0]),mmdd:s[2],birthYear:s[3]||null,days:daysUntil(s[2]),dateStr:fmtBD(s[2]),month:parseInt(s[2].split('-')[0])})).sort((a,b)=>a.days-b.days);
+  if(curBdF==='month')list=list.filter(p=>p.month===cm);
+  else if(curBdF==='next30')list=list.filter(p=>p.days<=30);
+  const wrap=document.getElementById('birthday-list');
+  if(!list.length){wrap.innerHTML=`<div class="birthday-empty">🎂 Aucun anniversaire pour cette période.</div>`;return;}
+  wrap.innerHTML=`<div class="birthday-list-inner">${list.map(p=>{let badge='',cls='';if(p.days===0){badge='🎂 Aujourd\'hui !';cls='today';}else if(p.days<=7){badge=`Dans ${p.days} jour${p.days>1?'s':''}`;cls='soon';}else if(p.days<=30){badge=`Dans ${p.days} jours`;cls='upcoming';}else{badge=p.dateStr;cls='future';}const age=calcAge(p.mmdd,p.birthYear);const ageStr=age!==null?(p.days===0?` · 🎂 ${age} ans`:(p.days<=30?` · aura ${age+1} ans`:``)): '';const cakeHtml=p.days===0?`<div class="birthday-cake-anim" title="Bon anniversaire !">🎂<span class="birthday-stars">⭐✨⭐</span></div>`:'';return`<div class="birthday-item${p.days===0?' is-today':''}"><div class="birthday-av ${p.genre}">${p.initials}</div><div style="flex:1;"><div class="birthday-name">${p.name}</div><div class="birthday-date-text">🗓️ ${p.dateStr}${p.birthYear?' '+p.birthYear:''}${ageStr} · ${p.genre==='homme'?'♂':'♀'}</div></div>${cakeHtml}<span class="birthday-badge ${cls}">${badge}</span></div>`;}).join('')}</div>`;
+}
+renderBirthdays();
+
+/* ── ROUE CRANTÉE ── */
+const contactsCats = [
+  {cat:'Urgences', icon:'🚨', color:'#E84400', items:[
+    {name:'SAMU',desc:'Urgences médicales',num:'15',badge:'u'},
+    {name:'Police Secours',desc:'Urgences police',num:'17',badge:'u'},
+    {name:'Pompiers',desc:'Incendie / secours',num:'18',badge:'u'},
+    {name:'Numéro d\'urgence',desc:'Depuis tout mobile (Europe)',num:'112',badge:'u'},
+  ]},
+  {cat:'ESALIA', icon:'🏥', color:'#0069A8', items:[
+    {name:'ESALIA Mutuelle — Espace salariés',desc:'Mutuelle santé Boulanger · Remboursements, suivi en ligne & téléconsultation médecin incluse',num:'0 970 823 100',link:'https://iam.esalia.com/connect/XUI/?realm=/sg_ws&locale=fr&goto=https://iam.esalia.com:443/connect/oauth2/authorize?code_challenge_method%3DS256%26ui_locales%3Dfr%26response_type%3Dcode%26client_id%3Dsg_nfe_web%26scope%3Dopenid%2520nfe%26state%3Du0C0KvJt66TAeEIOCxTMvS11FqcOs3KWLJYAEDrifh4%253D%26redirect_uri%3Dhttps://salaries.esalia.com/sso/oauth2/code/iam%26nonce%3DPDxq4rifEulOdGtf9O2cQ7zz9zHz1pJTdvmYoOExb3E%26code_challenge%3DJMufUoF0zaDW1vgmZ1ZRQAOxfyty2wz4sYowc5pMno4%26locale%3Dfr#login/',badge:'g'},
+  ]},
+  {cat:'1% Patronal', icon:'🏠', color:'#0A8A4A', items:[
+    {name:'Action Logement',desc:'Aide location, accession, travaux',num:'0 800 700 032',link:'https://www.actionlogement.fr',badge:'g'},
+    {name:'Loca-Pass',desc:'Avance caution locative',link:'https://www.actionlogement.fr/loca-pass',badge:'g'},
+    {name:'Prêt accession',desc:'Financement achat immobilier',link:'https://www.actionlogement.fr/le-pret-action-logement',badge:null},
+    {name:'Aide travaux',desc:'Rénovation de votre logement',link:'https://www.actionlogement.fr',badge:null},
+  ]},
+  {cat:'Anti-Harcèlement', icon:'🛡️', color:'#BE185D', items:[
+    {name:'3919 — Violences & Harcèlement',desc:'Numéro national · gratuit, anonyme, 7j/7 · harcèlement moral, sexuel, violences au travail',num:'3919',badge:'u'},
+    {name:'116 006 — Aide aux victimes',desc:'France Victimes · professionnels formés, gratuit, 7j/7 de 9h à 19h',num:'116 006',badge:'u'},
+    {name:'Claire Chapin',desc:'Référente harcèlement — disponible en magasin',badge:null},
+    {name:'Guillaume Mancebo',desc:'Référent harcèlement — disponible en magasin',badge:null},
+    {name:'Défenseur des droits',desc:'Signalement discrimination & harcèlement · 09 69 39 00 00',num:'3928',link:'https://www.defenseurdesdroits.fr',badge:'g'},
+  ]},
+  {cat:'Social & Santé', icon:'💊', color:'#C97D0A', items:[
+    {name:'Numéro B — Écoute & Soutien',desc:'Ligne d\'écoute Boulanger · Accepte qu\'on te tende la main · Pour tous les collaborateurs',num:'09 69 39 69 03',badge:'g'},
+    {name:'Prévention suicide',desc:'Numéro national d\'aide — disponible 24h/24',num:'3114',badge:'g'},
+    {name:'Arrêt maladie',desc:'Déclarer un arrêt : prévenir le manager + transmettre sous 48h',badge:null},
+    {name:'Reconnaissance RQTH',desc:'Travailleur handicapé — contact RH pour accompagnement',badge:null},
+  ]},
+  {cat:'Enfant Malade', icon:'🧒', color:'#0A8A4A', items:[
+    {name:'≥ 1 an d\'ancienneté',desc:'6 demi-journées rémunérées / an · quel que soit le nbre d\'enfants',badge:null},
+    {name:'< 1 an d\'ancienneté',desc:'3 jours d\'absence non rémunérée / an',badge:null},
+    {name:'Cas spéciaux < 1 an',desc:'5 jours si enfant < 1 an ou ≥ 3 enfants de moins de 16 ans',badge:null},
+    {name:'Conditions',desc:'Enfant malade ou accidenté de moins de 16 ans dont vous assumez la charge',badge:null},
+  ]},
+  {cat:'Infos diverses', icon:'📋', color:'#475569', items:[
+    {name:'Digipost — Mes fiches de paye',desc:'Consulter et télécharger vos bulletins de salaire en ligne',link:'https://www.laposte.fr/digiposte/tous-mes-documents-partout-et-tout-le-temps',badge:'g'},
+    {name:'Recovery Mass — RDV Massage',desc:'Partenariat CSE · Massage sportif & TMS · Tarifs préférentiels −50%',num:'06 52 93 52 04',link:'https://www.planity.com/recovery-mass-60410-verberie',badge:'g'},
+    {name:'ANCV',desc:'Chèques vacances — commande',link:'https://www.ancv.com',badge:null},
+    {name:'Service-Public',desc:'Droits salariés, congés, chômage…',link:'https://www.service-public.fr',badge:null},
+    {name:'Majestic Compiègne',desc:'Programme cinéma — tarif CSE 5€',link:'https://www.majestic-compiegne.fr',badge:null},
+    {name:'Inspection du Travail',desc:'DREETS Hauts-de-France',link:'https://hauts-de-france.dreets.gouv.fr',badge:null},
+  ]},
+];
+
+/* Construire la roue SVG */
+(function(){
+  const cx=140,cy=140,Rout=108,Rin=70,nTeeth=28,tH=14,tW=0.13;
+  const teethG=document.getElementById('gteeth');
+  const segsG=document.getElementById('gsegs');
+  const N=contactsCats.length;
+
+  // Dents
+  for(let i=0;i<nTeeth;i++){
+    const a=(i/nTeeth)*Math.PI*2;
+    const a1=a-tW,a2=a+tW,a3=a-tW*0.55,a4=a+tW*0.55;
+    const pts=[
+      cx+Rout*Math.cos(a1),cy+Rout*Math.sin(a1),
+      cx+(Rout+tH)*Math.cos(a3),cy+(Rout+tH)*Math.sin(a3),
+      cx+(Rout+tH)*Math.cos(a4),cy+(Rout+tH)*Math.sin(a4),
+      cx+Rout*Math.cos(a2),cy+Rout*Math.sin(a2)
+    ];
+    const poly=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    poly.setAttribute('points',pts.join(' '));
+    poly.setAttribute('fill','#F04E00');
+    poly.setAttribute('opacity','0.88');
+    teethG.appendChild(poly);
+  }
+  // Anneau de fond
+  const bgRing=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  bgRing.setAttribute('cx',cx);bgRing.setAttribute('cy',cy);bgRing.setAttribute('r',Rout);
+  bgRing.setAttribute('fill','#F5F0EB');
+  segsG.insertBefore(bgRing,segsG.firstChild);
+
+  // Segments
+  const gap=0.04;
+  contactsCats.forEach((cat,i)=>{
+    const sa=(i/N)*Math.PI*2-Math.PI/2+gap;
+    const ea=((i+1)/N)*Math.PI*2-Math.PI/2-gap;
+    const ma=(sa+ea)/2;
+    const x1=cx+Rin*Math.cos(sa),y1=cy+Rin*Math.sin(sa);
+    const x2=cx+Rout*Math.cos(sa),y2=cy+Rout*Math.sin(sa);
+    const x3=cx+Rout*Math.cos(ea),y3=cy+Rout*Math.sin(ea);
+    const x4=cx+Rin*Math.cos(ea),y4=cy+Rin*Math.sin(ea);
+    const la=(ea-sa)>Math.PI?1:0;
+    const d=`M${x1},${y1}L${x2},${y2}A${Rout},${Rout} 0 ${la},1 ${x3},${y3}L${x4},${y4}A${Rin},${Rin} 0 ${la},0 ${x1},${y1}Z`;
+    const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.style.cursor='pointer';
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',d);path.setAttribute('fill',cat.color);path.setAttribute('opacity','0.85');
+    path.style.transition='opacity .2s';
+    g.addEventListener('mouseenter',()=>{path.setAttribute('opacity','1');});
+    g.addEventListener('mouseleave',()=>{path.setAttribute('opacity','0.85');});
+    g.addEventListener('click',()=>setContactCat(cat.cat));
+    const lx=cx+(Rin+20)*Math.cos(ma),ly=cy+(Rin+20)*Math.sin(ma);
+    const txt=document.createElementNS('http://www.w3.org/2000/svg','text');
+    txt.setAttribute('x',lx);txt.setAttribute('y',ly);
+    txt.setAttribute('text-anchor','middle');txt.setAttribute('dominant-baseline','middle');
+    txt.setAttribute('font-size','15');txt.setAttribute('pointer-events','none');
+    txt.textContent=cat.icon;
+    g.appendChild(path);g.appendChild(txt);
+    segsG.appendChild(g);
+  });
+
+  // Rotation animation
+  let ang=0,running=true;
+  const svgEl=document.getElementById('gsvg');
+  function spin(){if(running){ang+=0.12;teethG.setAttribute('transform',`rotate(${ang},${cx},${cy})`);segsG.setAttribute('transform',`rotate(${ang},${cx},${cy})`);requestAnimationFrame(spin);}}
+  spin();
+  svgEl.addEventListener('mouseenter',()=>{running=false;});
+  svgEl.addEventListener('mouseleave',()=>{running=true;spin();});
+})();
+
+/* Filtres contacts */
+let activeCat='all';
+function buildCatPills(){
+  document.getElementById('cat-pills').innerHTML=
+    `<button class="cat-pill on" onclick="setContactCat('all',this)">Tous</button>`+
+    contactsCats.map(c=>`<button class="cat-pill" onclick="setContactCat('${c.cat}',this)">${c.icon} ${c.cat}</button>`).join('');
+}
+function setContactCat(cat,btn){
+  activeCat=cat;
+  document.querySelectorAll('.cat-pill').forEach(b=>b.classList.remove('on'));
+  if(btn){btn.classList.add('on');}
+  else{document.querySelectorAll('.cat-pill').forEach(b=>{if(b.textContent.trim().includes(cat))b.classList.add('on');});}
+  renderContacts();
+}
+function renderContacts(){
+  let items=[];
+  if(activeCat==='all'){contactsCats.forEach(c=>c.items.forEach(it=>items.push({...it,color:c.color,icon:c.icon})));}
+  else{const f=contactsCats.find(c=>c.cat===activeCat);if(f)items=f.items.map(it=>({...it,color:f.color,icon:f.icon}));}
+  document.getElementById('contacts-items').innerHTML=items.map(it=>`
+    <div class="c-item${it.badge==='u'?' urg':''}">
+      <div class="c-ico" style="background:${it.color}18;border:1px solid ${it.color}28;">${it.icon}</div>
+      <div class="c-info">
+        <div class="c-name">${it.name}</div>
+        <div class="c-desc">${it.desc}</div>
+      </div>
+      <div class="c-right">
+        ${it.num?`<span class="c-num">${it.num}</span>`:''}
+        ${it.link?`<a href="${it.link}" target="_blank" rel="noopener noreferrer" class="c-link">↗ Accéder</a>`:''}
+        ${it.badge==='g'?`<span class="c-badge g">✓ Gratuit</span>`:it.badge==='u'?`<span class="c-badge u">⚡ Urgent</span>`:''}
+      </div>
+    </div>`).join('');
+}
+buildCatPills();
+renderContacts();
+
+/* ── CINÉMA ── */
+
+function loadSeances(){
+  // Cinéma géré via lien externe majestic-compiegne.fr
+}
+
+/* ── MODAL ── */
+function openModal(){document.getElementById('modal').classList.add('open');}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
+function updateTotal(){const n=parseInt(document.getElementById('m-places').value)||0;document.getElementById('total-display').textContent=(n*5)+'€';}
+
+/* ── TOAST ── */
+function showToast(msg){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
+
+/* ── CONFIRMER DEMANDE ── */
+function confirmDemande(){
+  const name=document.getElementById('m-name').value.trim();
+  const places=document.getElementById('m-places').value;
+  const tot=(parseInt(places)||0)*5;
+  const film=document.getElementById('m-film').value.trim()||'Au choix';
+  const date=document.getElementById('m-date').value.trim()||'À définir';
+  if(!name){document.getElementById('m-name').style.borderColor='#F04E00';document.getElementById('m-name').focus();return;}
+  const cseEmails=atob('c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ==')+',' +atob('Y2xhaXJlLmNoYXBpbkBib3VsYW5nZXIuY29t')+','+atob('c3RlcGhhbmllLnBlY2tldUBib3VsYW5nZXIuY29t')+','+atob('cXVlbnRpbi5yYW11c0Bib3VsYW5nZXIuY29t')+','+atob('Y2xlbWVudC5tYWxhcmRAYm91bGFuZ2VyLmNvbQ==')+','+atob('dmlyZ2luaWUudGVpeGVpcmExQGJvdWxhbmdlci5jb20=');
+  const subject='[CSE Boulanger] Demande de places cinéma — '+name;
+  const body='Bonjour,\n\nNouvelle demande de places de cinéma :\n\nCollaborateur : '+name+'\nNombre de places : '+places+'\nTotal : '+tot+'€\nFilm souhaité : '+film+'\nDate / période : '+date+'\n\nMerci de contacter le collaborateur pour confirmer la réservation.\nPaiement sur place (Espèces · Chèque · SumUp).\n\n— Formulaire CSE Boulanger Compiègne';
+  // Fermer la modal et reset
+  closeModal();
+  ['m-name','m-film','m-date'].forEach(id=>{document.getElementById(id).value='';document.getElementById(id).style.borderColor='';});
+  document.getElementById('m-places').value='2';document.getElementById('total-display').textContent='10€';
+  // Afficher le choix de messagerie
+  const gmailUrl='https://mail.google.com/mail/?view=cm&to='+encodeURIComponent(cseEmails)+'&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  const outlookUrl='https://outlook.office.com/mail/deeplink/compose?to='+encodeURIComponent(cseEmails)+'&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  const mailtoUrl='mailto:'+cseEmails+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  // Créer le popup de choix
+  const overlay=document.createElement('div');
+  overlay.id='mail-choice-overlay';
+  overlay.style.cssText='position:fixed;inset:0;z-index:9998;background:rgba(28,16,9,0.35);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;';
+  overlay.innerHTML=`<div style="background:#fff;border-radius:22px;padding:32px 36px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.18);position:relative;">
+    <div style="text-align:center;margin-bottom:8px;font-size:1.8rem;">📧</div>
+    <h3 style="font-weight:800;font-size:1.2rem;color:#1C1009;text-align:center;margin-bottom:6px;">Envoyer la demande</h3>
+    <p style="color:rgba(28,16,9,0.55);font-size:.82rem;text-align:center;margin-bottom:22px;line-height:1.6;">${places} place(s) — ${tot}€ · Film : ${film}</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <a href="${gmailUrl}" target="_blank" rel="noopener" onclick="setTimeout(()=>document.getElementById('mail-choice-overlay').remove(),300)" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e0e0e0;border-radius:13px;padding:13px 18px;text-decoration:none;color:#1C1009;font-weight:700;font-size:.88rem;transition:all .18s;box-shadow:0 2px 10px rgba(0,0,0,0.06);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'">
+        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 5.72V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5.72l10 7 10-7z" fill="#EA4335"/><path d="M22 5.72L12 12.72 2 5.72 12 3l10 2.72z" fill="#FBBC04"/><path d="M2 5.72V18a2 2 0 0 0 2 2h.5V8.5L12 14l7.5-5.5V20H20a2 2 0 0 0 2-2V5.72l-10 7-10-7z" fill="#34A853"/><path d="M2 5.72l10 7 10-7L12 3 2 5.72z" fill="#EA4335"/></svg>
+        Ouvrir dans Gmail
+      </a>
+      <a href="${outlookUrl}" target="_blank" rel="noopener" onclick="setTimeout(()=>document.getElementById('mail-choice-overlay').remove(),300)" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e0e0e0;border-radius:13px;padding:13px 18px;text-decoration:none;color:#1C1009;font-weight:700;font-size:.88rem;transition:all .18s;box-shadow:0 2px 10px rgba(0,0,0,0.06);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'">
+        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="3" fill="#0072C6"/><path d="M4 8l8 5 8-5v9H4V8z" fill="#fff" opacity=".9"/><path d="M4 8l8 5 8-5" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
+        Ouvrir dans Outlook
+      </a>
+      <a href="${mailtoUrl}" onclick="setTimeout(()=>document.getElementById('mail-choice-overlay').remove(),300)" style="display:flex;align-items:center;gap:12px;background:#fafafa;border:1px solid #e8e8e8;border-radius:13px;padding:11px 18px;text-decoration:none;color:rgba(28,16,9,0.5);font-weight:600;font-size:.8rem;transition:all .18s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fafafa'">
+        <span style="font-size:1.1rem">📬</span>
+        Autre messagerie (application par défaut)
+      </a>
+    </div>
+    <button onclick="document.getElementById('mail-choice-overlay').remove()" style="position:absolute;top:14px;right:14px;background:#f5f0eb;border:1px solid rgba(28,16,9,0.1);border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:.75rem;color:rgba(28,16,9,0.4);display:flex;align-items:center;justify-content:center;">✕</button>
+  </div>`;
+  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
+  document.body.appendChild(overlay);
+  showToast('🎟️ '+places+' place(s) = '+tot+'€ — Choisissez votre messagerie');
+}
+
+/* ── BOÎTE À IDÉES ── */
+function submitIdea(){
+  const t=document.getElementById('idea-text').value.trim();
+  if(!t){document.getElementById('idea-text').focus();return;}
+  const name=document.getElementById('idea-name').value.trim()||'Anonyme';
+  const cat=document.getElementById('idea-cat').value||'Non précisée';
+  const subject=encodeURIComponent('[CSE Boulanger] Nouvelle idée : '+cat);
+  const body=encodeURIComponent('Prénom : '+name+'\nCatégorie : '+cat+'\n\nIdée :\n'+t);
+  window.location.href='mailto:'+[atob('c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ=='),atob('c3RlcGhhbmllLnBlY2tldUBib3VsYW5nZXIuY29t'),atob('Y2xhaXJlLmNoYXBpbkBib3VsYW5nZXIuY29t'),atob('cXVlbnRpbi5yYW11c0Bib3VsYW5nZXIuY29t'),atob('dmlyZ2luaWUudGVpeGVpcmExQGJvdWxhbmdlci5jb20='),atob('Y2xlbWVudC5tYWxhcmRAYm91bGFuZ2VyLmNvbQ==')].join(',')+'?subject='+subject+'&body='+body;
+  ['idea-text','idea-name','idea-cat'].forEach(id=>{document.getElementById(id).value='';});
+  showToast('💡 Merci ! Votre messagerie va s\'ouvrir.');
+}
+
+loadSeances();
+
+/* ── BANNIÈRE ACCÈS ── */
+if (sessionStorage.getItem('banner_ok')) {
+  document.getElementById('access-banner').classList.add('hidden');
+}
+
+/* ── HAMBURGER ── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+  mobileMenu.setAttribute('aria-hidden','true');
+}
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+// Fermer le menu si clic en dehors
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
+});
+
+/* ── EMAILS OBFUSQUÉS (protection spam/scraping) ── */
+document.querySelectorAll('a[data-mail]').forEach(function(el) {
+  try {
+    const decoded = atob(el.getAttribute('data-mail'));
+    el.href = 'mailto:' + decoded;
+    el.textContent = decoded;
+  } catch(e) {}
+});
+
+</script>
+</body>
+</html>
