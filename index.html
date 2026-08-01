@@ -301,19 +301,6 @@ footer { text-align: center; padding: 40px 32px; border-top: 1px solid var(--car
 footer p { margin-bottom: 5px; }
 footer span { color: var(--orange); font-weight: 700; }
 
-/* BANNIÈRE ACCÈS RÉSERVÉ */
-.access-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
-  background: linear-gradient(90deg, #003F88, #0055B3);
-  color: #fff; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; font-size: .78rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  flex-wrap: wrap; }
-.access-banner strong { font-weight: 700; }
-.access-banner button { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
-  color: #fff; padding: 6px 16px; border-radius: 20px; cursor: pointer; font-size: .75rem;
-  font-weight: 600; white-space: nowrap; }
-.access-banner button:hover { background: rgba(255,255,255,0.32); }
-.access-banner.hidden { display: none; }
-
 /* ÉCRAN MOT DE PASSE */
 #site-content { display: none; }
 body.unlocked #site-content { display: block; }
@@ -453,11 +440,6 @@ body.unlocked .pw-gate { display: none; }
 })();
 </script>
 <div id="site-content">
-<div class="access-banner" id="access-banner">
-  <span>🔒 <strong>Accès réservé</strong> — Ce site est exclusivement destiné aux collaborateurs du magasin Boulanger Compiègne. Toute diffusion est interdite.</span>
-  <button onclick="document.getElementById('access-banner').classList.add('hidden');sessionStorage.setItem('banner_ok','1')">J'ai compris</button>
-</div>
-
 <header>
   <div class="hdr">
     <div class="logo">
@@ -471,6 +453,7 @@ body.unlocked .pw-gate { display: none; }
       <nav class="hdr-nav">
         <a href="#section-avantages">🎁 Avantages</a>
         <a href="#section-recovery">💆 Bien-être</a>
+        <a href="#section-parcs">🎡 Parcs</a>
         <a href="#section-agenda">📅 Agenda</a>
         <a href="#section-cinema">🎬 Cinéma</a>
         <a href="#section-idees">💡 Idées</a>
@@ -488,6 +471,7 @@ body.unlocked .pw-gate { display: none; }
 <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="#section-avantages" onclick="closeMenu()">🎁 Avantages</a>
   <a href="#section-recovery" onclick="closeMenu()">💆 Bien-être & Massages</a>
+  <a href="#section-parcs" onclick="closeMenu()">🎡 Parcs & Loisirs</a>
   <a href="#section-agenda" onclick="closeMenu()">📅 Agenda CSE</a>
   <a href="#section-cinema" onclick="closeMenu()">🎬 Cinéma</a>
   <a href="#section-idees" onclick="closeMenu()">💡 Boîte à idées</a>
@@ -548,6 +532,7 @@ body.unlocked .pw-gate { display: none; }
     <div class="av-card"><span class="av-ico">🎁</span><h3>Chèques cadeaux</h3><p>Cadeaux de fin d'année, naissance, mariage… Le CSE vous accompagne aux moments importants.</p><span class="av-pill">Événements</span></div>
     <div class="av-card"><span class="av-ico">🏖️</span><h3>Chèques vacances</h3><p>Aide au financement de vos congés avec les chèques vacances ANCV à tarif préférentiel.</p><span class="av-pill">ANCV</span></div>
     <div class="av-card"><span class="av-ico">💆</span><h3>Massage Recovery Mass</h3><p>Massage sportif & récupération musculaire à tarif CSE — dès 15€ les 30 min, valable pour vous, conjoint(e) et enfants.</p><span class="av-pill">Nouveau ✨</span></div>
+    <a href="#section-parcs" class="av-card" style="text-decoration:none;display:block;"><span class="av-ico">🎡</span><h3>Parcs & Loisirs</h3><p>Retrouvez ici toutes les remises négociées par le CSE avec nos partenaires parcs et divertissement.</p><span class="av-pill">Nouveau ✨</span></a>
     <div class="av-card"><span class="av-ico">🎉</span><h3>Événements équipe</h3><p>Repas de fin d'année, journées teambuilding, afterworks… Le CSE organise pour vous.</p><span class="av-pill">Toute l'année</span></div>
     <div class="av-card"><span class="av-ico">💡</span><h3>Boîte à idées</h3><p>Vous avez des suggestions pour améliorer vos avantages ? Proposez-les directement au CSE.</p><span class="av-pill">Participatif</span></div>
   </div>
@@ -691,10 +676,96 @@ body.unlocked .pw-gate { display: none; }
 
 </div>
 
+<!-- PARCS & LOISIRS -->
+<div class="section" id="section-parcs">
+  <div class="sec-head"><span class="sec-num" style="color:#7C3AED;">04</span><h2 class="sec-title">🎡 Parcs &amp; Loisirs — Remises CSE</h2><div class="sec-line" style="background:linear-gradient(to right, rgba(124,58,237,.22), transparent);"></div></div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;">
+
+    <!-- Black Holes Mini Golf -->
+    <div style="background:linear-gradient(135deg,#1a0530 0%,#2d0a4d 45%,#1C1009 100%);border-radius:22px;padding:28px 32px;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(124,58,237,0.25);">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(168,85,247,0.22) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(168,85,247,0.2);border:1px solid rgba(168,85,247,0.4);color:#D8B4FE;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:12px;">🕳️ Mini-golf lumineux</div>
+        <h3 style="font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-0.4px;margin-bottom:10px;">Black Holes — Mini Golf</h3>
+        <div style="font-size:.83rem;color:rgba(255,255,255,0.78);line-height:1.8;margin-bottom:14px;">
+          ✨ Une immersion dans un univers lumineux et fun<br>
+          🤝 Des défis à partager entre collègues — team building idéal<br>
+          🎈 Des activités pour tous les âges (de 3 à 120 ans !)<br>
+          🍿 Un espace snacking, boissons et animations
+        </div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,0.6);margin-bottom:18px;">📍 Chambly — à 40 min de Paris &amp; Beauvais · parking gratuit</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <div style="background:rgba(168,85,247,0.18);border:1px solid rgba(168,85,247,0.4);border-radius:14px;padding:10px 18px;text-align:center;">
+            <span style="font-weight:800;font-size:1.5rem;color:#D8B4FE;display:block;line-height:1;">−20%</span>
+            <span style="font-size:.58rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:3px;display:block;font-weight:600;">Offre CSE</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:9px 14px;font-size:.7rem;color:rgba(255,255,255,0.7);">🎫 Billets valables 1 an</div>
+        </div>
+        <button class="btn-main" onclick="openParcModal('Black Holes Mini Golf')" style="justify-content:center;width:100%;margin-top:14px;background:#7C3AED;">🎟️ Demander mes billets</button>
+      </div>
+    </div>
+
+    <!-- Sherwood Parc -->
+    <div style="background:linear-gradient(135deg,#0A3D1F 0%,#12481f 45%,#1a1005 100%);border-radius:22px;padding:28px 32px;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(10,138,74,0.22);">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(201,125,10,0.18) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:relative;z-index:1;">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(201,125,10,0.2);border:1px solid rgba(201,125,10,0.4);color:#FCD34D;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:12px;">🏹 Parc d'aventures</div>
+        <h3 style="font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-0.4px;margin-bottom:10px;">Sherwood Parc</h3>
+        <div style="font-size:.83rem;color:rgba(255,255,255,0.78);line-height:1.8;margin-bottom:14px;">
+          🌳 Le plus grand parc d'aventures de France<br>
+          🎟️ Billets valables sur 2 saisons<br>
+          🔁 Renouvelables gratuitement pour une saison supplémentaire si non utilisés
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+          <div style="background:rgba(201,125,10,0.2);border:1px solid rgba(201,125,10,0.4);border-radius:14px;padding:10px 18px;text-align:center;">
+            <div style="display:flex;align-items:baseline;gap:7px;">
+              <span style="font-weight:800;font-size:1.5rem;color:#FCD34D;line-height:1;">23€</span>
+              <span style="font-size:.72rem;color:rgba(255,255,255,0.45);text-decoration:line-through;">32€</span>
+            </div>
+            <span style="font-size:.58rem;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:3px;display:block;font-weight:600;">Tarif unique CSE</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:9px 14px;font-size:.7rem;color:rgba(255,255,255,0.7);">−28% vs tarif public</div>
+        </div>
+        <button class="btn-main" onclick="openParcModal('Sherwood Parc')" style="justify-content:center;width:100%;margin-top:14px;background:#0A8A4A;">🎟️ Demander mes billets</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-top:24px;margin-bottom:12px;">
+    <span style="font-size:.7rem;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1.5px;">🕐 Bientôt disponibles</span>
+    <div style="height:1px;flex:1;background:var(--card-border);"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+    <div style="background:var(--bg);border:1.5px dashed var(--card-border);border-radius:16px;padding:20px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🎢</div>
+      <div style="font-weight:700;font-size:.85rem;color:var(--noir);margin-bottom:8px;">La Mer de Sable</div>
+      <span style="font-size:.58rem;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;background:var(--bg2);border:1px solid var(--card-border);padding:3px 10px;border-radius:100px;">Tarifs à venir</span>
+    </div>
+    <div style="background:var(--bg);border:1.5px dashed var(--card-border);border-radius:16px;padding:20px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🐾</div>
+      <div style="font-weight:700;font-size:.85rem;color:var(--noir);margin-bottom:8px;">Pairi Daiza</div>
+      <span style="font-size:.58rem;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;background:var(--bg2);border:1px solid var(--card-border);padding:3px 10px;border-radius:100px;">Tarifs à venir</span>
+    </div>
+    <div style="background:var(--bg);border:1.5px dashed var(--card-border);border-radius:16px;padding:20px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🏛️</div>
+      <div style="font-weight:700;font-size:.85rem;color:var(--noir);margin-bottom:8px;">Passion Monuments</div>
+      <span style="font-size:.58rem;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;background:var(--bg2);border:1px solid var(--card-border);padding:3px 10px;border-radius:100px;">Tarifs à venir</span>
+    </div>
+    <div style="background:var(--bg);border:1.5px dashed var(--card-border);border-radius:16px;padding:20px;text-align:center;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🎫</div>
+      <div style="font-weight:700;font-size:.85rem;color:var(--noir);margin-bottom:8px;">Pass'Time</div>
+      <span style="font-size:.58rem;font-weight:700;color:var(--text-faint);text-transform:uppercase;letter-spacing:1px;background:var(--bg2);border:1px solid var(--card-border);padding:3px 10px;border-radius:100px;">Tarifs à venir</span>
+    </div>
+  </div>
+  <p style="font-size:.76rem;color:var(--text-faint);margin-top:14px;">D'autres partenaires loisirs seront ajoutés au fil des accords négociés par le CSE.</p>
+</div>
+
 <!-- ENFANT MALADE -->
 <div class="section" style="padding-bottom:32px;">
   <div class="sec-head">
-    <span class="sec-num" style="color:#0A8A4A;">04</span>
+    <span class="sec-num" style="color:#0A8A4A;">05</span>
     <h2 class="sec-title">🧒 Enfant Malade — Absences autorisées</h2>
     <div class="sec-line" style="background:linear-gradient(to right, rgba(10,138,74,.22), transparent);"></div>
   </div>
@@ -763,7 +834,7 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- AGENDA CSE -->
 <div class="section" id="section-agenda">
-  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">📅 Agenda CSE</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">📅 Agenda CSE</h2><div class="sec-line"></div></div>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;">
 
@@ -811,7 +882,7 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- CINEMA -->
 <div class="section" id="section-cinema">
-  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Cinéma Majestic</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Cinéma Majestic</h2><div class="sec-line"></div></div>
 
   <!-- Hero photo Majestic -->
   <div style="position:relative;border-radius:22px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,0.3);">
@@ -844,7 +915,7 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- BOÎTE À IDÉES -->
 <div class="section" id="section-idees">
-  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
   <div class="idee-box">
     <h3>📬 Votre avis compte !</h3>
     <p>Une idée pour améliorer la vie au boulot ? Un avantage que vous aimeriez voir arriver ? Dites-le-nous — anonymement ou non, on lit tout !</p>
@@ -868,7 +939,7 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- SOIRÉE DE NOËL — AVIS DE TOUS -->
 <div class="section" id="section-noel">
-  <div class="sec-head"><span class="sec-num" style="color:#B8001E;">08</span><h2 class="sec-title">🎄 Soirée de Noël — Donnez votre avis</h2><div class="sec-line" style="background:linear-gradient(to right, rgba(184,0,30,.22), transparent);"></div></div>
+  <div class="sec-head"><span class="sec-num" style="color:#B8001E;">09</span><h2 class="sec-title">🎄 Soirée de Noël — Donnez votre avis</h2><div class="sec-line" style="background:linear-gradient(to right, rgba(184,0,30,.22), transparent);"></div></div>
   <div class="idee-box">
     <h3>🎅 Cette année, on vous demande votre avis !</h3>
     <p>Plutôt que de choisir seul cette année, le CSE souhaite organiser la soirée de Noël selon les envies du plus grand nombre. Dites-nous ce que vous aimeriez — vos réponses orienteront directement la décision.</p>
@@ -906,7 +977,7 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- CONTACTS & RESSOURCES UTILES — ROUE CRANTÉE -->
 <div class="section" id="section-contacts">
-  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">⚙️ Contacts &amp; Ressources Utiles</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">⚙️ Contacts &amp; Ressources Utiles</h2><div class="sec-line"></div></div>
 
   <!-- Référents harcèlement — card dédiée -->
   <div style="background:linear-gradient(135deg,#1a0012 0%,#2d0020 50%,#1a0012 100%);border-radius:20px;padding:24px 32px;margin-bottom:20px;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden;box-shadow:0 6px 32px rgba(190,24,93,0.22);">
@@ -959,14 +1030,14 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- NOS 30 COLLÈGUES -->
 <div class="section" id="section-equipe">
-  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">Nos 30 Collègues</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">Nos 30 Collègues</h2><div class="sec-line"></div></div>
   <div class="genre-bar-wrap" id="genre-stats"></div>
   <div class="equipe-grid" id="equipe-grid"></div>
 </div>
 
 <!-- ANNIVERSAIRES -->
 <div class="section" id="section-anniversaires">
-  <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">🎂 Anniversaires</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">12</span><h2 class="sec-title">🎂 Anniversaires</h2><div class="sec-line"></div></div>
   <div class="birthday-tabs">
     <button class="btab on" onclick="filterBirthdays('all',this)">Tous</button>
     <button class="btab" onclick="filterBirthdays('month',this)">Ce mois-ci</button>
@@ -977,13 +1048,13 @@ body.unlocked .pw-gate { display: none; }
 
 <!-- MEMBRES DU CSE — Virginie ajoutée -->
 <div class="section">
-  <div class="sec-head"><span class="sec-num">12</span><h2 class="sec-title">Membres du CSE</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">13</span><h2 class="sec-title">Membres du CSE</h2><div class="sec-line"></div></div>
   <div class="cse-prenoms" id="cse-prenoms"></div>
 </div>
 
 <!-- SUIVRE BOULANGER -->
 <div class="section">
-  <div class="sec-head"><span class="sec-num">13</span><h2 class="sec-title">Suivre Boulanger</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">14</span><h2 class="sec-title">Suivre Boulanger</h2><div class="sec-line"></div></div>
   <div class="social-grid">
     <a href="https://www.instagram.com/boulanger/" target="_blank" class="social-card">
       <div class="social-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
@@ -1079,6 +1150,28 @@ body.unlocked .pw-gate { display: none; }
     <p id="quota-empty-note" style="font-size:.76rem;color:var(--text-faint);margin-top:4px;">Vous ne trouvez pas votre prénom ? Contactez le CSE — votre quota n'a peut-être pas encore été communiqué.</p>
     <div class="modal-foot">
       <button class="btn-cancel" onclick="closeQuotaModal()">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="parc-modal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeParcModal()">✕</button>
+    <h3>🎡 Demande de billets</h3>
+    <p>Remplissez le formulaire, le CSE vous recontactera pour confirmer votre commande.</p>
+    <div class="f-group"><label>Prénom &amp; Nom</label><input type="text" id="p-name" placeholder="ex: Jean Dupont"></div>
+    <div class="f-group">
+      <label>Activité / Parc</label>
+      <select id="p-activite">
+        <option>Black Holes Mini Golf</option>
+        <option>Sherwood Parc</option>
+      </select>
+    </div>
+    <div class="f-group"><label>Nombre de billets</label><input type="number" id="p-nb" min="1" max="20" value="2"></div>
+    <div class="f-group"><label>Commentaire (optionnel)</label><textarea id="p-comment" placeholder="Date souhaitée, précisions…"></textarea></div>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeParcModal()">Annuler</button>
+      <button class="btn-confirm" onclick="confirmParcDemande()">🎟️ Confirmer</button>
     </div>
   </div>
 </div>
@@ -1396,6 +1489,28 @@ function confirmDemande(){
   document.getElementById('m-places').value='2';document.getElementById('total-display').textContent='10€';
 }
 
+/* ── PARCS & LOISIRS ── */
+function openParcModal(activite){
+  document.getElementById('parc-modal').classList.add('open');
+  if(activite){document.getElementById('p-activite').value=activite;}
+}
+function closeParcModal(){document.getElementById('parc-modal').classList.remove('open');}
+document.getElementById('parc-modal').addEventListener('click',e=>{if(e.target===document.getElementById('parc-modal'))closeParcModal();});
+function confirmParcDemande(){
+  const name=document.getElementById('p-name').value.trim();
+  const activite=document.getElementById('p-activite').value;
+  const nb=document.getElementById('p-nb').value;
+  const comment=document.getElementById('p-comment').value.trim()||'—';
+  if(!name){document.getElementById('p-name').style.borderColor='#F04E00';document.getElementById('p-name').focus();return;}
+  const cseEmails=atob('c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ==')+',' +atob('Y2xhaXJlLmNoYXBpbkBib3VsYW5nZXIuY29t')+','+atob('c3RlcGhhbmllLnBlY2tldUBib3VsYW5nZXIuY29t')+','+atob('cXVlbnRpbi5yYW11c0Bib3VsYW5nZXIuY29t')+','+atob('Y2xlbWVudC5tYWxhcmRAYm91bGFuZ2VyLmNvbQ==')+','+atob('dmlyZ2luaWUudGVpeGVpcmExQGJvdWxhbmdlci5jb20=');
+  const subject=encodeURIComponent('[CSE Boulanger] Demande billets '+activite+' — '+name);
+  const body=encodeURIComponent('Bonjour,\n\nNouvelle demande de billets loisirs :\n\nCollaborateur : '+name+'\nActivité / Parc : '+activite+'\nNombre de billets : '+nb+'\nCommentaire : '+comment+'\n\nMerci de contacter le collaborateur pour confirmer.\n\n— Formulaire CSE Boulanger Compiègne');
+  window.location.href='mailto:'+cseEmails+'?subject='+subject+'&body='+body;
+  closeParcModal();showToast(`Demande envoyée au CSE ! ${nb} billet(s) — ${activite} 🎟️`);
+  ['p-name','p-comment'].forEach(id=>{document.getElementById(id).value='';document.getElementById(id).style.borderColor='';});
+  document.getElementById('p-nb').value='2';
+}
+
 /* ── BOÎTE À IDÉES ── */
 function submitIdea(){
   const t=document.getElementById('idea-text').value.trim();
@@ -1425,11 +1540,6 @@ function submitNoelAvis(){
 }
 
 loadSeances(false);
-
-/* ── BANNIÈRE ACCÈS ── */
-if (sessionStorage.getItem('banner_ok')) {
-  document.getElementById('access-banner').classList.add('hidden');
-}
 
 /* ── HAMBURGER ── */
 const hamburger = document.getElementById('hamburger');
