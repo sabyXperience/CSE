@@ -834,6 +834,7 @@ body.unlocked .pw-gate { display: none; }
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <button class="btn-main" onclick="openModal()" style="backdrop-filter:blur(6px);">🎬 Demander des places</button>
+        <button class="btn-ghost" onclick="openQuotaModal()" style="backdrop-filter:blur(6px);color:#fff;border-color:rgba(255,255,255,0.35);">🎟️ Mon quota de places</button>
         <a href="https://www.majestic-compiegne.fr" target="_blank" class="btn-ghost" style="backdrop-filter:blur(6px);color:#fff;border-color:rgba(255,255,255,0.35);text-decoration:none;display:inline-flex;align-items:center;gap:6px;">🎥 Voir les séances ↗</a>
       </div>
     </div>
@@ -1059,23 +1060,46 @@ body.unlocked .pw-gate { display: none; }
     </div>
   </div>
 </div>
+
+<div class="modal-bg" id="quota-modal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeQuotaModal()">✕</button>
+    <h3>🎟️ Mon quota de places</h3>
+    <p>Sélectionnez votre prénom pour voir combien de places cinéma à 5€ vous sont allouées.</p>
+    <div class="f-group">
+      <label>Votre prénom</label>
+      <select id="quota-select">
+        <option value="">Choisir…</option>
+      </select>
+    </div>
+    <div class="total-row" id="quota-result" style="display:none;">
+      <span id="quota-label">Places allouées</span>
+      <span class="total-num" id="quota-num">—</span>
+    </div>
+    <p id="quota-empty-note" style="font-size:.76rem;color:var(--text-faint);margin-top:4px;">Vous ne trouvez pas votre prénom ? Contactez le CSE — votre quota n'a peut-être pas encore été communiqué.</p>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeQuotaModal()">Fermer</button>
+    </div>
+  </div>
+</div>
 </div>
 
 <script>
 /* ── DONNÉES ── */
+/* 5e valeur = quota de places cinéma à 5€ (null = non communiqué) */
 const salariesData = [
-  ['BRIERE Isabelle','F','09-24',1974],['MENINGAND Laury','H','04-12',1986],['GUILBERT Jonathan','H','02-22',1983],
-  ['MERMILLOD Michael','H','05-12',1991],['GARCIA Arnaud','H','10-16',1982],['GRARE Isabelle','F','07-16',1983],
-  ['GIBOYAU Cedric','H','11-28',1979],['MANCEBO Guillaume','H','07-03',1991],['GRASON Sabrina','F','03-08',1984],
-  ['COQUEREL Manon','F','06-29',1998],['VASSAUX Vanessa','F','01-01',1980],['POLLEUR Alexandra','F','12-10',1990],
-  ['TEIXEIRA Virginie','F','05-14',1981],['PECKEU Stephanie','F','12-25',1977],['RAMUS Quentin','H','10-26',2000],
-  ['GRUMELART Augustin','H','05-08',1990],
-  ['DURANT Gregoire','H','10-21',1989],['THEVENIN Davy','H','08-28',1988],['MAILLOT Julien','H','03-09',1995],
-  ['SELLIER Pierrick','H','10-05',1982],['CAILLEUX Mickael','H','04-21',1972],['BARBOSA Antoine','H','05-24',null],
-  ['DERAMOND Quentin','H','07-06',2001],['VLIEGHE Mallory','F','11-10',1997],['CHAPIN Claire','F','11-03',1981],
-  ['STIMOLO Yvan','H','12-18',2007],['RABASTE Chloe','F','05-26',2004],
-  ['MALARD Clement','H','01-18',1988],
-  ['Imane','F',null,null],['Clemence','F',null,null],
+  ['BRIERE Isabelle','F','09-24',1974,3],['MENINGAND Laury','H','04-12',1986,4],['GUILBERT Jonathan','H','02-22',1983,5],
+  ['MERMILLOD Michael','H','05-12',1991,4],['GARCIA Arnaud','H','10-16',1982,4],['GRARE Isabelle','F','07-16',1983,3],
+  ['GIBOYAU Cedric','H','11-28',1979,2],['MANCEBO Guillaume','H','07-03',1991,3],['GRASON Sabrina','F','03-08',1984,4],
+  ['COQUEREL Manon','F','06-29',1998,2],['VASSAUX Vanessa','F','01-01',1980,4],['POLLEUR Alexandra','F','12-10',1990,4],
+  ['TEIXEIRA Virginie','F','05-14',1981,4],['PECKEU Stephanie','F','12-25',1977,2],['RAMUS Quentin','H','10-26',2000,2],
+  ['GRUMELART Augustin','H','05-08',1990,2],
+  ['DURANT Gregoire','H','10-21',1989,4],['THEVENIN Davy','H','08-28',1988,4],['MAILLOT Julien','H','03-09',1995,2],
+  ['SELLIER Pierrick','H','10-05',1982,2],['CAILLEUX Mickael','H','04-21',1972,2],['BARBOSA Antoine','H','05-24',null,2],
+  ['DERAMOND Quentin','H','07-06',2001,2],['VLIEGHE Mallory','F','11-10',1997,2],['CHAPIN Claire','F','11-03',1981,3],
+  ['STIMOLO Yvan','H','12-18',2007,2],['RABASTE Chloe','F','05-26',2004,2],
+  ['MALARD Clement','H','01-18',1988,5],
+  ['Imane','F',null,null,2],['Clemence','F',null,null,2],
 ];
 
 const employeePhotos = {
@@ -1324,6 +1348,32 @@ function openModal(){document.getElementById('modal').classList.add('open');}
 function closeModal(){document.getElementById('modal').classList.remove('open');}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
 function updateTotal(){const n=parseInt(document.getElementById('m-places').value)||0;document.getElementById('total-display').textContent=(n*5)+'€';}
+
+/* ── QUOTA PLACES CINÉMA ── */
+(function(){
+  const firstNameCounts={};
+  salariesData.forEach(s=>{const fn=fmt(s[0]);firstNameCounts[fn]=(firstNameCounts[fn]||0)+1;});
+  function quotaLabel(s){
+    const fn=fmt(s[0]);
+    if(firstNameCounts[fn]>1){const p=s[0].trim().split(' ');const li=p.length>=2?p[0].charAt(0).toUpperCase():'';return fn+' '+li+'.';}
+    return fn;
+  }
+  const sel=document.getElementById('quota-select');
+  salariesData.map((s,i)=>({i,label:quotaLabel(s),quota:s[4]})).filter(x=>x.quota!=null).sort((a,b)=>a.label.localeCompare(b.label,'fr')).forEach(x=>{
+    const opt=document.createElement('option');opt.value=x.i;opt.textContent=x.label;sel.appendChild(opt);
+  });
+  sel.addEventListener('change',()=>{
+    const res=document.getElementById('quota-result');
+    if(sel.value===''){res.style.display='none';return;}
+    const s=salariesData[parseInt(sel.value)];
+    document.getElementById('quota-label').textContent='Places à 5€ allouées';
+    document.getElementById('quota-num').textContent=s[4]+' place'+(s[4]>1?'s':'')+' ('+(s[4]*5)+'€)';
+    res.style.display='flex';
+  });
+})();
+function openQuotaModal(){document.getElementById('quota-modal').classList.add('open');}
+function closeQuotaModal(){document.getElementById('quota-modal').classList.remove('open');document.getElementById('quota-select').value='';document.getElementById('quota-result').style.display='none';}
+document.getElementById('quota-modal').addEventListener('click',e=>{if(e.target===document.getElementById('quota-modal'))closeQuotaModal();});
 
 /* ── TOAST ── */
 function showToast(msg){const t=document.getElementById('toast');document.getElementById('toast-msg').textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
