@@ -3,13 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' fonts.googleapis.com fonts.gstatic.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; script-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self';">
-<meta name="referrer" content="no-referrer">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<title>CSE Boulanger Compiègne — Espace Collaborateurs</title>
-<meta name="description" content="Accès réservé — collaborateurs Boulanger Compiègne uniquement.">
+<title>CSE Boulanger Compiègne</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -206,6 +200,41 @@ header {
 .prix-eco-num { font-weight: 800; font-size: 1.6rem; color: #4ADE80; display: block; line-height: 1; }
 .prix-eco-lbl { font-size: .6rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; display: block; font-weight: 600; }
 
+/* Séances */
+.seances-box { background: #fff; border: 1px solid var(--card-border); border-radius: 18px; overflow: hidden; box-shadow: 0 2px 12px rgba(28,16,9,0.05); }
+.seances-box-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px; border-bottom: 1px solid var(--card-border); flex-wrap: wrap; gap: 10px; background: var(--bg); }
+.live-ind { display: flex; align-items: center; gap: 6px; font-size: .7rem; color: var(--text-faint); }
+.live-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; animation: pulse 2s infinite; }
+.cine-addr { font-size: .68rem; color: var(--text-faint); margin-top: 1px; }
+.seances-box-body { padding: 18px 22px; }
+.days-nav { display: flex; gap: 5px; margin-bottom: 16px; flex-wrap: wrap; }
+.day-btn { background: var(--bg); border: 1px solid var(--card-border); color: var(--text-soft); font-weight: 600; font-size: .7rem; padding: 7px 14px; border-radius: 8px; transition: all .15s; cursor: pointer; }
+.day-btn:hover,.day-btn.on { background: var(--orange); border-color: var(--orange); color: #fff; }
+.films-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 22px; }
+.film-item { background: var(--bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 14px 16px; display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 14px; transition: all .18s; }
+.film-item:hover { background: #fff; border-color: rgba(240,78,0,0.16); box-shadow: 0 3px 12px rgba(240,78,0,0.07); }
+.film-thumb { width: 50px; height: 70px; border-radius: 7px; background: var(--bg2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; overflow: hidden; flex-shrink: 0; }
+.film-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 7px; }
+.film-title { font-weight: 700; font-size: .88rem; color: var(--noir); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tag-genre { font-size: .56rem; font-weight: 700; padding: 2px 7px; border-radius: 100px; background: rgba(240,78,0,0.07); color: var(--orange); border: 1px solid rgba(240,78,0,0.12); }
+.tag-age { font-size: .56rem; font-weight: 700; padding: 2px 7px; border-radius: 100px; background: rgba(212,20,90,0.07); color: var(--rose); border: 1px solid rgba(212,20,90,0.14); }
+.film-meta { display: flex; gap: 8px; flex-wrap: wrap; font-size: .7rem; color: var(--text-faint); }
+.horaires-wrap { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+.jour-label { font-size: .6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-faint); margin-bottom: 1px; text-align: right; }
+.slots { display: flex; gap: 3px; flex-wrap: wrap; justify-content: flex-end; }
+.slot { display: inline-flex; align-items: center; gap: 2px; font-weight: 700; font-size: .68rem; background: rgba(240,78,0,0.06); border: 1px solid rgba(240,78,0,0.13); color: var(--orange); padding: 4px 9px; border-radius: 7px; cursor: pointer; transition: all .14s; text-decoration: none; }
+.slot:hover { background: var(--orange); color: #fff; }
+.ver { font-size: .54rem; background: rgba(240,78,0,0.08); border-radius: 3px; padding: 1px 3px; font-weight: 700; }
+.ver.ice { background: rgba(0,105,168,0.08); color: var(--bleu); }
+.seances-error { text-align: center; padding: 40px; color: var(--text-soft); }
+.seances-loading { text-align: center; padding: 48px 32px; color: var(--text-soft); }
+.spinner { display: inline-block; width: 26px; height: 26px; border: 2px solid rgba(240,78,0,0.15); border-top-color: var(--orange); border-radius: 50%; animation: spin .7s linear infinite; margin-bottom: 8px; }
+@keyframes spin { to{transform:rotate(360deg)} }
+.btn-retry { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; background: rgba(240,78,0,0.07); color: var(--orange); font-weight: 700; font-size: .78rem; padding: 9px 16px; border-radius: 9px; border: 1px solid rgba(240,78,0,0.14); cursor: pointer; }
+.seances-empty-cta { display:inline-flex;align-items:center;gap:9px;background:var(--orange);color:#fff;font-weight:700;font-size:.9rem;padding:13px 24px;border-radius:12px;text-decoration:none; }
+.seances-empty-cta:hover { background: var(--orange2); }
+
+
 /* Table */
 .tbl-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid var(--card-border); }
 table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; }
@@ -273,85 +302,31 @@ footer p { margin-bottom: 5px; }
 footer span { color: var(--orange); font-weight: 700; }
 
 /* BANNIÈRE ACCÈS RÉSERVÉ */
-.access-banner {
-  position: fixed; inset: 0; z-index: 9999;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(6px);
-  display: flex; align-items: center; justify-content: center; padding: 20px;
-}
-.access-banner-card {
-  background: linear-gradient(145deg, #003F88 0%, #0055B3 50%, #1a4fa0 100%);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 24px;
-  padding: 40px 44px;
-  max-width: 520px;
-  width: 100%;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.06) inset;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.access-banner-card::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,100,0,0.25) 0%, transparent 65%);
-  pointer-events: none;
-}
-.access-banner-card::after {
-  content: '';
-  position: absolute;
-  bottom: -40px; left: -40px;
-  width: 150px; height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-.access-banner-icon {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
-  display: block;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
-}
-.access-banner-title {
-  font-weight: 800;
-  font-size: 1.55rem;
-  color: #fff;
-  letter-spacing: -0.5px;
-  margin-bottom: 14px;
-  line-height: 1.2;
-}
-.access-banner-text {
-  color: rgba(255,255,255,0.78);
-  font-size: .9rem;
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-.access-banner-text strong { color: #fff; font-weight: 700; }
-.access-banner-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  background: linear-gradient(135deg, #FF5500, #FF7A20);
-  border: none; border-radius: 14px;
-  color: #fff; font-weight: 800; font-size: 1rem;
-  padding: 14px 36px;
-  cursor: pointer;
-  box-shadow: 0 8px 28px rgba(240,78,0,0.4);
-  transition: all .2s;
-  letter-spacing: 0.2px;
-  width: 100%;
-}
-.access-banner-btn:hover {
-  background: linear-gradient(135deg, #e04800, #FF6B20);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(240,78,0,0.5);
-}
+.access-banner { position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: linear-gradient(90deg, #003F88, #0055B3);
+  color: #fff; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; font-size: .78rem; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  flex-wrap: wrap; }
+.access-banner strong { font-weight: 700; }
+.access-banner button { background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
+  color: #fff; padding: 6px 16px; border-radius: 20px; cursor: pointer; font-size: .75rem;
+  font-weight: 600; white-space: nowrap; }
+.access-banner button:hover { background: rgba(255,255,255,0.32); }
 .access-banner.hidden { display: none; }
-@media (max-width: 480px) {
-  .access-banner-card { padding: 28px 22px; }
-  .access-banner-title { font-size: 1.25rem; }
-}
+
+/* ÉCRAN MOT DE PASSE */
+#site-content { display: none; }
+body.unlocked #site-content { display: block; }
+.pw-gate { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;
+  background: linear-gradient(135deg, #003F88 0%, #0055B3 35%, #C84400 100%); }
+body.unlocked .pw-gate { display: none; }
+.pw-box { background: #fff; border-radius: 22px; padding: 40px 36px; width: 100%; max-width: 380px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.pw-icon { font-size: 2.4rem; margin-bottom: 12px; }
+.pw-box h2 { font-weight: 800; font-size: 1.25rem; color: var(--noir); margin-bottom: 8px; letter-spacing: -0.3px; }
+.pw-box p { font-size: .82rem; color: var(--text-soft); line-height: 1.6; margin-bottom: 22px; }
+.pw-box input { width: 100%; background: var(--bg); border: 1px solid rgba(28,16,9,0.14); border-radius: 10px; color: var(--noir); font-family: 'Plus Jakarta Sans', sans-serif; font-size: .95rem; padding: 12px 15px; outline: none; text-align: center; letter-spacing: 2px; transition: border-color .18s; }
+.pw-box input:focus { border-color: var(--orange); }
+.pw-error { color: #D4145A; font-size: .76rem; font-weight: 600; margin-top: 10px; }
 
 /* Toast */
 .toast { position: fixed; bottom: 24px; right: 24px; background: #fff; color: var(--noir); border: 1px solid var(--card-border); border-radius: 12px; padding: 12px 20px; font-size: .84rem; font-weight: 600; box-shadow: 0 6px 28px rgba(28,16,9,0.12); transform: translateY(70px); opacity: 0; transition: all .3s cubic-bezier(.2,.8,.2,1); z-index: 999; display: flex; align-items: center; gap: 9px; }
@@ -425,155 +400,62 @@ footer span { color: var(--orange); font-weight: 700; }
 .c-badge.g { background:rgba(10,138,74,0.08); color:var(--vert); border:1px solid rgba(10,138,74,0.16); }
 .c-badge.u { background:rgba(240,78,0,0.09); color:var(--orange); border:1px solid rgba(240,78,0,0.18); }
 
-@media (max-width: 1024px) {
-  .av-grid { grid-template-columns: repeat(2,1fr); }
-  .hdr-nav a { font-size: .72rem; padding: 5px 10px; }
-}
 @media (max-width: 900px) {
   .gear-wrapper { grid-template-columns: 1fr; }
   .gear-svg-wrap { justify-content: center; }
-  /* Contacts items full height on mobile */
-  .contacts-items { max-height: none; }
 }
 @media (max-width: 768px) {
   .cinema-hero-inner { grid-template-columns: 1fr; }
-  .cinema-prix-bloc { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .cinema-prix-bloc { flex-direction: row; }
   .av-grid { grid-template-columns: 1fr; }
   .store-infos { grid-template-columns: 1fr 1fr; }
+  .film-item { grid-template-columns: 42px 1fr; }
+  .horaires-wrap { display: flex; flex-direction: row; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .jour-label { display: none; }
   .f-row { grid-template-columns: 1fr; }
-  .genre-bar-wrap { flex-wrap: wrap; gap: 12px; }
+  .genre-bar-wrap { flex-wrap: wrap; }
   .solidarite-card { flex-direction: column; text-align: center; }
-  .solidarite-date-pill { align-self: center; }
-  /* Section padding réduit */
-  .section { padding: 0 18px 52px; }
-  .solidarite-banner { padding: 0 18px 32px; }
-  /* Numéro B card */
-  #section-contacts > div[style*="linear-gradient(135deg,#3a6b35"] {
-    flex-direction: column; text-align: center; padding: 20px 18px; gap: 16px;
-  }
-  #section-contacts > div[style*="linear-gradient(135deg,#3a6b35"] > div:last-of-type {
-    width: 100%;
-  }
-  #section-contacts > div[style*="linear-gradient(135deg,#3a6b35"] a[href^="tel"] {
-    width: 100%; justify-content: center;
-  }
-  /* Referents harcelement card → colonne */
-  #section-contacts > div[style*="linear-gradient(135deg,#1a0012"] {
-    flex-direction: column; padding: 20px 18px; gap: 16px;
-  }
-  #section-contacts > div[style*="linear-gradient(135deg,#1a0012"] div[style*="gap:10px"],
-  #section-contacts > div[style*="linear-gradient(135deg,#1a0012"] div[style*="gap:28px"] {
-    flex-wrap: wrap !important;
-  }
-  /* Recovery Mass bandeau → colonne */
-  #section-recovery > div[style*="linear-gradient(135deg,#0A3D1F"] {
-    flex-direction: column; padding: 22px 18px; gap: 18px;
-  }
-  #section-recovery > div[style*="minmax(280px"] {
-    grid-template-columns: 1fr !important;
-  }
-  #section-recovery > div[style*="flex-wrap:wrap;gap:28px"] {
-    flex-direction: column; gap: 16px;
-  }
-  /* Idee box */
-  .idee-box { padding: 22px 18px; }
-  /* Store card */
-  .store-body { padding: 18px; }
-  .store-header { padding: 18px; }
-  /* Cinema prix bloc */
-  .cinema-hero-inner { padding: 24px 22px; }
-  /* Modal */
-  .modal { padding: 24px 18px; }
-  /* Birthday item wrap on small screens */
-  .birthday-item { flex-wrap: wrap; gap: 8px; }
-  /* Equipe grid */
-  .equipe-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
-  /* Social grid */
-  .social-grid { flex-direction: column; }
-  .social-card { max-width: 100%; }
-  /* Hero */
-  .hero { padding: 40px 18px 32px; }
-  /* Pâques/Solidarité inner cards */
-  #agenda-paques { flex-direction: column !important; gap: 14px !important; padding: 20px 18px !important; }
 }
 @media (max-width: 480px) {
-  .store-infos { grid-template-columns: 1fr; }
-  .logo-cse-label strong { font-size: 1.35rem; }
-  .logo-cse-label small { font-size: .9rem; letter-spacing: 1.5px; }
-  /* Birthday */
-  .birthday-badge { font-size: .55rem; padding: 3px 7px; }
-  .birthday-name { font-size: .8rem; }
-  .birthday-date-text { font-size: .62rem; }
-  /* CSE pills */
-  .cse-prenoms { gap: 7px; }
-  .cse-pill { padding: 7px 15px; font-size: .82rem; }
-  /* Gear wrapper */
-  .gear-wrapper { padding: 22px 18px; gap: 24px; }
-  /* Hero */
-  .hero { padding: 32px 18px 28px; }
-  /* Store photo caption */
-  .store-photo-caption { flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px 16px; }
-  /* Contact desc wraps */
-  .c-desc { white-space: normal; }
-  /* Submit button full width */
-  .submit-btn { width: 100%; justify-content: center; }
-  /* Modal */
-  .modal { border-radius: 16px; }
-  /* Sec title smaller */
-  .sec-title { font-size: 1.2rem; }
-  /* Cinema prix responsive */
-  .cinema-prix-bloc { width: 100%; }
-  .prix-pill, .prix-eco-badge { flex: 1; min-width: 130px; }
-  /* Birthday tabs wrap */
-  .birthday-tabs { gap: 5px; }
-  .btab { font-size: .68rem; padding: 6px 12px; }
-  /* C-item responsive */
-  .c-item { flex-wrap: wrap; }
-  .c-right { flex-direction: row; align-items: center; gap: 6px; }
-}
-@media (max-width: 360px) {
-  .logo img { height: 52px !important; }
-  .logo-cse-label strong { font-size: 1.1rem; }
-  .logo-cse-label small { display: none; }
-  .section { padding: 0 12px 40px; }
-  .solidarite-banner { padding: 0 12px 24px; }
-  .gear-wrapper { padding: 16px 12px; }
-  .equipe-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
-  #section-agenda > div[style*="grid"] { grid-template-columns: 1fr !important; }
-  .hero h1 { font-size: 2.2rem; letter-spacing: -1.5px; }
-  .av-card { padding: 18px; }
-}
-
-/* ── ACCESSIBILITÉ CLAVIER (focus-visible) ── */
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 2.5px solid var(--orange);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-/* ── IMPRESSION ── */
-@media print {
-  .access-banner, header, .mobile-menu, .hamburger, .badge-live,
-  .store-photo-banner, .hero, .solidarite-banner, footer { display: none !important; }
-  .section { padding: 12px 0; }
-  body { background: #fff; color: #000; }
-  a { color: #000; text-decoration: underline; }
+  .section { padding-left: 16px; padding-right: 16px; }
+  .hero { padding: 40px 16px 32px; }
+  .solidarite-banner { padding: 0 16px 32px; }
 }
 </style>
 </head>
 <body>
-<div class="access-banner" id="access-banner">
-  <div class="access-banner-card">
-    <span class="access-banner-icon">🔒</span>
-    <div class="access-banner-title">Accès réservé</div>
-    <div class="access-banner-text">
-      Ce site est exclusivement destiné aux <strong>collaborateurs du magasin Boulanger Compiègne</strong>.<br>
-      Toute diffusion en dehors du magasin est strictement interdite.
-    </div>
-    <button class="access-banner-btn" onclick="document.getElementById('access-banner').classList.add('hidden');sessionStorage.setItem('banner_ok','1')">
-      ✓ J'ai compris, accéder au site
-    </button>
+<div class="pw-gate" id="pw-gate">
+  <div class="pw-box">
+    <div class="pw-icon">🔒</div>
+    <h2>Accès réservé</h2>
+    <p>Ce site est réservé aux collaborateurs du magasin Boulanger Compiègne. Merci de saisir le mot de passe transmis par le CSE.</p>
+    <input type="password" id="pw-input" placeholder="Mot de passe" autocomplete="off">
+    <div class="pw-error" id="pw-error" style="display:none;">Mot de passe incorrect.</div>
+    <button class="submit-btn" onclick="checkPassword()" style="width:100%;justify-content:center;margin-top:14px;">Accéder au site</button>
   </div>
+</div>
+<script>
+(function(){
+  function unlockSite(){ document.body.classList.add('unlocked'); }
+  window.checkPassword = function(){
+    var val = document.getElementById('pw-input').value;
+    if (val === 'F030') {
+      sessionStorage.setItem('site_unlocked','1');
+      unlockSite();
+    } else {
+      document.getElementById('pw-error').style.display='block';
+      var i = document.getElementById('pw-input');
+      i.value=''; i.focus();
+    }
+  };
+  if (sessionStorage.getItem('site_unlocked')) unlockSite();
+  document.getElementById('pw-input').addEventListener('keypress', function(e){ if (e.key === 'Enter') window.checkPassword(); });
+})();
+</script>
+<div id="site-content">
+<div class="access-banner" id="access-banner">
+  <span>🔒 <strong>Accès réservé</strong> — Ce site est exclusivement destiné aux collaborateurs du magasin Boulanger Compiègne. Toute diffusion est interdite.</span>
+  <button onclick="document.getElementById('access-banner').classList.add('hidden');sessionStorage.setItem('banner_ok','1')">J'ai compris</button>
 </div>
 
 <header>
@@ -588,9 +470,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="hdr-right">
       <nav class="hdr-nav">
         <a href="#section-avantages">🎁 Avantages</a>
+        <a href="#section-recovery">💆 Bien-être</a>
         <a href="#section-agenda">📅 Agenda</a>
         <a href="#section-cinema">🎬 Cinéma</a>
         <a href="#section-idees">💡 Idées</a>
+        <a href="#section-noel">🎄 Noël</a>
         <a href="#section-contacts">📞 Contacts</a>
         <a href="#section-equipe">👥 Équipe</a>
       </nav>
@@ -603,9 +487,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </header>
 <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <a href="#section-avantages" onclick="closeMenu()">🎁 Avantages</a>
+  <a href="#section-recovery" onclick="closeMenu()">💆 Bien-être & Massages</a>
   <a href="#section-agenda" onclick="closeMenu()">📅 Agenda CSE</a>
   <a href="#section-cinema" onclick="closeMenu()">🎬 Cinéma</a>
   <a href="#section-idees" onclick="closeMenu()">💡 Boîte à idées</a>
+  <a href="#section-noel" onclick="closeMenu()">🎄 Soirée de Noël</a>
   <a href="#section-contacts" onclick="closeMenu()">📞 Contacts & Ressources</a>
   <a href="#section-equipe" onclick="closeMenu()">👥 Notre équipe</a>
   <a href="#section-anniversaires" onclick="closeMenu()">🎂 Anniversaires</a>
@@ -621,7 +507,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <p>📍 63 rue des Métiers, CC de Venette — 60880 Jaux</p>
     </div>
     <div class="store-photo-badge">
-      <span class="sn">28</span>
+      <span class="sn">30</span>
       <span class="sl">Collaborateurs</span>
     </div>
   </div>
@@ -635,77 +521,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </div>
 </div>
 
-<!-- JOURNÉE DE SOLIDARITÉ — Date corrigée : Jeudi 14 mai 2026 -->
-<div class="solidarite-banner" id="solidarite-banner">
-  <div class="solidarite-card">
-    <div class="solidarite-icon">🤝</div>
-    <div class="solidarite-content">
-      <div class="solidarite-badge">📅 Décision du CSE · 2026</div>
-      <h3>Journée de Solidarité — Personnes Âgées</h3>
-      <p>Le CSE a choisi le <strong>jeudi 14 mai 2026</strong> comme journée de solidarité pour les personnes âgées et en situation de handicap. Cette journée de travail non rémunérée, prévue par la loi, finance l'autonomie des seniors et des personnes dépendantes.</p>
-    </div>
-    <div class="solidarite-date-pill">
-      <span class="dow">Jeudi</span>
-      <span class="day">14</span>
-      <span class="month">Mai 2026</span>
-      <span class="label">Solidarité Seniors</span>
-    </div>
-  </div>
-</div>
-<script>
-// Auto-masquer journée solidarité dans l'agenda après le 14 mai 2026
-(function(){
-  var d = new Date(); d.setHours(0,0,0,0);
-  var deadline = new Date(2026, 4, 15);
-  if(d >= deadline) {
-    var b = document.getElementById('solidarite-banner'); if(b) b.style.display='none';
-    var a = document.getElementById('agenda-solidarite'); if(a) a.style.display='none';
-  }
-  // Auto-masquer réunion de valeurs après le 2 avril 2026
-  var deadlineValeurs = new Date(2026, 3, 3);
-  if(d >= deadlineValeurs) {
-    var v = document.getElementById('agenda-valeurs'); if(v) v.style.display='none';
-  }
-  // Auto-masquer Pâques après le 6 avril 2026
-  var deadlinePaques = new Date(2026, 3, 7);
-  if(d >= deadlinePaques) {
-    var p = document.getElementById('agenda-paques'); if(p) p.style.display='none';
-  }
-})();
-</script>
-
-<!-- 🐣 PÂQUES — Lundi 6 avril 2026 -->
-<div class="solidarite-banner" id="paques-banner">
-  <div id="agenda-paques" style="background:linear-gradient(135deg,#78350f 0%,#92400e 30%,#b45309 60%,#d97706 100%);border:2px solid #FCD34D;border-radius:22px;padding:28px 38px;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(217,119,6,0.38);display:flex;align-items:center;gap:28px;">
-    <!-- Confettis déco -->
-    <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
-      <span style="position:absolute;top:8px;left:6%;font-size:1.4rem;animation:floatEgg 3s ease-in-out infinite;">🥚</span>
-      <span style="position:absolute;top:12px;left:18%;font-size:1.1rem;animation:floatEgg 3.5s ease-in-out infinite .4s;">🌸</span>
-      <span style="position:absolute;top:6px;right:18%;font-size:1.3rem;animation:floatEgg 2.8s ease-in-out infinite .8s;">🐣</span>
-      <span style="position:absolute;top:10px;right:6%;font-size:1.1rem;animation:floatEgg 3.2s ease-in-out infinite .2s;">🌷</span>
-      <span style="position:absolute;bottom:8px;left:10%;font-size:1rem;animation:floatEgg 3.8s ease-in-out infinite .6s;">✨</span>
-      <span style="position:absolute;bottom:6px;right:12%;font-size:1rem;animation:floatEgg 3s ease-in-out infinite 1s;">🌼</span>
-    </div>
-    <style>
-      @keyframes floatEgg { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-6px) rotate(5deg)} }
-    </style>
-    <!-- Icône principale -->
-    <div style="width:68px;height:68px;background:rgba(255,255,255,0.2);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;flex-shrink:0;border:1px solid rgba(252,211,77,0.5);box-shadow:0 4px 14px rgba(0,0,0,0.18);position:relative;z-index:1;">🐰</div>
-    <!-- Contenu -->
-    <div style="flex:1;position:relative;z-index:1;">
-      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(252,211,77,0.25);border:1px solid rgba(252,211,77,0.5);color:#FCD34D;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">🐰 Surprise CSE · Pâques 2026</div>
-      <h3 style="font-weight:800;font-size:1.45rem;color:#FEF3C7;letter-spacing:-0.5px;margin-bottom:7px;">Surprise Pâques du CSE 🍫</h3>
-      <p style="color:rgba(254,243,199,0.88);font-size:.88rem;line-height:1.65;max-width:520px;">Le CSE offre des <strong style="color:#FEF3C7;">chocolats pour toute l'équipe</strong> ! 🍫 Et ce n'est pas tout… <strong style="color:#FCD34D;">4 tickets d'or</strong> sont cachés, un par service — celui qui le trouve remporte une récompense pour toute son équipe, <em>plus</em> un lapin en chocolat rien que pour lui ! 🐇</p>
-    </div>
-    <!-- Date pill -->
-    <div style="background:rgba(255,255,255,0.97);border-radius:18px;padding:20px 30px;text-align:center;flex-shrink:0;box-shadow:0 6px 24px rgba(0,0,0,0.18);min-width:130px;position:relative;z-index:1;">
-      <span style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#d97706;display:block;margin-bottom:2px;">Lundi</span>
-      <span style="font-weight:800;font-size:3rem;color:#d97706;line-height:1;display:block;">6</span>
-      <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#78350f;margin-top:3px;display:block;">Avril 2026</span>
-      <span style="font-size:.54rem;color:rgba(28,16,9,0.4);margin-top:7px;text-transform:uppercase;letter-spacing:1.2px;font-weight:600;display:block;">Lundi de Pâques</span>
-    </div>
-  </div>
-</div>
+<!-- MAGASIN -->
 <div class="section">
   <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Notre Magasin</h2><div class="sec-line"></div></div>
   <div class="store-card">
@@ -715,11 +531,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
     <div class="store-body">
       <div class="store-infos">
-        <div class="si"><span class="si-icon">👥</span><div class="si-val">28 collaborateurs</div><div class="si-lbl">Notre équipe</div></div>
+        <div class="si"><span class="si-icon">👥</span><div class="si-val">30 collaborateurs</div><div class="si-lbl">Notre équipe</div></div>
         <div class="si"><span class="si-icon">📍</span><div class="si-val">63 rue des Métiers</div><div class="si-lbl">CC de Venette, 60880 Jaux</div></div>
         <div class="si"><span class="si-icon">🕐</span><div class="si-val">09h30 – 19h30</div><div class="si-lbl">Lun – Sam · Fermé dim.</div></div>
       </div>
-      <a href="https://www.boulanger.com/magasins/hauts-de-france/oise/jaux/63-rue-des-metiers" target="_blank" rel="noopener noreferrer" class="store-btn">🏪 Voir la page magasin ↗</a>
+      <a href="https://www.boulanger.com/magasins/hauts-de-france/oise/jaux/63-rue-des-metiers" target="_blank" class="store-btn">🏪 Voir la page magasin ↗</a>
     </div>
   </div>
 </div>
@@ -739,7 +555,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <!-- RECOVERY MASS -->
 <div class="section" id="section-recovery" style="padding-top:0;">
-  <div class="sec-head"><span class="sec-num" style="background:linear-gradient(135deg,#0A8A4A,#16A34A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">02b</span><h2 class="sec-title">💆 Recovery Mass — Partenariat Bien-être</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num" style="background:linear-gradient(135deg,#0A8A4A,#16A34A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">03</span><h2 class="sec-title">💆 Recovery Mass — Partenariat Bien-être</h2><div class="sec-line"></div></div>
 
   <!-- Bandeau intro -->
   <div style="background:linear-gradient(135deg,#0A3D1F 0%,#0F5C2E 45%,#1A3A0A 100%);border-radius:22px;padding:28px 36px;margin-bottom:22px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(10,138,74,0.25);">
@@ -749,13 +565,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:#86EFAC;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">✨ Nouveau Partenariat 2026</div>
       <h3 style="font-weight:800;font-size:1.4rem;color:#fff;letter-spacing:-0.4px;margin-bottom:8px;">Recovery Mass × Boulanger Compiègne</h3>
       <p style="color:rgba(255,255,255,0.78);font-size:.87rem;line-height:1.65;max-width:580px;">Spécialiste du massage sportif, de la récupération musculaire et de la prévention des troubles musculo-squelettiques (TMS). Le CSE a négocié des <strong style="color:#86EFAC;">tarifs préférentiels jusqu'à −50%</strong>, valables pour vous, votre conjoint(e) et vos enfants.</p>
-      <div style="margin-top:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);border-radius:12px;padding:11px 16px;display:flex;align-items:center;gap:10px;">
-        <span style="font-size:1.2rem;flex-shrink:0;">💬</span>
-        <span style="color:#fff;font-size:.82rem;font-weight:600;">Pour bénéficier de la remise, <strong style="color:#86EFAC;">indiquez que vous venez de la part de Boulanger</strong> lors de votre prise de rendez-vous.</span>
-      </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;z-index:1;">
-      <a href="https://www.planity.com/recovery-mass-60410-verberie" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#16A34A;color:#fff;font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);">📅 Prendre rendez-vous</a>
+      <a href="https://www.supersaas.fr/schedule/Recovery_Mass/Massage_à_Compiègne" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#16A34A;color:#fff;font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);">📅 Prendre rendez-vous</a>
       <a href="tel:0652935204" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);color:#fff;font-weight:600;font-size:.82rem;padding:10px 20px;border-radius:12px;text-decoration:none;border:1px solid rgba(255,255,255,0.18);">📞 06 52 93 52 04</a>
     </div>
   </div>
@@ -864,7 +676,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div style="font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-faint);margin-bottom:10px;">📞 Contact</div>
       <div style="font-size:.85rem;color:var(--noir);line-height:1.8;">
         <a href="tel:0652935204" style="color:var(--orange);font-weight:700;text-decoration:none;">06 52 93 52 04</a><br>
-        <a href="/cdn-cgi/l/email-protection#d6a5b7a5f8a4b3b5b9a0b3a4afbbb7a5a596b1bbb7bfbaf8b5b9bb" style="color:var(--orange);font-size:.8rem;text-decoration:none;"><span class="__cf_email__" data-cfemail="fa899b89d4889f99958c9f8883979b8989ba9d979b9396d4999597">[email&#160;protected]</span></a>
+        <a href="mailto:sas.recoverymass@gmail.com" style="color:var(--orange);font-size:.8rem;text-decoration:none;">sas.recoverymass@gmail.com</a>
       </div>
     </div>
     <div style="flex:1;min-width:200px;">
@@ -882,7 +694,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <!-- ENFANT MALADE -->
 <div class="section" style="padding-bottom:32px;">
   <div class="sec-head">
-    <span class="sec-num" style="color:#0A8A4A;">02c</span>
+    <span class="sec-num" style="color:#0A8A4A;">04</span>
     <h2 class="sec-title">🧒 Enfant Malade — Absences autorisées</h2>
     <div class="sec-line" style="background:linear-gradient(to right, rgba(10,138,74,.22), transparent);"></div>
   </div>
@@ -951,7 +763,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <!-- AGENDA CSE -->
 <div class="section" id="section-agenda">
-  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">📅 Agenda CSE</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">📅 Agenda CSE</h2><div class="sec-line"></div></div>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;">
 
@@ -960,7 +772,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div style="position:absolute;top:10px;right:14px;background:#2563EB;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">RÉUNION</div>
       <div style="font-size:1.4rem;margin-bottom:10px;">🏢</div>
       <div style="font-weight:800;font-size:1rem;color:#1E3A5F;margin-bottom:4px;">Prochaine réunion CSE</div>
-      <div style="font-size:.82rem;color:#3B82F6;font-weight:700;margin-bottom:6px;">Lundi 13 avril 2026 à 14h00</div>
+      <div style="font-size:.82rem;color:#3B82F6;font-weight:700;margin-bottom:6px;">À définir</div>
       <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Réunion mensuelle des membres du CSE. Ordre du jour communiqué sous 3 jours.</div>
     </div>
 
@@ -978,30 +790,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div style="position:absolute;top:10px;right:14px;background:#16A34A;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">OBLIGATOIRE</div>
       <div style="font-size:1.4rem;margin-bottom:10px;">🤝</div>
       <div style="font-weight:800;font-size:1rem;color:#14532D;margin-bottom:4px;">Journée de Solidarité</div>
-      <div style="font-size:.82rem;color:#16A34A;font-weight:700;margin-bottom:6px;">Jeudi 14 mai 2026</div>
+      <div style="font-size:.82rem;color:#16A34A;font-weight:700;margin-bottom:6px;">À définir</div>
       <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Journée de travail non rémunérée au profit de l'autonomie des personnes âgées et handicapées.</div>
     </div>
 
-    <!-- Réunion de valeurs HTM -->
-    <div style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF);border:1.5px solid #D8B4FE;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;" id="agenda-valeurs">
-      <div style="position:absolute;top:10px;right:14px;background:#7C3AED;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">HTM</div>
-      <div style="font-size:1.4rem;margin-bottom:10px;">💎</div>
-      <div style="font-weight:800;font-size:1rem;color:#4C1D95;margin-bottom:4px;">Réunion de Valeurs</div>
-      <div style="font-size:.82rem;color:#7C3AED;font-weight:700;margin-bottom:6px;">Jeudi 2 avril 2026 à 19h45</div>
-      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Réunion de valeurs HTM — présence de toute l'équipe souhaitée.</div>
+    <!-- Soirée Valeurs de Part HTM -->
+    <div style="background:linear-gradient(135deg,#1a0a00 0%,#2d1200 50%,#1C1009 100%);border:1.5px solid rgba(240,78,0,0.35);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;box-shadow:0 6px 28px rgba(240,78,0,0.15);">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(240,78,0,0.18) 0%,transparent 65%);pointer-events:none;"></div>
+      <div style="position:absolute;top:10px;right:14px;background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;z-index:1;">SOIRÉE</div>
+      <div style="font-size:1.4rem;margin-bottom:10px;position:relative;z-index:1;">🌟</div>
+      <div style="font-weight:800;font-size:1rem;color:#fff;margin-bottom:4px;position:relative;z-index:1;">Soirée Valeurs de Part — HTM</div>
+      <div style="font-size:.82rem;color:var(--orange3);font-weight:700;margin-bottom:6px;position:relative;z-index:1;">À définir</div>
+      <div style="font-size:.78rem;color:rgba(255,255,255,0.6);line-height:1.6;position:relative;z-index:1;">Soirée Valeurs de Part pour HTM. Présence des collaborateurs concernés.</div>
     </div>
 
   </div>
+
 
 </div>
 
 <!-- CINEMA -->
 <div class="section" id="section-cinema">
-  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Cinéma Majestic</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Cinéma Majestic</h2><div class="sec-line"></div></div>
 
   <!-- Hero photo Majestic -->
   <div style="position:relative;border-radius:22px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,0.3);">
-    <img src="images/img_majestic_bg.jpg" alt="Soirée Ciné Privée — Le Majestic Compiègne" style="width:100%;height:auto;display:block;max-height:520px;object-fit:cover;object-position:center top;">
+    <img src="images/img_majestic_bg.jpg" alt="Soirée Ciné Privée — Le Majestic Compiègne" style="width:100%;height:auto;display:block;max-height:520px;object-fit:cover;object-position:center top;" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a0a00 0%,#2d1200 40%,#1C1009 100%)';this.parentElement.style.minHeight='320px'">
     <!-- Overlay dégradé bas -->
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(13,0,0,0.82) 100%);pointer-events:none;"></div>
     <!-- Infos prix + bouton en bas -->
@@ -1020,7 +834,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <button class="btn-main" onclick="openModal()" style="backdrop-filter:blur(6px);">🎬 Demander des places</button>
-        <a href="https://www.majestic-compiegne.fr" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="backdrop-filter:blur(6px);color:#fff;border-color:rgba(255,255,255,0.35);text-decoration:none;display:inline-flex;align-items:center;gap:6px;">🎥 Voir les séances ↗</a>
+        <a href="https://www.majestic-compiegne.fr" target="_blank" class="btn-ghost" style="backdrop-filter:blur(6px);color:#fff;border-color:rgba(255,255,255,0.35);text-decoration:none;display:inline-flex;align-items:center;gap:6px;">🎥 Voir les séances ↗</a>
       </div>
     </div>
   </div>
@@ -1029,7 +843,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <!-- BOÎTE À IDÉES -->
 <div class="section" id="section-idees">
-  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
   <div class="idee-box">
     <h3>📬 Votre avis compte !</h3>
     <p>Une idée pour améliorer la vie au boulot ? Un avantage que vous aimeriez voir arriver ? Dites-le-nous — anonymement ou non, on lit tout !</p>
@@ -1051,9 +865,47 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </div>
 </div>
 
+<!-- SOIRÉE DE NOËL — AVIS DE TOUS -->
+<div class="section" id="section-noel">
+  <div class="sec-head"><span class="sec-num" style="color:#B8001E;">08</span><h2 class="sec-title">🎄 Soirée de Noël — Donnez votre avis</h2><div class="sec-line" style="background:linear-gradient(to right, rgba(184,0,30,.22), transparent);"></div></div>
+  <div class="idee-box">
+    <h3>🎅 Cette année, on vous demande votre avis !</h3>
+    <p>Plutôt que de choisir seul cette année, le CSE souhaite organiser la soirée de Noël selon les envies du plus grand nombre. Dites-nous ce que vous aimeriez — vos réponses orienteront directement la décision.</p>
+    <div class="f-row">
+      <div class="f-group"><label>Prénom (optionnel)</label><input type="text" id="noel-name" placeholder="ex: Sophie…"></div>
+      <div class="f-group">
+        <label>Type de soirée souhaité</label>
+        <select id="noel-type">
+          <option value="">Choisir…</option>
+          <option>🍽️ Restaurant / repas convivial</option>
+          <option>🎉 Soirée dansante / DJ</option>
+          <option>🎳 Activité originale (bowling, escape game, karting…)</option>
+          <option>🏨 Soirée avec hébergement</option>
+          <option>🎭 Spectacle / concert</option>
+          <option>💬 Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-row">
+      <div class="f-group"><label>Date ou période préférée</label><input type="text" id="noel-date" placeholder="ex: Mi-décembre, un vendredi soir…"></div>
+      <div class="f-group">
+        <label>Participation financière</label>
+        <select id="noel-budget">
+          <option value="">Choisir…</option>
+          <option>🎁 Entièrement pris en charge par le CSE</option>
+          <option>💶 Petite participation acceptable</option>
+          <option>🤷 Peu importe, l'essentiel c'est l'ambiance</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-group"><label>Commentaire libre</label><textarea id="noel-comment" placeholder="Une idée précise, une envie particulière ? Dites-nous tout ! 🎄"></textarea></div>
+    <button class="submit-btn" onclick="submitNoelAvis()" style="background:#B8001E;">📨 Envoyer mon avis par mail</button>
+  </div>
+</div>
+
 <!-- CONTACTS & RESSOURCES UTILES — ROUE CRANTÉE -->
 <div class="section" id="section-contacts">
-  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">⚙️ Contacts &amp; Ressources Utiles</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">⚙️ Contacts &amp; Ressources Utiles</h2><div class="sec-line"></div></div>
 
   <!-- Référents harcèlement — card dédiée -->
   <div style="background:linear-gradient(135deg,#1a0012 0%,#2d0020 50%,#1a0012 100%);border-radius:20px;padding:24px 32px;margin-bottom:20px;display:flex;align-items:center;gap:24px;position:relative;overflow:hidden;box-shadow:0 6px 32px rgba(190,24,93,0.22);">
@@ -1084,27 +936,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </div>
 
-  <!-- NUMÉRO B — Écoute & Soutien Boulanger -->
-  <div style="background:linear-gradient(135deg,#3a6b35 0%,#4e8a47 45%,#3a6b35 100%);border-radius:20px;padding:24px 32px;margin-bottom:20px;display:flex;align-items:center;gap:28px;position:relative;overflow:hidden;box-shadow:0 6px 32px rgba(74,138,68,0.28);">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(255,255,255,0.08) 0%,transparent 60%);pointer-events:none;"></div>
-    <!-- Logo Numéro B -->
-    <div style="flex-shrink:0;position:relative;z-index:1;">
-      <img src="images/img_numero_b.png" alt="Numéro B — Accepte qu'on te tende la main" style="height:80px;width:auto;border-radius:14px;display:block;box-shadow:0 4px 18px rgba(0,0,0,0.22);" onerror="this.style.display='none'">
-    </div>
-    <div style="flex:1;position:relative;z-index:1;">
-      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.28);color:#d4f5cf;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px;">💚 Dispositif Boulanger</div>
-      <h3 style="font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-0.4px;margin-bottom:6px;">Numéro B — Écoute &amp; Soutien</h3>
-      <p style="color:rgba(255,255,255,0.78);font-size:.84rem;line-height:1.65;max-width:520px;">Une ligne d'écoute confidentielle pour tous les collaborateurs Boulanger. Que ce soit pour une difficulté personnelle, professionnelle ou simplement pour parler — <strong style="color:#d4f5cf;">quelqu'un est là pour tendre la main.</strong></p>
-    </div>
-    <div style="flex-shrink:0;position:relative;z-index:1;text-align:center;">
-      <a href="tel:0969396903" style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);border-radius:16px;padding:16px 26px;text-decoration:none;transition:background .2s;">
-        <span style="font-size:1.4rem;">📞</span>
-        <span style="font-weight:900;font-size:1.5rem;color:#fff;letter-spacing:0.5px;line-height:1;">09 69 39 69 03</span>
-        <span style="font-size:.6rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-top:2px;">Gratuit · Confidentiel</span>
-      </a>
-    </div>
-  </div>
-
   <div class="gear-wrapper">
     <div class="gear-svg-wrap">
       <svg class="gear-svg" viewBox="0 0 280 280" id="gsvg">
@@ -1127,14 +958,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <!-- NOS 30 COLLÈGUES -->
 <div class="section" id="section-equipe">
-  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Nos 28 Collègues</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">Nos 30 Collègues</h2><div class="sec-line"></div></div>
   <div class="genre-bar-wrap" id="genre-stats"></div>
   <div class="equipe-grid" id="equipe-grid"></div>
 </div>
 
 <!-- ANNIVERSAIRES -->
 <div class="section" id="section-anniversaires">
-  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">🎂 Anniversaires</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">🎂 Anniversaires</h2><div class="sec-line"></div></div>
   <div class="birthday-tabs">
     <button class="btab on" onclick="filterBirthdays('all',this)">Tous</button>
     <button class="btab" onclick="filterBirthdays('month',this)">Ce mois-ci</button>
@@ -1145,29 +976,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <!-- MEMBRES DU CSE — Virginie ajoutée -->
 <div class="section">
-  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">Membres du CSE</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">12</span><h2 class="sec-title">Membres du CSE</h2><div class="sec-line"></div></div>
   <div class="cse-prenoms" id="cse-prenoms"></div>
 </div>
 
 <!-- SUIVRE BOULANGER -->
 <div class="section">
-  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">Suivre Boulanger</h2><div class="sec-line"></div></div>
+  <div class="sec-head"><span class="sec-num">13</span><h2 class="sec-title">Suivre Boulanger</h2><div class="sec-line"></div></div>
   <div class="social-grid">
-    <a href="https://www.instagram.com/boulanger/" target="_blank" rel="noopener noreferrer" class="social-card">
+    <a href="https://www.instagram.com/boulanger/" target="_blank" class="social-card">
       <div class="social-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
       </div>
       <div class="social-info"><h4>@boulanger</h4><p>Instagram officiel Boulanger France</p></div>
       <span class="social-arrow">↗</span>
     </a>
-    <a href="https://www.facebook.com/Boulanger.Electromenager.Multimedia/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="social-card">
+
+    <a href="https://www.facebook.com/Boulanger.Electromenager.Multimedia/" target="_blank" class="social-card">
       <div class="social-icon" style="background:linear-gradient(135deg,#1877F2,#0d5fc9);">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </div>
-      <div class="social-info"><h4>Boulanger</h4><p>Page Facebook officielle Boulanger France</p></div>
+      <div class="social-info"><h4>Boulanger</h4><p>Page Facebook officielle Boulanger</p></div>
       <span class="social-arrow">↗</span>
     </a>
-    <a href="https://x.com/boulanger" target="_blank" rel="noopener noreferrer" class="social-card">
+    <a href="https://x.com/boulanger" target="_blank" class="social-card">
       <div class="social-icon" style="background:#000;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
       </div>
@@ -1183,37 +1015,26 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <details style="margin-top:18px;text-align:left;max-width:700px;margin-left:auto;margin-right:auto;">
     <summary style="cursor:pointer;font-weight:700;color:var(--orange);font-size:.78rem;letter-spacing:.5px;text-transform:uppercase;">Mentions légales &amp; Politique de confidentialité</summary>
     <div style="margin-top:14px;line-height:1.8;font-size:.75rem;color:var(--text-soft);">
-
       <p><strong>Éditeur du site</strong><br>
       Comité Social et Économique (CSE) du magasin Boulanger Compiègne<br>
       63 rue des Métiers, CC de Venette — 60880 Jaux<br>
-      Contact : <a href="#" data-mail="c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ==" style="color:var(--orange);">[chargement…]</a><br>
-      <strong>Responsable de traitement :</strong> CSE Boulanger Compiègne</p>
-
+      Contact : <a href="#" data-mail="c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ==" style="color:var(--orange);">[chargement…]</a></p>
       <p style="margin-top:10px;"><strong>Hébergement</strong><br>
-      L'hébergeur de ce site sera communiqué sur demande auprès du CSE à l'adresse ci-dessus.</p>
-
-      <p style="margin-top:10px;"><strong>Données personnelles &amp; base légale</strong><br>
-      Ce site affiche les prénoms, noms, photos, dates d'anniversaire et années de naissance des collaborateurs du magasin.<br>
-      <strong>Base légale :</strong> consentement explicite de chaque personne concernée (art. 6.1.a du Règlement UE 2016/679 — RGPD).<br>
-      Le consentement peut être retiré à tout moment en contactant le CSE ; le retrait n'affecte pas la licéité des traitements effectués avant celui-ci.<br>
-      <strong>Durée de conservation :</strong> les données sont conservées pendant la durée du contrat de travail. En cas de départ, elles sont supprimées dans un délai de 30 jours sur simple demande auprès du CSE.<br>
-      Conformément au RGPD et à la loi Informatique et Libertés, chaque collaborateur dispose d'un droit d'accès, de rectification, d'opposition et de suppression de ses données. Pour exercer ces droits, contactez le CSE à l'adresse ci-dessus.<br>
-      Vous pouvez également introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style="color:var(--orange);">CNIL (www.cnil.fr)</a>.</p>
-
+      Ce site est hébergé sur l'infrastructure interne de Boulanger ou par un prestataire désigné par le CSE.</p>
+      <p style="margin-top:10px;"><strong>Données personnelles — RGPD (Règlement UE 2016/679)</strong><br>
+      Ce site traite des données personnelles de collaborateurs du magasin (prénoms, noms, photographies, dates de naissance), dans le cadre des missions légales du CSE et avec le consentement préalable des personnes concernées.<br><br>
+      <strong>Base légale du traitement :</strong> intérêt légitime du CSE (représentation du personnel, animation de la vie sociale) et consentement des collaborateurs pour les données facultatives (photo, date de naissance).<br><br>
+      <strong>Durée de conservation :</strong> les données sont conservées pendant toute la durée du contrat de travail. Elles sont supprimées ou anonymisées dans les 30 jours suivant le départ du collaborateur.<br><br>
+      <strong>Vos droits :</strong> conformément au RGPD et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, chaque collaborateur dispose d'un droit d'accès, de rectification, d'effacement (« droit à l'oubli »), d'opposition, de limitation du traitement et de portabilité de ses données.<br>
+      Pour exercer ces droits, contactez le CSE à l'adresse indiquée ci-dessus. En cas de litige non résolu, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (www.cnil.fr — 3 place de Fontenoy, 75007 Paris).</p>
+      <p style="margin-top:10px;"><strong>Destinataires des données</strong><br>
+      Les données personnelles affichées sur ce site sont exclusivement accessibles aux collaborateurs du magasin Boulanger Compiègne. Aucune donnée n'est transmise à des tiers, partenaires commerciaux ou sous-traitants.</p>
       <p style="margin-top:10px;"><strong>Cookies &amp; Traçage</strong><br>
-      Ce site n'utilise aucun cookie de traçage, aucun outil d'analyse d'audience et n'enregistre aucune donnée de navigation.<br>
-      <em>Note technique :</em> les polices de caractères sont chargées via Google Fonts (fonts.googleapis.com), ce qui implique une transmission de l'adresse IP du visiteur aux serveurs Google lors du premier chargement. Aucune autre donnée n'est transmise à des tiers.</p>
-
-      <p style="margin-top:10px;"><strong>Formulaires</strong><br>
-      Les formulaires (cinéma, boîte à idées) fonctionnent via votre client de messagerie local (protocole mailto). Aucune donnée n'est enregistrée sur un serveur tiers ; les données transitent uniquement par votre messagerie professionnelle.</p>
-
+      Ce site n'utilise aucun cookie, aucun traceur publicitaire et aucun outil d'analyse d'audience (Google Analytics, etc.). Seule la donnée <em>sessionStorage</em> est utilisée localement dans votre navigateur pour mémoriser la fermeture de la bannière d'accès — cette donnée n'est jamais transmise et disparaît à la fermeture de l'onglet.</p>
+      <p style="margin-top:10px;"><strong>Formulaires &amp; Communications</strong><br>
+      Les formulaires (demande de places cinéma, boîte à idées) génèrent un e-mail via votre client de messagerie local (protocole <em>mailto:</em>). Aucune donnée saisie n'est enregistrée sur un serveur externe. Les e-mails sont adressés aux membres du CSE dans le cadre de leur mandat.</p>
       <p style="margin-top:10px;"><strong>Accès</strong><br>
       Ce site est destiné exclusivement aux salariés du magasin Boulanger Compiègne. Toute diffusion à des tiers est interdite.</p>
-
-      <p style="margin-top:14px;color:var(--text-faint);font-size:.7rem;border-top:1px solid var(--card-border);padding-top:10px;">
-        Dernière mise à jour : <strong>avril 2026</strong> · Responsable de traitement : CSE Boulanger Compiègne
-      </p>
     </div>
   </details>
 </footer>
@@ -1238,6 +1059,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </div>
 </div>
+</div>
 
 <script>
 /* ── DONNÉES ── */
@@ -1247,22 +1069,24 @@ const salariesData = [
   ['GIBOYAU Cedric','H','11-28',1979],['MANCEBO Guillaume','H','07-03',1991],['GRASON Sabrina','F','03-08',1984],
   ['COQUEREL Manon','F','06-29',1998],['VASSAUX Vanessa','F','01-01',1980],['POLLEUR Alexandra','F','12-10',1990],
   ['TEIXEIRA Virginie','F','05-14',1981],['PECKEU Stephanie','F','12-25',1977],['RAMUS Quentin','H','10-26',2000],
+  ['GRUMELART Augustin','H','05-08',1990],
   ['DURANT Gregoire','H','10-21',1989],['THEVENIN Davy','H','08-28',1988],['MAILLOT Julien','H','03-09',1995],
   ['SELLIER Pierrick','H','10-05',1982],['CAILLEUX Mickael','H','04-21',1972],['BARBOSA Antoine','H','05-24',null],
   ['DERAMOND Quentin','H','07-06',2001],['VLIEGHE Mallory','F','11-10',1997],['CHAPIN Claire','F','11-03',1981],
-  ['MEREAUX Gaelle','F','10-23',2006],['STIMOLO Yvan','H','12-18',2007],['RABASTE Chloe','F','05-26',2004],
+  ['STIMOLO Yvan','H','12-18',2007],['RABASTE Chloe','F','05-26',2004],
   ['MALARD Clement','H','01-18',1988],
+  ['Imane','F',null,null],['Clemence','F',null,null],
 ];
 
 const employeePhotos = {
   "POLLEUR": "images/img_05.webp",
   "BARBOSA": "images/img_06.webp",
   "GARCIA": "images/img_07.webp",
+  "GRUMELART": "images/img_08.webp",
   "GIBOYAU": "images/img_09.webp",
   "RABASTE": "images/img_10.webp",
   "CHAPIN": "images/img_11.webp",
   "THEVENIN": "images/img_13.webp",
-  "MEREAUX": "images/img_14.webp",
   "DURANT": "images/img_15.webp",
   "MANCEBO": "images/img_16.webp",
   "BRIERE": "images/img_17.webp",
@@ -1283,8 +1107,8 @@ const employeePhotos = {
   "DERAMOND": "images/img_32.webp"
 };
 
-function ini(s){const p=s.trim().split(' ');return p.length>=2?p[1][0]+p[0][0]:s.substring(0,2).toUpperCase();}
-function fmt(s){const p=s.trim().split(' ');if(p.length>=2)return p[1].charAt(0).toUpperCase()+p[1].slice(1).toLowerCase()+' '+p[0];return s;}
+function ini(s){const p=s.trim().split(' ');const first=p.length>=2?p[1]:p[0];return first.substring(0,2).toUpperCase();}
+function fmt(s){const p=s.trim().split(' ');const first=p.length>=2?p[1]:p[0];return first.charAt(0).toUpperCase()+first.slice(1).toLowerCase();}
 
 /* Équipe stats */
 const nbH=salariesData.filter(s=>s[1]==='H').length,nbF=salariesData.filter(s=>s[1]==='F').length,total=salariesData.length,pctH=Math.round(nbH/total*100),pctF=100-pctH;
@@ -1303,12 +1127,12 @@ function filterBirthdays(mode,btn){curBdF=mode;document.querySelectorAll('.btab'
 function calcAge(mmdd,birthYear){if(!birthYear)return null;const today=new Date();const[mm,dd]=mmdd.split('-').map(Number);let age=today.getFullYear()-birthYear;if(today.getMonth()+1<mm||(today.getMonth()+1===mm&&today.getDate()<dd))age--;return age;}
 function renderBirthdays(){
   const today=new Date();today.setHours(0,0,0,0);const cm=today.getMonth()+1;
-  let list=salariesData.map(s=>({name:fmt(s[0]),genre:s[1]==='H'?'homme':'femme',initials:ini(s[0]),mmdd:s[2],birthYear:s[3]||null,days:daysUntil(s[2]),dateStr:fmtBD(s[2]),month:parseInt(s[2].split('-')[0])})).sort((a,b)=>a.days-b.days);
+  let list=salariesData.filter(s=>s[2]).map(s=>({name:fmt(s[0]),genre:s[1]==='H'?'homme':'femme',initials:ini(s[0]),mmdd:s[2],birthYear:s[3]||null,days:daysUntil(s[2]),dateStr:fmtBD(s[2]),month:parseInt(s[2].split('-')[0])})).sort((a,b)=>a.days-b.days);
   if(curBdF==='month')list=list.filter(p=>p.month===cm);
   else if(curBdF==='next30')list=list.filter(p=>p.days<=30);
   const wrap=document.getElementById('birthday-list');
   if(!list.length){wrap.innerHTML=`<div class="birthday-empty">🎂 Aucun anniversaire pour cette période.</div>`;return;}
-  wrap.innerHTML=`<div class="birthday-list-inner">${list.map(p=>{let badge='',cls='';if(p.days===0){badge='🎂 Aujourd\'hui !';cls='today';}else if(p.days<=7){badge=`Dans ${p.days} jour${p.days>1?'s':''}`;cls='soon';}else if(p.days<=30){badge=`Dans ${p.days} jours`;cls='upcoming';}else{badge=p.dateStr;cls='future';}const age=calcAge(p.mmdd,p.birthYear);const ageStr=age!==null?(p.days===0?` · 🎂 ${age} ans`:(p.days<=30?` · aura ${age+1} ans`:``)): '';const cakeHtml=p.days===0?`<div class="birthday-cake-anim" title="Bon anniversaire !">🎂<span class="birthday-stars">⭐✨⭐</span></div>`:'';return`<div class="birthday-item${p.days===0?' is-today':''}"><div class="birthday-av ${p.genre}">${p.initials}</div><div style="flex:1;"><div class="birthday-name">${p.name}</div><div class="birthday-date-text">🗓️ ${p.dateStr}${p.birthYear?' '+p.birthYear:''}${ageStr} · ${p.genre==='homme'?'♂':'♀'}</div></div>${cakeHtml}<span class="birthday-badge ${cls}">${badge}</span></div>`;}).join('')}</div>`;
+  wrap.innerHTML=`<div class="birthday-list-inner">${list.map(p=>{let badge='',cls='';if(p.days===0){badge='🎂 Aujourd\'hui !';cls='today';}else if(p.days<=7){badge=`Dans ${p.days} jour${p.days>1?'s':''}`;cls='soon';}else if(p.days<=30){badge=`Dans ${p.days} jours`;cls='upcoming';}else{badge=p.dateStr;cls='future';}const age=calcAge(p.mmdd,p.birthYear);const ageStr=age!==null?(p.days===0?` · 🎂 ${age} ans`:(p.days<=30?` · aura ${age+1} ans`:``)): '';const cakeHtml=p.days===0?`<div class="birthday-cake-anim" title="Bon anniversaire !">🎂<span class="birthday-stars">⭐✨⭐</span></div>`:'';return`<div class="birthday-item${p.days===0?' is-today':''}"><div class="birthday-av ${p.genre}">${p.initials}</div><div style="flex:1;"><div class="birthday-name">${p.name}</div><div class="birthday-date-text">🗓️ ${p.dateStr}${ageStr} · ${p.genre==='homme'?'♂':'♀'}</div></div>${cakeHtml}<span class="birthday-badge ${cls}">${badge}</span></div>`;}).join('')}</div>`;
 }
 renderBirthdays();
 
@@ -1337,7 +1161,6 @@ const contactsCats = [
     {name:'Défenseur des droits',desc:'Signalement discrimination & harcèlement · 09 69 39 00 00',num:'3928',link:'https://www.defenseurdesdroits.fr',badge:'g'},
   ]},
   {cat:'Social & Santé', icon:'💊', color:'#C97D0A', items:[
-    {name:'Numéro B — Écoute & Soutien',desc:'Ligne d\'écoute Boulanger · Accepte qu\'on te tende la main · Pour tous les collaborateurs',num:'09 69 39 69 03',badge:'g'},
     {name:'Prévention suicide',desc:'Numéro national d\'aide — disponible 24h/24',num:'3114',badge:'g'},
     {name:'Arrêt maladie',desc:'Déclarer un arrêt : prévenir le manager + transmettre sous 48h',badge:null},
     {name:'Reconnaissance RQTH',desc:'Travailleur handicapé — contact RH pour accompagnement',badge:null},
@@ -1350,7 +1173,7 @@ const contactsCats = [
   ]},
   {cat:'Infos diverses', icon:'📋', color:'#475569', items:[
     {name:'Digipost — Mes fiches de paye',desc:'Consulter et télécharger vos bulletins de salaire en ligne',link:'https://www.laposte.fr/digiposte/tous-mes-documents-partout-et-tout-le-temps',badge:'g'},
-    {name:'Recovery Mass — RDV Massage',desc:'Partenariat CSE · Massage sportif & TMS · Tarifs préférentiels −50%',num:'06 52 93 52 04',link:'https://www.planity.com/recovery-mass-60410-verberie',badge:'g'},
+    {name:'Recovery Mass — RDV Massage',desc:'Partenariat CSE · Massage sportif & TMS · Tarifs préférentiels −50%',num:'06 52 93 52 04',link:'https://www.supersaas.fr/schedule/Recovery_Mass/Massage_à_Compiègne',badge:'g'},
     {name:'ANCV',desc:'Chèques vacances — commande',link:'https://www.ancv.com',badge:null},
     {name:'Service-Public',desc:'Droits salariés, congés, chômage…',link:'https://www.service-public.fr',badge:null},
     {name:'Majestic Compiègne',desc:'Programme cinéma — tarif CSE 5€',link:'https://www.majestic-compiegne.fr',badge:null},
@@ -1453,7 +1276,7 @@ function renderContacts(){
       </div>
       <div class="c-right">
         ${it.num?`<span class="c-num">${it.num}</span>`:''}
-        ${it.link?`<a href="${it.link}" target="_blank" rel="noopener noreferrer" class="c-link">↗ Accéder</a>`:''}
+        ${it.link?`<a href="${it.link}" target="_blank" class="c-link">↗ Accéder</a>`:''}
         ${it.badge==='g'?`<span class="c-badge g">✓ Gratuit</span>`:it.badge==='u'?`<span class="c-badge u">⚡ Urgent</span>`:''}
       </div>
     </div>`).join('');
@@ -1462,9 +1285,38 @@ buildCatPills();
 renderContacts();
 
 /* ── CINÉMA ── */
+let affiches=[],allFilms=[],selectedDay=null;
+function emoG(g){if(!g)return'🎬';const l=g.toLowerCase();if(l.includes('horreur')||l.includes('thriller'))return'😱';if(l.includes('comédie')||l.includes('comedie'))return'😂';if(l.includes('animation')||l.includes('famille'))return'🎠';if(l.includes('action')||l.includes('aventure'))return'🦸';if(l.includes('romance'))return'💕';if(l.includes('drame'))return'🎭';if(l.includes('sci')||l.includes('fiction'))return'🚀';return'🎬';}
+function renderDays(films){const days=new Set();films.forEach(f=>(f.horaires||[]).forEach(h=>days.add(h.jour)));document.getElementById('days-nav').innerHTML=`<button class="day-btn on" onclick="filterDay(null,this)">Tous</button>`+[...days].slice(0,8).map(d=>`<button class="day-btn" onclick="filterDay('${d}',this)">${d}</button>`).join('');}
+function renderFilms(films,fd){const wrap=document.getElementById('seances-wrap');let list=films;if(fd){list=films.map(f=>({...f,horaires:(f.horaires||[]).filter(h=>h.jour===fd)})).filter(f=>f.horaires.length);}if(!list.length){wrap.innerHTML=`<div class="seances-error">Aucune séance trouvée pour ce jour.</div>`;return;}wrap.innerHTML=`<div class="films-list">${list.map(film=>{const a=affiches.find(x=>x.titre&&x.titre.toLowerCase()===film.titre.toLowerCase());const thumbHtml=a&&a.posterUrl&&a.posterUrl.startsWith('http')?`<div class="film-thumb"><img src="${a.posterUrl}" alt="${film.titre}" onerror="this.parentElement.innerHTML='${emoG(film.genre)}'"></div>`:`<div class="film-thumb">${emoG(film.genre)}</div>`;return`<div class="film-item">${thumbHtml}<div class="film-infos"><div class="film-title">${film.titre}${film.genre?`<span class="tag-genre">${film.genre}</span>`:``}${film.age?`<span class="tag-age">${film.age}</span>`:''}</div><div class="film-meta">${film.duree?`<span>⏱ ${film.duree}</span>`:''}${film.realisateur?`<span>🎥 ${film.realisateur}</span>`:''}</div></div><div class="horaires-wrap">${(film.horaires||[]).map(h=>`<div>${!fd?`<div class="jour-label">${h.jour}</div>`:''}<div class="slots">${(h.creneaux||[]).map(c=>`<a href="${c.url||'https://www.majestic-compiegne.fr'}" target="_blank" class="slot">${c.heure}${c.version&&c.version!=='VF'?`<span class="ver${c.version.toLowerCase().includes('ice')?' ice':''}">${c.version}</span>`:''}</a>`).join('')}</div></div>`).join('')}</div></div>`;}).join('')}</div><div style="text-align:center;margin-top:14px;"><a href="https://www.majestic-compiegne.fr" target="_blank" style="font-size:.72rem;color:var(--text-faint);text-decoration:none;">↗ Programme complet sur majestic-compiegne.fr</a></div>`;}
+function filterDay(d,btn){selectedDay=d;document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderFilms(allFilms,d);}
 
-function loadSeances(){
-  // Cinéma géré via lien externe majestic-compiegne.fr
+
+function loadSeances(force){
+  const wrap=document.getElementById('seances-wrap'),dot=document.getElementById('live-dot'),upd=document.getElementById('last-update');
+  dot.style.background='#4ADE80';
+  upd.textContent='Voir sur le site officiel';
+  wrap.innerHTML=`
+    <div style="text-align:center;padding:32px 16px;">
+      <div style="font-size:2.8rem;margin-bottom:12px;">🎬</div>
+      <div style="font-weight:700;font-size:1.05rem;color:var(--noir);margin-bottom:8px;">Cinéma Majestic Compiègne</div>
+      <div style="color:var(--text-soft);font-size:.85rem;margin-bottom:20px;max-width:320px;margin-left:auto;margin-right:auto;">
+        Retrouvez le programme complet des séances, les horaires et la billetterie directement sur le site officiel.
+      </div>
+      <a href="https://www.majestic-compiegne.fr" target="_blank"
+         style="display:inline-block;background:var(--orange);color:#fff;font-weight:700;font-size:.92rem;
+                padding:12px 28px;border-radius:10px;text-decoration:none;letter-spacing:.02em;">
+        🎥 Voir les séances ↗
+      </a>
+      <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://www.majestic-compiegne.fr" target="_blank"
+           style="font-size:.75rem;color:var(--text-faint);text-decoration:none;border:1px solid var(--border);
+                  padding:6px 14px;border-radius:20px;">📅 Programme semaine</a>
+        <a href="https://www.majestic-compiegne.fr" target="_blank"
+           style="font-size:.75rem;color:var(--text-faint);text-decoration:none;border:1px solid var(--border);
+                  padding:6px 14px;border-radius:20px;">🎟️ Réserver en ligne</a>
+      </div>
+    </div>`;
 }
 
 /* ── MODAL ── */
@@ -1484,44 +1336,14 @@ function confirmDemande(){
   const film=document.getElementById('m-film').value.trim()||'Au choix';
   const date=document.getElementById('m-date').value.trim()||'À définir';
   if(!name){document.getElementById('m-name').style.borderColor='#F04E00';document.getElementById('m-name').focus();return;}
+  // Envoi par email aux membres du CSE
   const cseEmails=atob('c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ==')+',' +atob('Y2xhaXJlLmNoYXBpbkBib3VsYW5nZXIuY29t')+','+atob('c3RlcGhhbmllLnBlY2tldUBib3VsYW5nZXIuY29t')+','+atob('cXVlbnRpbi5yYW11c0Bib3VsYW5nZXIuY29t')+','+atob('Y2xlbWVudC5tYWxhcmRAYm91bGFuZ2VyLmNvbQ==')+','+atob('dmlyZ2luaWUudGVpeGVpcmExQGJvdWxhbmdlci5jb20=');
-  const subject='[CSE Boulanger] Demande de places cinéma — '+name;
-  const body='Bonjour,\n\nNouvelle demande de places de cinéma :\n\nCollaborateur : '+name+'\nNombre de places : '+places+'\nTotal : '+tot+'€\nFilm souhaité : '+film+'\nDate / période : '+date+'\n\nMerci de contacter le collaborateur pour confirmer la réservation.\nPaiement sur place (Espèces · Chèque · SumUp).\n\n— Formulaire CSE Boulanger Compiègne';
-  // Fermer la modal et reset
-  closeModal();
+  const subject=encodeURIComponent('[CSE Boulanger] Demande de places cinéma — '+name);
+  const body=encodeURIComponent('Bonjour,\n\nNouvelle demande de places de cinéma :\n\nCollaborateur : '+name+'\nNombre de places : '+places+'\nTotal : '+tot+'€\nFilm souhaité : '+film+'\nDate / période : '+date+'\n\nMerci de contacter le collaborateur pour confirmer la réservation.\nPaiement sur place (Espèces · Chèque · SumUp).\n\n— Formulaire CSE Boulanger Compiègne');
+  window.location.href='mailto:'+cseEmails+'?subject='+subject+'&body='+body;
+  closeModal();showToast(`Demande envoyée au CSE ! ${places} place(s) = ${tot}€ 🎟️`);
   ['m-name','m-film','m-date'].forEach(id=>{document.getElementById(id).value='';document.getElementById(id).style.borderColor='';});
   document.getElementById('m-places').value='2';document.getElementById('total-display').textContent='10€';
-  // Afficher le choix de messagerie
-  const gmailUrl='https://mail.google.com/mail/?view=cm&to='+encodeURIComponent(cseEmails)+'&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-  const outlookUrl='https://outlook.office.com/mail/deeplink/compose?to='+encodeURIComponent(cseEmails)+'&subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-  const mailtoUrl='mailto:'+cseEmails+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-  // Créer le popup de choix
-  const overlay=document.createElement('div');
-  overlay.id='mail-choice-overlay';
-  overlay.style.cssText='position:fixed;inset:0;z-index:9998;background:rgba(28,16,9,0.35);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;';
-  overlay.innerHTML=`<div style="background:#fff;border-radius:22px;padding:32px 36px;max-width:400px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.18);position:relative;">
-    <div style="text-align:center;margin-bottom:8px;font-size:1.8rem;">📧</div>
-    <h3 style="font-weight:800;font-size:1.2rem;color:#1C1009;text-align:center;margin-bottom:6px;">Envoyer la demande</h3>
-    <p style="color:rgba(28,16,9,0.55);font-size:.82rem;text-align:center;margin-bottom:22px;line-height:1.6;">${places} place(s) — ${tot}€ · Film : ${film}</p>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <a href="${gmailUrl}" target="_blank" rel="noopener" onclick="setTimeout(()=>document.getElementById('mail-choice-overlay').remove(),300)" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e0e0e0;border-radius:13px;padding:13px 18px;text-decoration:none;color:#1C1009;font-weight:700;font-size:.88rem;transition:all .18s;box-shadow:0 2px 10px rgba(0,0,0,0.06);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'">
-        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 5.72V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5.72l10 7 10-7z" fill="#EA4335"/><path d="M22 5.72L12 12.72 2 5.72 12 3l10 2.72z" fill="#FBBC04"/><path d="M2 5.72V18a2 2 0 0 0 2 2h.5V8.5L12 14l7.5-5.5V20H20a2 2 0 0 0 2-2V5.72l-10 7-10-7z" fill="#34A853"/><path d="M2 5.72l10 7 10-7L12 3 2 5.72z" fill="#EA4335"/></svg>
-        Ouvrir dans Gmail
-      </a>
-      <a href="${outlookUrl}" target="_blank" rel="noopener" onclick="setTimeout(()=>document.getElementById('mail-choice-overlay').remove(),300)" style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e0e0e0;border-radius:13px;padding:13px 18px;text-decoration:none;color:#1C1009;font-weight:700;font-size:.88rem;transition:all .18s;box-shadow:0 2px 10px rgba(0,0,0,0.06);" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='#fff'">
-        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="3" fill="#0072C6"/><path d="M4 8l8 5 8-5v9H4V8z" fill="#fff" opacity=".9"/><path d="M4 8l8 5 8-5" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
-        Ouvrir dans Outlook
-      </a>
-      <a href="${mailtoUrl}" onclick="setTimeout(()=>document.getElementById('mail-choice-overlay').remove(),300)" style="display:flex;align-items:center;gap:12px;background:#fafafa;border:1px solid #e8e8e8;border-radius:13px;padding:11px 18px;text-decoration:none;color:rgba(28,16,9,0.5);font-weight:600;font-size:.8rem;transition:all .18s;" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='#fafafa'">
-        <span style="font-size:1.1rem">📬</span>
-        Autre messagerie (application par défaut)
-      </a>
-    </div>
-    <button onclick="document.getElementById('mail-choice-overlay').remove()" style="position:absolute;top:14px;right:14px;background:#f5f0eb;border:1px solid rgba(28,16,9,0.1);border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:.75rem;color:rgba(28,16,9,0.4);display:flex;align-items:center;justify-content:center;">✕</button>
-  </div>`;
-  overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.remove();});
-  document.body.appendChild(overlay);
-  showToast('🎟️ '+places+' place(s) = '+tot+'€ — Choisissez votre messagerie');
 }
 
 /* ── BOÎTE À IDÉES ── */
@@ -1537,7 +1359,22 @@ function submitIdea(){
   showToast('💡 Merci ! Votre messagerie va s\'ouvrir.');
 }
 
-loadSeances();
+/* ── SOIRÉE DE NOËL — AVIS DE TOUS ── */
+function submitNoelAvis(){
+  const name=document.getElementById('noel-name').value.trim()||'Anonyme';
+  const type=document.getElementById('noel-type').value||'Non précisé';
+  const date=document.getElementById('noel-date').value.trim()||'Non précisée';
+  const budget=document.getElementById('noel-budget').value||'Non précisé';
+  const comment=document.getElementById('noel-comment').value.trim()||'—';
+  const subject=encodeURIComponent('[CSE Boulanger] Avis soirée de Noël — '+name);
+  const body=encodeURIComponent('Prénom : '+name+'\nType de soirée souhaité : '+type+'\nDate / période préférée : '+date+'\nParticipation financière : '+budget+'\n\nCommentaire :\n'+comment);
+  window.location.href='mailto:'+[atob('c2FicmluYS5ncmFzb25AYm91bGFuZ2VyLmNvbQ=='),atob('c3RlcGhhbmllLnBlY2tldUBib3VsYW5nZXIuY29t'),atob('Y2xhaXJlLmNoYXBpbkBib3VsYW5nZXIuY29t'),atob('cXVlbnRpbi5yYW11c0Bib3VsYW5nZXIuY29t'),atob('dmlyZ2luaWUudGVpeGVpcmExQGJvdWxhbmdlci5jb20='),atob('Y2xlbWVudC5tYWxhcmRAYm91bGFuZ2VyLmNvbQ==')].join(',')+'?subject='+subject+'&body='+body;
+  ['noel-name','noel-date','noel-comment'].forEach(id=>{document.getElementById(id).value='';});
+  ['noel-type','noel-budget'].forEach(id=>{document.getElementById(id).value='';});
+  showToast('🎄 Merci pour votre avis ! Votre messagerie va s\'ouvrir.');
+}
+
+loadSeances(false);
 
 /* ── BANNIÈRE ACCÈS ── */
 if (sessionStorage.getItem('banner_ok')) {
@@ -1565,14 +1402,11 @@ document.addEventListener('click', e => {
 });
 
 /* ── EMAILS OBFUSQUÉS (protection spam/scraping) ── */
-document.querySelectorAll('a[data-mail]').forEach(function(el) {
-  try {
-    const decoded = atob(el.getAttribute('data-mail'));
-    el.href = 'mailto:' + decoded;
-    el.textContent = decoded;
-  } catch(e) {}
+document.querySelectorAll('[data-mail]').forEach(el => {
+  const addr = atob(el.dataset.mail);
+  if (el.tagName === 'A') { el.href = 'mailto:' + addr; el.textContent = addr; }
+  else { el.textContent = addr; }
 });
-
 </script>
 </body>
 </html>
