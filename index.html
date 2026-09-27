@@ -656,6 +656,38 @@ body {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
+/* ── PAGE CONVENTION COLLECTIVE — HABILLAGE VIBRANT (orange → rouge/rose → violet) ── */
+#p2 {
+  --orange: #ef2d63;
+  --orange2: #c81f52;
+  --orange3: #ff6a1f;
+  --bg: #fdf6ff;
+  --bg2: #f6ecff;
+  --noir: #241a35;
+  --text-main: #241a35;
+  --text-soft: rgba(36,26,53,0.62);
+  --text-faint: rgba(36,26,53,0.4);
+  --card-border: rgba(124,58,237,0.14);
+}
+#p2 { background: var(--bg); }
+#p2 .topbar { background: rgba(253,246,255,0.92); border-bottom: 1px solid rgba(124,58,237,0.14); }
+#p2 .print-btn:hover, #p2 .back-link:hover { border-color: #7c3aed; color: #7c3aed; }
+#p2 .cc-hero { background: linear-gradient(120deg,#ff6a1f 0%,#ef2d63 48%,#7c3aed 100%); }
+#p2 .cc-hero::before { background: radial-gradient(ellipse at 88% 0%, rgba(255,255,255,0.28) 0%, transparent 60%); }
+#p2 .cc-hero-badge { background: rgba(255,255,255,0.22); backdrop-filter: blur(4px); }
+#p2 .cc-hero-note { background: rgba(255,255,255,0.16); border-left-color: #fff; }
+#p2 .cc-hero-note a { color: #fff; text-decoration: underline; }
+#p2 .cc-sidebar { border-color: rgba(124,58,237,0.16); box-shadow: 0 10px 30px rgba(124,58,237,0.08); }
+#p2 .cc-sidebar-search input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.14); }
+#p2 .cc-clear-btn:hover { background: rgba(239,45,99,0.15); color: #ef2d63; }
+#p2 .cc-read-nav-btn:hover { border-color: #7c3aed; color: #7c3aed; }
+#p2 .cc-titre-pill:hover { border-color: #ef2d63; color: #ef2d63; }
+#p2 .cc-full-container { border-color: rgba(124,58,237,0.14); box-shadow: 0 10px 30px rgba(124,58,237,0.06); }
+#p2 .cc-full-titre { color: #ef2d63; border-bottom-color: rgba(239,45,99,0.18); }
+#p2 .cc-art-badge { background: linear-gradient(120deg,#ff6a1f,#ef2d63); }
+#p2 .cc-read-hit { background: rgba(239,45,99,0.22); }
+#p2 .cc-read-hit.current { background: linear-gradient(120deg,#ff6a1f,#ef2d63); color: #fff; }
 </style>
 </head>
 <body>
@@ -718,7 +750,7 @@ body {
         <a href="#section-noel">🎄 Noël</a>
         <a href="#section-contacts">📞 Contacts</a>
         <a href="#section-equipe">👥 Équipe</a>
-        <a href="#section-convention">📜 Convention collective</a>
+        <a href="javascript:void(0)" onclick="afficherPage('p2')">📜 Convention collective</a>
       </nav>
       <div class="badge-live"><div class="dot-pulse"></div> Espace Collaborateurs</div>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
@@ -739,7 +771,7 @@ body {
   <a href="#section-contacts" onclick="closeMenu()">📞 Contacts & Ressources</a>
   <a href="#section-equipe" onclick="closeMenu()">👥 Notre équipe</a>
   <a href="#section-anniversaires" onclick="closeMenu()">🎂 Anniversaires</a>
-  <a href="#section-convention" onclick="closeMenu()">📜 Convention collective</a>
+  <a href="javascript:void(0)" onclick="afficherPage('p2');closeMenu()">📜 Convention collective</a>
 </nav>
 
 <!-- BANDEAU PHOTO MAGASIN -->
@@ -752,7 +784,7 @@ body {
       <p>📍 63 rue des Métiers, CC de Venette — 60880 Jaux</p>
     </div>
     <div class="store-photo-badge">
-      <span class="sn">30</span>
+      <span class="sn" id="banner-team-count">…</span>
       <span class="sl">Collaborateurs</span>
     </div>
   </div>
@@ -764,7 +796,7 @@ body {
     <h1>Vos avantages,<br><span class="lo">votre CSE.</span></h1>
     <p class="hero-sub">Cinéma à 5€, chèques cadeaux, événements, boîte à idées… Tout ce que le CSE fait pour vous, réuni ici.</p>
     <div class="hero-cta">
-      <a href="#section-convention">📜 Consulter la convention collective <span class="hero-cta-arrow">↓</span></a>
+      <a href="javascript:void(0)" onclick="afficherPage('p2')">📜 Consulter la convention collective <span class="hero-cta-arrow">↓</span></a>
     </div>
   </div>
 </div>
@@ -779,7 +811,7 @@ body {
     </div>
     <div class="store-body">
       <div class="store-infos">
-        <div class="si"><span class="si-icon">👥</span><div class="si-val">28 collaborateurs</div><div class="si-lbl">Notre équipe</div></div>
+        <div class="si"><span class="si-icon">👥</span><div class="si-val" id="si-team-count">… collaborateurs</div><div class="si-lbl">Notre équipe</div></div>
         <div class="si"><span class="si-icon">📍</span><div class="si-val">63 rue des Métiers</div><div class="si-lbl">CC de Venette, 60880 Jaux</div></div>
         <div class="si"><span class="si-icon">🕐</span><div class="si-val">09h30 – 19h30</div><div class="si-lbl">Lun – Sam · Fermé dim.</div></div>
       </div>
@@ -1501,6 +1533,8 @@ function fmt(s){const p=s.trim().split(' ');const first=p.length>=2?p[1]:p[0];re
 
 /* Équipe stats */
 const nbH=salariesData.filter(s=>s[1]==='H').length,nbF=salariesData.filter(s=>s[1]==='F').length,total=salariesData.length,pctH=Math.round(nbH/total*100),pctF=100-pctH;
+document.getElementById('si-team-count').textContent = total + ' collaborateurs';
+document.getElementById('banner-team-count').textContent = total;
 document.getElementById('genre-stats').innerHTML=`<div class="genre-count"><div class="n h">♂ ${nbH}</div><div class="lbl">Hommes</div><div class="pct h">${pctH}%</div></div><div class="genre-bar-inner"><div class="genre-bar-labels"><span style="color:var(--homme-color);font-size:.65rem;font-weight:700;">♂ Hommes ${pctH}%</span><span style="color:var(--femme-color);font-size:.65rem;font-weight:700;">♀ Femmes ${pctF}%</span></div><div class="genre-bar-track"><div class="genre-bar-fill" style="width:${pctH}%"></div></div><div style="font-size:.62rem;color:var(--text-faint);margin-top:5px;text-align:center;">${total} collaborateurs</div></div><div class="genre-count"><div class="n f">♀ ${nbF}</div><div class="lbl">Femmes</div><div class="pct f">${pctF}%</div></div>`;
 document.getElementById('equipe-grid').innerHTML=salariesData.map(s=>{const g=s[1]==='H'?'homme':'femme';const lastName=s[0].trim().split(' ')[0];const photo=employeePhotos[lastName];const av=photo?`<img src="${photo}" class="emp-av-photo" alt="${fmt(s[0])}">`:`<div class="emp-av ${g}">${ini(s[0])}</div>`;return`<div class="emp">${av}<div><div class="emp-name" style="font-size:.72rem;line-height:1.2;color:${s[1]==='H'?'var(--homme-color)':'var(--femme-color)'}">${fmt(s[0])}</div></div></div>`;}).join('');
 
@@ -1864,7 +1898,7 @@ function ccOpenFullReadTab(presetQuery) {
 
 <div class="topbar">
   <div class="topbar-inner">
-    <a href="index.html#section-convention" class="back-link">← Retour au site du CSE</a>
+    <a href="javascript:void(0)" onclick="afficherPage('p1')" class="back-link">← Retour au site du CSE</a>
     <div class="topbar-title">📜 Convention Collective</div>
     <button class="print-btn" onclick="window.print()">🖨️ Imprimer</button>
   </div>
