@@ -698,6 +698,51 @@ body {
 #p2 .cc-sidebar-search input { border: 2px solid #ff6a1f; background: #fff; }
 #p2 .cc-sidebar-search input:focus { border-color: #7c3aed; box-shadow: 0 0 0 3px rgba(124,58,237,0.18); }
 #p2 .cc-read-searchbar input { border: 2px solid #ff6a1f; }
+
+/* ── PAGES 3 & 4 — même habillage vibrant que la page 2 ── */
+#p3, #p4 {
+  --orange: #ef2d63;
+  --orange2: #c81f52;
+  --orange3: #ff6a1f;
+  --bg: #fdf6ff;
+  --bg2: #f6ecff;
+  --noir: #241a35;
+  --text-main: #241a35;
+  --text-soft: rgba(36,26,53,0.62);
+  --text-faint: rgba(36,26,53,0.4);
+  --card-border: rgba(124,58,237,0.14);
+}
+#p3 { background: var(--bg); }
+#p4 { background: var(--bg); }
+#p3 .topbar { background: rgba(253,246,255,0.92); border-bottom: 1px solid rgba(124,58,237,0.14); }
+#p4 .topbar { background: rgba(253,246,255,0.92); border-bottom: 1px solid rgba(124,58,237,0.14); }
+#p3 .back-link { border-width: 2px; border-color: #ff6a1f; color: #ff6a1f; font-weight: 700; }
+#p4 .back-link { border-width: 2px; border-color: #ff6a1f; color: #ff6a1f; font-weight: 700; }
+#p3 .back-link:hover { background: rgba(255,106,31,0.08); border-color: #ff6a1f; color: #ff6a1f; }
+#p4 .back-link:hover { background: rgba(255,106,31,0.08); border-color: #ff6a1f; color: #ff6a1f; }
+#p3 .print-btn { border-width: 2px; border-color: #7c3aed; color: #7c3aed; font-weight: 700; }
+#p4 .print-btn { border-width: 2px; border-color: #7c3aed; color: #7c3aed; font-weight: 700; }
+#p3 .print-btn:hover { background: rgba(124,58,237,0.08); border-color: #7c3aed; color: #7c3aed; }
+#p4 .print-btn:hover { background: rgba(124,58,237,0.08); border-color: #7c3aed; color: #7c3aed; }
+#p3 .cc-hero { background: linear-gradient(120deg,#ff6a1f 0%,#ef2d63 48%,#7c3aed 100%); }
+#p4 .cc-hero { background: linear-gradient(120deg,#ff6a1f 0%,#ef2d63 48%,#7c3aed 100%); }
+#p3 .cc-hero::before { background: radial-gradient(ellipse at 88% 0%, rgba(255,255,255,0.28) 0%, transparent 60%); }
+#p4 .cc-hero::before { background: radial-gradient(ellipse at 88% 0%, rgba(255,255,255,0.28) 0%, transparent 60%); }
+#p3 .cc-hero-badge { background: rgba(255,255,255,0.22); backdrop-filter: blur(4px); }
+#p4 .cc-hero-badge { background: rgba(255,255,255,0.22); backdrop-filter: blur(4px); }
+#p3 .cc-hero-note { background: rgba(255,255,255,0.16); border-left-color: #fff; }
+#p4 .cc-hero-note { background: rgba(255,255,255,0.16); border-left-color: #fff; }
+#p3 .cc-hero-note a { color: #fff; text-decoration: underline; }
+#p4 .cc-hero-note a { color: #fff; text-decoration: underline; }
+#p3 .cc-full-container { border-color: rgba(124,58,237,0.14); box-shadow: 0 10px 30px rgba(124,58,237,0.06); }
+#p4 .cc-full-container { border-color: rgba(124,58,237,0.14); box-shadow: 0 10px 30px rgba(124,58,237,0.06); }
+#p3 .cc-art-badge { background: linear-gradient(120deg,#ff6a1f,#ef2d63); }
+#p4 .cc-art-badge { background: linear-gradient(120deg,#ff6a1f,#ef2d63); }
+#p3 .cc-hero h1 { font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+#p4 .cc-hero h1 { font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+#p3 .topbar-title { font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+#p4 .topbar-title { font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
+#p3 { background: var(--bg); } #p4 { background: var(--bg); }
 #p2 .cc-read-searchbar input:focus { border-color: #7c3aed; box-shadow: 0 0 0 4px rgba(124,58,237,0.16); }
 /* Sommaire (Titre I, II, III…) : encadrés de couleur, comme la recherche */
 #p2 .cc-sidebar .cc-titre-pill { border-width: 2px; background: #fff; font-weight: 700; }
@@ -712,6 +757,27 @@ body {
 #p2 .cc-sidebar .cc-titre-pill:nth-child(2):hover,
 #p2 .cc-sidebar .cc-titre-pill:nth-child(5):hover { background: rgba(239,45,99,0.08); }
 #p2 .cc-sidebar .cc-titre-pill:nth-child(4):hover { background: rgba(255,106,31,0.08); }
+
+/* Pages 3 & 4 — mise en page et couleurs flashy de la Convention Collective */
+.pg-wrap { max-width:1180px; margin:0 auto; padding:36px 24px 90px; }
+.pg-wrap .section { max-width:none; padding:0 0 44px; }
+.pg-wrap .section:last-child { padding-bottom:0; }
+.pg-wrap .cc-caution-note { max-width:none; }
+@media (max-width:640px) { .pg-wrap { padding:22px 16px 70px; } }
+
+#p3 .sec-title, #p4 .sec-title { font-family:'Poppins','Plus Jakarta Sans',sans-serif; font-weight:700; color:#ef2d63; }
+#p3 .sec-line, #p4 .sec-line { background:linear-gradient(to right,#ff6a1f,#ef2d63,#7c3aed); height:3px; border-radius:3px; opacity:.55; }
+#p3 .sec-num, #p4 .sec-num { background:linear-gradient(120deg,#ff6a1f,#ef2d63); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+#p4 .idee-box { border:2px solid rgba(124,58,237,0.25); box-shadow:0 10px 30px rgba(124,58,237,0.10); position:relative; overflow:hidden; }
+#p4 .idee-box::before { content:''; position:absolute; top:0; left:0; right:0; height:8px; background:linear-gradient(120deg,#ff6a1f,#ef2d63,#7c3aed); }
+#p4 .idee-box h3 { font-family:'Poppins','Plus Jakarta Sans',sans-serif; font-weight:700; color:#ef2d63; margin-top:6px; }
+#p4 .f-group label { color:#7c3aed; }
+#p4 .f-group input, #p4 .f-group select, #p4 .f-group textarea { border:2px solid #ff6a1f; background:#fff; }
+#p4 .f-group input:focus, #p4 .f-group select:focus, #p4 .f-group textarea:focus { border-color:#7c3aed; box-shadow:0 0 0 3px rgba(124,58,237,0.18); }
+#p4 .submit-btn { background:linear-gradient(120deg,#ff6a1f,#ef2d63); box-shadow:0 6px 20px rgba(239,45,99,0.35); }
+#p4 .submit-btn:hover { background:linear-gradient(120deg,#ef2d63,#7c3aed); }
+#p3 .cc-caution-note { background:rgba(124,58,237,0.07); border-left-color:#7c3aed; }
+#p3 .cc-caution-note a { color:#ef2d63; }
 </style>
 </head>
 <body>
@@ -720,6 +786,7 @@ body {
   <button class="btn-nav active" onclick="afficherPage('p1')">CSE Boulanger</button>
   <button class="btn-nav" onclick="afficherPage('p2')">Convention Collective</button>
   <button class="btn-nav" onclick="afficherPage('p3')">Infos Vacances</button>
+  <button class="btn-nav" onclick="afficherPage('p4')">💬 Donnez votre avis</button>
 </div>
 
 <div id="p1" class="page active">
@@ -770,8 +837,8 @@ body {
         <a href="#section-agenda">📅 Agenda</a>
         <a href="javascript:void(0)" onclick="afficherPage('p3')">🏖️ Vacances 2026</a>
         <a href="#section-cinema">🎬 Cinéma</a>
-        <a href="#section-idees">💡 Idées</a>
-        <a href="#section-noel">🎄 Noël</a>
+        <a href="javascript:void(0)" onclick="afficherPage('p4')">💡 Idées</a>
+        <a href="javascript:void(0)" onclick="afficherPage('p4')">🎄 Noël</a>
         <a href="#section-contacts">📞 Contacts</a>
         <a href="#section-equipe">👥 Équipe</a>
         <a href="javascript:void(0)" onclick="afficherPage('p2')">📜 Convention collective</a>
@@ -790,8 +857,8 @@ body {
   <a href="#section-agenda" onclick="closeMenu()">📅 Agenda CSE</a>
   <a href="javascript:void(0)" onclick="afficherPage('p3');closeMenu()">🏖️ Vacances CSE 2026</a>
   <a href="#section-cinema" onclick="closeMenu()">🎬 Cinéma</a>
-  <a href="#section-idees" onclick="closeMenu()">💡 Boîte à idées</a>
-  <a href="#section-noel" onclick="closeMenu()">🎄 Soirée de Noël</a>
+  <a href="javascript:void(0)" onclick="afficherPage('p4');closeMenu()">💡 Boîte à idées</a>
+  <a href="javascript:void(0)" onclick="afficherPage('p4');closeMenu()">🎄 Soirée de Noël</a>
   <a href="#section-contacts" onclick="closeMenu()">📞 Contacts & Ressources</a>
   <a href="#section-equipe" onclick="closeMenu()">👥 Notre équipe</a>
   <a href="#section-anniversaires" onclick="closeMenu()">🎂 Anniversaires</a>
@@ -854,7 +921,7 @@ body {
     <div class="av-card"><span class="av-ico">💆</span><h3>Massage Recovery Mass</h3><p>Massage sportif & récupération musculaire à tarif CSE — dès 15€ les 30 min, valable pour vous, conjoint(e) et enfants.</p><span class="av-pill">Nouveau ✨</span></div>
     <a href="#section-parcs" class="av-card" style="text-decoration:none;display:block;"><span class="av-ico">🎡</span><h3>Parcs & Loisirs</h3><p>Retrouvez ici toutes les remises négociées par le CSE avec nos partenaires parcs et divertissement.</p><span class="av-pill">Nouveau ✨</span></a>
     <div class="av-card"><span class="av-ico">🎉</span><h3>Événements équipe</h3><p>Repas de fin d'année, journées teambuilding, afterworks… Le CSE organise pour vous.</p><span class="av-pill">Toute l'année</span></div>
-    <div class="av-card"><span class="av-ico">💡</span><h3>Boîte à idées</h3><p>Vous avez des suggestions pour améliorer vos avantages ? Proposez-les directement au CSE.</p><span class="av-pill">Participatif</span></div>
+    <a href="javascript:void(0)" onclick="afficherPage('p4')" class="av-card" style="text-decoration:none;display:block;"><span class="av-ico">💡</span><h3>Boîte à idées</h3><p>Vous avez des suggestions pour améliorer vos avantages ? Proposez-les directement au CSE.</p><span class="av-pill">Participatif</span></a>
   </div>
 </div>
 
@@ -1147,6 +1214,10 @@ body {
         <span>📋</span>
         <span>Ces droits s'appliquent pour tout enfant malade ou accidenté de <strong style="color:var(--noir);">moins de 16 ans</strong> dont vous assumez la charge. Un <strong style="color:var(--noir);">certificat médical</strong> sera demandé. Pour toute question, rapprochez-vous de votre manager ou d'un membre du CSE.</span>
       </div>
+      <div style="background:rgba(10,138,74,0.05);border:1px dashed rgba(10,138,74,0.3);border-radius:11px;padding:12px 18px;font-size:.75rem;color:var(--text-soft);line-height:1.65;display:flex;align-items:flex-start;gap:9px;margin-top:10px;">
+        <span>⚖️</span>
+        <span>Cet avantage est <strong style="color:#0A8A4A;">plus favorable</strong> que le minimum prévu par la Convention Collective nationale (garde d'enfant malade, jusqu'à 12 ans) — <a href="javascript:void(0)" onclick="afficherPage('p2');setTimeout(function(){var e=document.getElementById('cc-read-search-input');if(e){e.value='enfant malade';e.dispatchEvent(new Event('input'));}},60);" style="color:#0A8A4A;font-weight:700;">voir le texte légal (art. 27.1.c) ↗</a></span>
+      </div>
     </div>
   </div>
 </div>
@@ -1231,68 +1302,6 @@ body {
     </div>
   </div>
 
-</div>
-
-<!-- BOÎTE À IDÉES -->
-<div class="section" id="section-idees">
-  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
-  <div class="idee-box">
-    <h3>📬 Votre avis compte !</h3>
-    <p>Une idée pour améliorer la vie au boulot ? Un avantage que vous aimeriez voir arriver ? Dites-le-nous — anonymement ou non, on lit tout !</p>
-    <div class="f-row">
-      <div class="f-group"><label>Prénom (optionnel)</label><input type="text" id="idea-name" placeholder="ex: Sophie…"></div>
-      <div class="f-group">
-        <label>Catégorie</label>
-        <select id="idea-cat">
-          <option value="">Choisir…</option>
-          <option>🎬 Loisirs &amp; Sorties</option><option>🏥 Bien-être &amp; Santé</option>
-          <option>🍽️ Repas &amp; Restauration</option><option>⚽ Sport &amp; Activités</option>
-          <option>🎁 Avantages &amp; Réductions</option><option>🌱 Environnement &amp; RSE</option>
-          <option>💼 Conditions de Travail</option><option>🎉 Événements d'équipe</option><option>💬 Autre</option>
-        </select>
-      </div>
-    </div>
-    <div class="f-group"><label>Votre idée</label><textarea id="idea-text" placeholder="Décrivez votre suggestion… On est tout ouïe ! 👂"></textarea></div>
-    <button class="submit-btn" onclick="submitIdea()">📨 Envoyer mon idée par mail</button>
-  </div>
-</div>
-
-<!-- SOIRÉE DE NOËL — AVIS DE TOUS -->
-<div class="section" id="section-noel">
-  <div class="sec-head"><span class="sec-num" style="color:#B8001E;">09</span><h2 class="sec-title">🎄 Soirée de Noël — Donnez votre avis</h2><div class="sec-line" style="background:linear-gradient(to right, rgba(184,0,30,.22), transparent);"></div></div>
-  <div class="idee-box">
-    <h3>🎅 Cette année, on vous demande votre avis !</h3>
-    <p>Plutôt que de choisir seul cette année, le CSE souhaite organiser la soirée de Noël selon les envies du plus grand nombre. Dites-nous ce que vous aimeriez — vos réponses orienteront directement la décision.</p>
-    <div class="f-row">
-      <div class="f-group"><label>Prénom (optionnel)</label><input type="text" id="noel-name" placeholder="ex: Sophie…"></div>
-      <div class="f-group">
-        <label>Type de soirée souhaité</label>
-        <select id="noel-type">
-          <option value="">Choisir…</option>
-          <option>🍽️ Restaurant / repas convivial</option>
-          <option>🎉 Soirée dansante / DJ</option>
-          <option>🎳 Activité originale (bowling, escape game, karting…)</option>
-          <option>🏨 Soirée avec hébergement</option>
-          <option>🎭 Spectacle / concert</option>
-          <option>💬 Autre</option>
-        </select>
-      </div>
-    </div>
-    <div class="f-row">
-      <div class="f-group"><label>Date ou période préférée</label><input type="text" id="noel-date" placeholder="ex: Mi-décembre, un vendredi soir…"></div>
-      <div class="f-group">
-        <label>Participation financière</label>
-        <select id="noel-budget">
-          <option value="">Choisir…</option>
-          <option>🎁 Entièrement pris en charge par le CSE</option>
-          <option>💶 Petite participation acceptable</option>
-          <option>🤷 Peu importe, l'essentiel c'est l'ambiance</option>
-        </select>
-      </div>
-    </div>
-    <div class="f-group"><label>Commentaire libre</label><textarea id="noel-comment" placeholder="Une idée précise, une envie particulière ? Dites-nous tout ! 🎄"></textarea></div>
-    <button class="submit-btn" onclick="submitNoelAvis()" style="background:#B8001E;">📨 Envoyer mon avis par mail</button>
-  </div>
 </div>
 
 <!-- CONTACTS & RESSOURCES UTILES — ROUE CRANTÉE -->
@@ -2085,51 +2094,63 @@ ccRenderFullText(ccInitialQuery);
 </div>
 
 <div id="p3" class="page">
-  <div style="max-width:1340px;margin:0 auto;padding:40px 32px 0;">
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="javascript:void(0)" onclick="afficherPage('p1')" class="back-link">← Retour au site du CSE</a>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimer</button>
+  </div>
+</div>
+
+<div class="cc-hero">
+  <div class="cc-hero-inner">
+    <span class="cc-hero-badge">PRIORITÉS 2026</span>
+    <h1>Vacances CSE 2026<span class="cc-hero-accent">Organisation du temps de travail et des congés</span></h1>
+    <p class="cc-hero-sub">Point d'étape sur les priorités retenues par le CSE pour 2026, et sur les pistes actuellement discutées pour 2027.</p>
+    <div class="cc-hero-note">⚠️ Les éléments ci-dessous seront mis à jour au fil des réunions — certains chiffres restent à confirmer.</div>
+  </div>
+</div>
+
+<div class="pg-wrap">
 
 <!-- VACANCES CSE — PRIORITÉS 2026 -->
 <div class="section" id="section-vacances-2026">
-  <div class="sec-head"><h2 class="sec-title">🏖️ Vacances CSE — Priorités 2026</h2><div class="sec-line"></div></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:16px;">
 
-  <p class="cc-intro" style="margin-bottom:22px;">Point d'étape sur les priorités retenues par le CSE pour l'organisation du temps de travail et des congés en 2026, et sur les pistes actuellement discutées pour 2027. <em>Les éléments ci-dessous seront mis à jour au fil des réunions — certains chiffres restent à confirmer.</em></p>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:14px;">
-
-    <!-- Priorités votées 2026 -->
-    <div style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:10px;right:14px;background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">2026</div>
-      <div style="font-size:1.4rem;margin-bottom:10px;">🗳️</div>
-      <div style="font-weight:800;font-size:1rem;color:var(--noir);margin-bottom:4px;">Priorités votées par le CSE</div>
-      <div style="font-size:.82rem;color:var(--orange);font-weight:700;margin-bottom:6px;">À compléter</div>
-      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Les priorités retenues pour l'année 2026 seront détaillées ici (thèmes, ordre de priorité, résultats du vote).</div>
+    <div style="background:linear-gradient(120deg,#ff6a1f 0%,#ef2d63 100%);border:none;box-shadow:0 10px 30px rgba(124,58,237,0.25);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 85% 10%,rgba(255,255,255,0.28) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:absolute;top:10px;right:14px;background:rgba(255,255,255,0.25);color:#fff;font-size:.6rem;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.8px;z-index:1;">2026</div>
+      <div style="font-size:1.6rem;margin-bottom:10px;position:relative;z-index:1;">🗳️</div>
+      <div style="font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:4px;position:relative;z-index:1;">Priorités votées par le CSE</div>
+      <div style="font-size:.84rem;color:#fff;font-weight:800;margin-bottom:6px;position:relative;z-index:1;">À compléter</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,0.92);line-height:1.6;position:relative;z-index:1;">Les priorités retenues pour l'année 2026 seront détaillées ici (thèmes, ordre de priorité, résultats du vote).</div>
     </div>
 
-    <!-- Proposition 42 heures -->
-    <div style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #93C5FD;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:10px;right:14px;background:#2563EB;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">PROPOSITION</div>
-      <div style="font-size:1.4rem;margin-bottom:10px;">⏱️</div>
-      <div style="font-weight:800;font-size:1rem;color:#1E3A5F;margin-bottom:4px;">Semaines de 42 heures</div>
-      <div style="font-size:.82rem;color:#3B82F6;font-weight:700;margin-bottom:6px;">Détails à confirmer</div>
-      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Modalités de la proposition (nombre de semaines concernées, jours de repos compensateurs générés, volontariat…) à préciser une fois validées.</div>
+    <div style="background:linear-gradient(120deg,#ef2d63 0%,#7c3aed 100%);border:none;box-shadow:0 10px 30px rgba(124,58,237,0.25);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 85% 10%,rgba(255,255,255,0.28) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:absolute;top:10px;right:14px;background:rgba(255,255,255,0.25);color:#fff;font-size:.6rem;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.8px;z-index:1;">PROPOSITION</div>
+      <div style="font-size:1.6rem;margin-bottom:10px;position:relative;z-index:1;">⏱️</div>
+      <div style="font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:4px;position:relative;z-index:1;">Semaines de 42 heures</div>
+      <div style="font-size:.84rem;color:#fff;font-weight:800;margin-bottom:6px;position:relative;z-index:1;">Détails à confirmer</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,0.95);line-height:1.6;position:relative;z-index:1;">Modalités de la proposition (nombre de semaines concernées, jours de repos compensateurs générés, volontariat…) à préciser une fois validées.</div>
     </div>
 
-    <!-- Délai de récupération dimanches/fériés -->
-    <div style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:10px;right:14px;background:#16A34A;color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;">RÉCUP'</div>
-      <div style="font-size:1.4rem;margin-bottom:10px;">📆</div>
-      <div style="font-weight:800;font-size:1rem;color:#14532D;margin-bottom:4px;">Délai de récupération</div>
-      <div style="font-size:.82rem;color:#16A34A;font-weight:700;margin-bottom:6px;">Dimanches, jours fériés & autres — à confirmer</div>
-      <div style="font-size:.78rem;color:#64748B;line-height:1.6;">Le délai dans lequel les jours travaillés un dimanche, un jour férié (ou dans d'autres cas particuliers) doivent être récupérés sera indiqué ici dès qu'il sera fixé.</div>
+    <div style="background:linear-gradient(120deg,#7c3aed 0%,#ef2d63 100%);border:none;box-shadow:0 10px 30px rgba(124,58,237,0.25);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 85% 10%,rgba(255,255,255,0.28) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:absolute;top:10px;right:14px;background:rgba(255,255,255,0.25);color:#fff;font-size:.6rem;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.8px;z-index:1;">RÉCUP'</div>
+      <div style="font-size:1.6rem;margin-bottom:10px;position:relative;z-index:1;">📆</div>
+      <div style="font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:4px;position:relative;z-index:1;">Délai de récupération</div>
+      <div style="font-size:.84rem;color:#fff;font-weight:800;margin-bottom:6px;position:relative;z-index:1;">Dimanches, jours fériés &amp; autres — à confirmer</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,0.95);line-height:1.6;position:relative;z-index:1;">Le délai dans lequel les jours travaillés un dimanche, un jour férié (ou dans d'autres cas particuliers) doivent être récupérés sera indiqué ici dès qu'il sera fixé.</div>
     </div>
 
-    <!-- Prochain vote 2027 -->
-    <div style="background:linear-gradient(135deg,#1a0a00 0%,#2d1200 50%,#1C1009 100%);border:1.5px solid rgba(240,78,0,0.35);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;box-shadow:0 6px 28px rgba(240,78,0,0.15);">
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(240,78,0,0.18) 0%,transparent 65%);pointer-events:none;"></div>
-      <div style="position:absolute;top:10px;right:14px;background:var(--orange);color:#fff;font-size:.6rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.8px;z-index:1;">VOTE 2027</div>
-      <div style="font-size:1.4rem;margin-bottom:10px;position:relative;z-index:1;">🗓️</div>
-      <div style="font-weight:800;font-size:1rem;color:#fff;margin-bottom:4px;position:relative;z-index:1;">Prochain vote — priorités 2027</div>
-      <div style="font-size:.82rem;color:var(--orange3);font-weight:700;margin-bottom:6px;position:relative;z-index:1;">Date à définir</div>
-      <div style="font-size:.78rem;color:rgba(255,255,255,0.6);line-height:1.6;position:relative;z-index:1;">La date du vote portant sur les priorités CSE pour 2027 sera communiquée ici dès qu'elle sera arrêtée.</div>
+    <div style="background:linear-gradient(120deg,#ef2d63 0%,#ff6a1f 100%);border:none;box-shadow:0 10px 30px rgba(124,58,237,0.25);border-radius:18px;padding:22px 24px;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 85% 10%,rgba(255,255,255,0.28) 0%,transparent 60%);pointer-events:none;"></div>
+      <div style="position:absolute;top:10px;right:14px;background:rgba(255,255,255,0.25);color:#fff;font-size:.6rem;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:.8px;z-index:1;">VOTE 2027</div>
+      <div style="font-size:1.6rem;margin-bottom:10px;position:relative;z-index:1;">🗓️</div>
+      <div style="font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:4px;position:relative;z-index:1;">Prochain vote — priorités 2027</div>
+      <div style="font-size:.84rem;color:#fff;font-weight:800;margin-bottom:6px;position:relative;z-index:1;">Date à définir</div>
+      <div style="font-size:.8rem;color:rgba(255,255,255,0.92);line-height:1.6;position:relative;z-index:1;">La date du vote portant sur les priorités CSE pour 2027 sera communiquée ici dès qu'elle sera arrêtée.</div>
     </div>
 
   </div>
@@ -2140,24 +2161,100 @@ ccRenderFullText(ccInitialQuery);
   </div>
 </div>
 
+<div id="p4" class="page">
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="javascript:void(0)" onclick="afficherPage('p1')" class="back-link">← Retour au site du CSE</a>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimer</button>
+  </div>
+</div>
+
+<div class="cc-hero">
+  <div class="cc-hero-inner">
+    <span class="cc-hero-badge">VOTRE AVIS COMPTE</span>
+    <h1>Donnez votre avis<span class="cc-hero-accent">Boîte à idées · Soirée de Noël</span></h1>
+    <p class="cc-hero-sub">Une idée, une envie, une remarque ? Le CSE est à votre écoute : proposez vos idées et dites-nous comment vous imaginez la soirée de Noël.</p>
+  </div>
+</div>
+
+<div class="pg-wrap">
+
+<!-- BOÎTE À IDÉES -->
+<div class="section" id="section-idees">
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Boîte à Idées</h2><div class="sec-line"></div></div>
+  <div class="idee-box">
+    <h3>📬 Votre avis compte !</h3>
+    <p>Une idée pour améliorer la vie au boulot ? Un avantage que vous aimeriez voir arriver ? Dites-le-nous — anonymement ou non, on lit tout !</p>
+    <div class="f-row">
+      <div class="f-group"><label>Prénom (optionnel)</label><input type="text" id="idea-name" placeholder="ex: Sophie…"></div>
+      <div class="f-group">
+        <label>Catégorie</label>
+        <select id="idea-cat">
+          <option value="">Choisir…</option>
+          <option>🎬 Loisirs &amp; Sorties</option><option>🏥 Bien-être &amp; Santé</option>
+          <option>🍽️ Repas &amp; Restauration</option><option>⚽ Sport &amp; Activités</option>
+          <option>🎁 Avantages &amp; Réductions</option><option>🌱 Environnement &amp; RSE</option>
+          <option>💼 Conditions de Travail</option><option>🎉 Événements d'équipe</option><option>💬 Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-group"><label>Votre idée</label><textarea id="idea-text" placeholder="Décrivez votre suggestion… On est tout ouïe ! 👂"></textarea></div>
+    <button class="submit-btn" onclick="submitIdea()">📨 Envoyer mon idée par mail</button>
+  </div>
+</div>
+
+<!-- SOIRÉE DE NOËL — AVIS DE TOUS -->
+<div class="section" id="section-noel">
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">🎄 Soirée de Noël — Donnez votre avis</h2><div class="sec-line"></div></div>
+  <div class="idee-box">
+    <h3>🎅 Cette année, on vous demande votre avis !</h3>
+    <p>Plutôt que de choisir seul cette année, le CSE souhaite organiser la soirée de Noël selon les envies du plus grand nombre. Dites-nous ce que vous aimeriez — vos réponses orienteront directement la décision.</p>
+    <div class="f-row">
+      <div class="f-group"><label>Prénom (optionnel)</label><input type="text" id="noel-name" placeholder="ex: Sophie…"></div>
+      <div class="f-group">
+        <label>Type de soirée souhaité</label>
+        <select id="noel-type">
+          <option value="">Choisir…</option>
+          <option>🍽️ Restaurant / repas convivial</option>
+          <option>🎉 Soirée dansante / DJ</option>
+          <option>🎳 Activité originale (bowling, escape game, karting…)</option>
+          <option>🏨 Soirée avec hébergement</option>
+          <option>🎭 Spectacle / concert</option>
+          <option>💬 Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-row">
+      <div class="f-group"><label>Date ou période préférée</label><input type="text" id="noel-date" placeholder="ex: Mi-décembre, un vendredi soir…"></div>
+      <div class="f-group">
+        <label>Participation financière</label>
+        <select id="noel-budget">
+          <option value="">Choisir…</option>
+          <option>🎁 Entièrement pris en charge par le CSE</option>
+          <option>💶 Petite participation acceptable</option>
+          <option>🤷 Peu importe, l'essentiel c'est l'ambiance</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-group"><label>Commentaire libre</label><textarea id="noel-comment" placeholder="Une idée précise, une envie particulière ? Dites-nous tout ! 🎄"></textarea></div>
+    <button class="submit-btn" onclick="submitNoelAvis()">📨 Envoyer mon avis par mail</button>
+  </div>
+</div>
+
+
+</div>
+</div>
+
 <script>
 
 function afficherPage(pageId) {
-  if (pageId === 'p2' || pageId === 'p3') {
-    if (sessionStorage.getItem('cseAccesValide') !== 'F030') {
-      const pwd = prompt('Cette page est protégée par mot de passe. Entrez le mot de passe :');
-      if (pwd !== 'F030') {
-        alert('Mot de passe incorrect');
-        return;
-      }
-      sessionStorage.setItem('cseAccesValide', 'F030');
-    }
-  }
-  
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.btn-nav').forEach(b => b.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
-  event.target.classList.add('active');
+  const idx = ['p1','p2','p3','p4'].indexOf(pageId);
+  const tabs = document.querySelectorAll('.btn-nav');
+  if (tabs[idx]) tabs[idx].classList.add('active');
   window.scrollTo(0, 0);
 }
 </script>
