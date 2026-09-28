@@ -778,18 +778,12 @@ body {
 #p4 .submit-btn:hover { background:linear-gradient(120deg,#ef2d63,#7c3aed); }
 #p3 .cc-caution-note { background:rgba(124,58,237,0.07); border-left-color:#7c3aed; }
 #p3 .cc-caution-note a { color:#ef2d63; }
+
+/* Verrou global : rien n'est accessible avant la saisie du mot de passe */
+body:not(.unlocked) .nav-tabs, body:not(.unlocked) .page { display:none !important; }
 </style>
 </head>
 <body>
-
-<div class="nav-tabs">
-  <button class="btn-nav active" onclick="afficherPage('p1')">CSE Boulanger</button>
-  <button class="btn-nav" onclick="afficherPage('p2')">Convention Collective</button>
-  <button class="btn-nav" onclick="afficherPage('p3')">Infos Vacances</button>
-  <button class="btn-nav" onclick="afficherPage('p4')">💬 Donnez votre avis</button>
-</div>
-
-<div id="p1" class="page active">
 
 <div class="pw-gate" id="pw-gate">
   <div class="pw-box">
@@ -819,6 +813,17 @@ body {
   document.getElementById('pw-input').addEventListener('keypress', function(e){ if (e.key === 'Enter') window.checkPassword(); });
 })();
 </script>
+
+
+<div class="nav-tabs">
+  <button class="btn-nav active" onclick="afficherPage('p1')">CSE Boulanger</button>
+  <button class="btn-nav" onclick="afficherPage('p2')">Convention Collective</button>
+  <button class="btn-nav" onclick="afficherPage('p3')">Infos Vacances</button>
+  <button class="btn-nav" onclick="afficherPage('p4')">💬 Donnez votre avis</button>
+</div>
+
+<div id="p1" class="page active">
+
 <div id="site-content">
 <header>
   <div class="hdr">
@@ -2249,6 +2254,7 @@ ccRenderFullText(ccInitialQuery);
 <script>
 
 function afficherPage(pageId) {
+  if (!document.body.classList.contains('unlocked')) return;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.btn-nav').forEach(b => b.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
